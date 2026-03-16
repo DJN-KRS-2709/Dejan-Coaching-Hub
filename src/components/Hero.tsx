@@ -14,7 +14,7 @@ const Hero = () => {
             </div>
             <div className="space-y-4">
               <p className="text-lg md:text-xl text-white/80 max-w-prose">
-                Building the future of product management through AI agents, intelligent automation, and hands-on prototyping. 12+ years of product leadership meets cutting-edge AI innovation.
+                Building the future of product management through AI agents, intelligent automation, and hands-on prototyping. 16+ years of product leadership meets cutting-edge AI innovation.
               </p>
               <p className="text-base md:text-lg font-semibold text-white max-w-prose">
                 From vision to AI-powered reality—let's build what's next.

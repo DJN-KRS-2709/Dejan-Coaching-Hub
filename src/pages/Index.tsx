@@ -48,7 +48,7 @@ const Index = () => {
               </h2>
               <div className="max-w-[1200px] mx-auto">
                 <p className="text-base md:text-lg text-white/90 mb-4 text-center">
-                  I help product teams move faster, think clearer, and build smarter—by combining deep domain expertise with battle-tested product frameworks, AI-powered solutions, and a people-first approach. With over 12 years of product leadership experience in the music-tech space, I've worked across B2C and B2B, helping launch, scale, and sometimes gloriously fail products. Every step brought its own lesson, and I use that knowledge today to empower others to do better work.
+                  I help product teams move faster, think clearer, and build smarter—by combining deep domain expertise with battle-tested product frameworks, AI-powered solutions, and a people-first approach. With over 16 years of product leadership experience in the music-tech space, I've worked across B2C and B2B, helping launch, scale, and sometimes gloriously fail products. Every step brought its own lesson, and I use that knowledge today to empower others to do better work.
                 </p>
                 <h3 className="text-lg md:text-xl font-semibold mb-2 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text text-center">
                   What I Do
