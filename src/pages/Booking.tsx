@@ -17,7 +17,7 @@ const Booking = () => {
       title: "AI Strategy Session",
       description: "Hands-on guidance on AI product management, agent development, and implementing AI in your workflows.",
       duration: "90 min",
-      price: "€180",
+      price: "€350",
       features: [
         "AI implementation roadmap",
         "Agent architecture review",
@@ -32,7 +32,7 @@ const Booking = () => {
       title: "1:1 Coaching",
       description: "Personalized coaching sessions focused on your specific challenges and goals.",
       duration: "60 min",
-      price: "€110",
+      price: "€250",
       features: [
         "Tailored guidance",
         "Action plan development",
@@ -46,7 +46,7 @@ const Booking = () => {
       title: "AI Team Workshop",
       description: "Interactive workshops on leveraging AI for product teams—from prototyping to production agents.",
       duration: "2 hours",
-      price: "€550",
+      price: "€1,500",
       features: [
         "AI tools & capabilities overview",
         "Hands-on prototyping exercises",
@@ -60,7 +60,7 @@ const Booking = () => {
       title: "Leadership Advisory",
       description: "Strategic advisory services for product executives navigating AI transformation.",
       duration: "90 min",
-      price: "€250",
+      price: "€450",
       features: [
         "AI-first strategic planning",
         "Leadership development",
