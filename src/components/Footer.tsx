@@ -1,41 +1,39 @@
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="w-full border-t border-white/10 py-6 md:py-10 bg-gradient-to-b from-black to-gray-900">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-center md:text-left">
-            <p className="text-sm text-white/70">
-              © {currentYear} Dejan Krstic. All rights reserved.
+    <footer className="w-full bg-ink text-white">
+      <div className="container px-4 md:px-6 py-16 md:py-20">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
+          <div className="max-w-md">
+            <p className="font-display text-5xl md:text-6xl leading-[0.9] mb-6">
+              Let's build<br />what's next.
             </p>
-          </div>
-          <nav className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/" className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 hover:scale-105 transform">
-              Home
-            </Link>
-            <Link to="/achievements" className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 hover:scale-105 transform">
-              Achievements
-            </Link>
-            <Link to="/frameworks" className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 hover:scale-105 transform">
-              Frameworks
-            </Link>
-            <Link to="/booking" className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 hover:scale-105 transform">
-              Coaching
-            </Link>
-            <a 
-              href="mailto:dejan.krstic@web.de" 
-              className="group"
-            >
-              <Button variant="outline" size="sm" className="gap-2 group text-xs md:text-sm bg-gradient-to-r from-blue-500 to-purple-500 text-white border-transparent rounded-full">
-                Get in Touch <Mail className="h-3 w-3 group-hover:scale-110 transition-transform" />
+            <a href="mailto:dejan.krstic@web.de" className="inline-block">
+              <Button variant="secondary" className="gap-2">
+                Get in Touch <Mail className="h-4 w-4" />
               </Button>
             </a>
+          </div>
+
+          <nav className="flex flex-col gap-3">
+            <Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link>
+            <Link to="/achievements" className="text-sm text-white/60 hover:text-white transition-colors">Achievements</Link>
+            <Link to="/frameworks" className="text-sm text-white/60 hover:text-white transition-colors">Frameworks</Link>
+            <Link to="/booking" className="text-sm text-white/60 hover:text-white transition-colors">Coaching</Link>
+            <Link to="/about" className="text-sm text-white/60 hover:text-white transition-colors">About</Link>
           </nav>
+        </div>
+
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/50">© {currentYear} Dejan Krstic. All rights reserved.</p>
+          <a href="https://www.linkedin.com/in/dejan-krstic-b4a7a98a/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
+            <Linkedin className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </footer>

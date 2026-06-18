@@ -1,4 +1,3 @@
-import React from "react";
 import { Trophy, Award, Medal, BookOpen, Briefcase, Users, Bot, Cpu, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,52 +5,52 @@ import Footer from "@/components/Footer";
 const Achievements = () => {
   const achievements = [
     {
-      icon: <Bot className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Bot className="h-6 w-6" />,
       title: "AI Agent Development",
-      description: "Building intelligent AI agents that automate complex business processes, from workflow orchestration to autonomous decision-making systems."
+      description: "Building intelligent AI agents that automate complex business processes, from workflow orchestration to autonomous decision-making systems.",
     },
     {
-      icon: <Cpu className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Cpu className="h-6 w-6" />,
       title: "AI-Driven Process Automation",
-      description: "Designing and implementing AI-powered solutions that streamline operations, eliminate manual bottlenecks, and accelerate time-to-value across teams."
+      description: "Designing and implementing AI-powered solutions that streamline operations, eliminate manual bottlenecks, and accelerate time-to-value across teams.",
     },
     {
-      icon: <Sparkles className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Sparkles className="h-6 w-6" />,
       title: "AI Prototyping & Innovation",
-      description: "Hands-on prototyping with cutting-edge AI tools and LLMs—exploring new frontiers in product development, discovery, and intelligent automation."
+      description: "Hands-on prototyping with cutting-edge AI tools and LLMs—exploring new frontiers in product development, discovery, and intelligent automation.",
     },
     {
-      icon: <Users className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Users className="h-6 w-6" />,
       title: "User-Centric Royalties",
-      description: "Launched Fan-Powered Royalties at SoundCloud—the industry's first user-centric payout model. Empowered creators with greater transparency and control over their earnings."
+      description: "Launched Fan-Powered Royalties at SoundCloud—the industry's first user-centric payout model. Empowered creators with greater transparency and control over their earnings.",
     },
     {
-      icon: <Trophy className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Trophy className="h-6 w-6" />,
       title: "Outcome-Driven Culture",
-      description: "Introduced product frameworks and monthly prioritization rituals, replacing rigid timelines with adaptive, value-driven planning."
+      description: "Introduced product frameworks and monthly prioritization rituals, replacing rigid timelines with adaptive, value-driven planning.",
     },
     {
-      icon: <Briefcase className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Briefcase className="h-6 w-6" />,
       title: "Accelerated Financial Processes",
-      description: "Optimized financial operations using data-driven approaches and AI-assisted analysis to identify and eliminate process bottlenecks."
+      description: "Optimized financial operations using data-driven approaches and AI-assisted analysis to identify and eliminate process bottlenecks.",
     },
     {
-      icon: <Medal className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Medal className="h-6 w-6" />,
       title: "Strategy at Scale",
-      description: "Developed and implemented strategies that accelerated experimentation and significantly reduced time to market."
+      description: "Developed and implemented strategies that accelerated experimentation and significantly reduced time to market.",
     },
     {
-      icon: <BookOpen className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <BookOpen className="h-6 w-6" />,
       title: "Data-Led Discovery",
-      description: "Built frameworks to measure product impact using both quantitative and qualitative data—enabling better, faster decisions."
+      description: "Built frameworks to measure product impact using both quantitative and qualitative data—enabling better, faster decisions.",
     },
     {
-      icon: <Award className="h-8 w-8" style={{ color: '#9b87f5' }} />,
+      icon: <Award className="h-6 w-6" />,
       title: "AI Product Leadership Educator",
-      description: "Featured speaker on AI in product management at Product School and industry events. Mentoring the next generation of AI-savvy product leaders."
-    }
+      description: "Featured speaker on AI in product management at Product School and industry events. Mentoring the next generation of AI-savvy product leaders.",
+    },
   ];
-  
+
   const careerHighlights = [
     {
       year: "Current",
@@ -63,8 +62,8 @@ const Achievements = () => {
         "Launched scalable payout solutions",
         "Improved the financial infrastructure for the creator economy",
         "Building AI agents for process automation and efficiency",
-        "Pioneering AI-driven approaches to complex financial operations"
-      ]
+        "Pioneering AI-driven approaches to complex financial operations",
+      ],
     },
     {
       year: "Ongoing",
@@ -77,8 +76,8 @@ const Achievements = () => {
         "Coaching on AI agent development and implementation",
         "Helping organizations adopt AI-first product strategies",
         "Developed custom AI-enhanced frameworks for product leadership",
-        "Coached 100+ product leaders from startups to enterprise companies"
-      ]
+        "Coached 100+ product leaders from startups to enterprise companies",
+      ],
     },
     {
       year: "Previous",
@@ -88,8 +87,8 @@ const Achievements = () => {
       achievements: [
         "Launched Fan-Powered Royalties, the first user-centric model on a major platform",
         "Collaborated with economists to model revenue shifts",
-        "Executed vision for fairer artist compensation"
-      ]
+        "Executed vision for fairer artist compensation",
+      ],
     },
     {
       year: "Previous",
@@ -99,93 +98,77 @@ const Achievements = () => {
       achievements: [
         "Led royalty systems and technical services teams",
         "Enabled smarter licensing negotiations",
-        "Connected technology, rights, and finance departments"
-      ]
-    }
+        "Connected technology, rights, and finance departments",
+      ],
+    },
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-canvas text-ink">
       <Navbar />
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-24 md:pt-32 pb-8 md:pb-12 bg-gradient-to-br from-black via-gray-900 to-black">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center animate-fade-in">
-              <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+      <main className="flex-1 pt-16">
+        {/* Hero */}
+        <section className="py-16 md:py-24">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-4xl animate-fade-in">
+              <h1 className="font-display text-[clamp(2.75rem,8vw,6.5rem)] text-ink">
                 Achievements & Experience
               </h1>
-              <p className="text-xl text-white/80">
+              <p className="mt-6 text-base md:text-lg text-ink/60 max-w-2xl leading-relaxed">
                 A journey through my career milestones, accomplishments, and the impact I've made in product leadership.
               </p>
             </div>
           </div>
         </section>
-        
+
         {/* Key Achievements */}
-        <section className="py-16 md:py-20">
-          <div className="container">
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+        <section className="py-16 md:py-20 border-t border-ink/10">
+          <div className="container px-4 md:px-6">
+            <h2 className="font-display text-[clamp(2rem,5vw,4rem)] text-ink mb-12">
               Key Achievements
             </h2>
-            <div className="container max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {achievements.map((achievement, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center p-8 rounded-lg bg-black border border-white hover:border-blue-400/50 transition-all duration-300"
-                >
-                  <div className="mb-4 p-4 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full">
-                    {React.cloneElement(achievement.icon, {
-                      className: "h-8 w-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
-                    })}
+                <div key={index} className="rounded-3xl bg-white border border-ink/10 p-7">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-canvas text-accent2">
+                    {achievement.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-white/80">{achievement.description}</p>
+                  <h3 className="text-xl font-semibold mb-2">{achievement.title}</h3>
+                  <p className="text-sm text-ink/60 leading-relaxed">{achievement.description}</p>
                 </div>
               ))}
-              </div>
             </div>
           </div>
         </section>
-        
+
         {/* Career Timeline */}
-        <section className="py-16 md:py-24 bg-black">
-          <div className="container">
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+        <section className="py-16 md:py-24 border-t border-ink/10">
+          <div className="container px-4 md:px-6">
+            <h2 className="font-display text-[clamp(2rem,5vw,4rem)] text-ink mb-12">
               Career Journey
             </h2>
-            <div className="container max-w-7xl mx-auto px-4">
+            <div className="divide-y divide-ink/10 border-t border-ink/10">
               {careerHighlights.map((highlight, index) => (
-                <div key={index} className="mb-12 relative">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/3">
-                      <div className="sticky top-20">
-                        <span className="block text-sm font-medium mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                          {highlight.year}
-                        </span>
-                        <h3 className="text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                          {highlight.role}
-                        </h3>
-                        <p className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                          {highlight.company}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="md:w-2/3 bg-black border border-white p-6 rounded-lg hover:border-blue-400/50 transition-all duration-300">
-                      <p className="mb-4 text-white/80">{highlight.description}</p>
-                      <h4 className="font-medium mb-2 flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                        <Award className="h-4 w-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600" /> 
-                        Key Achievements
-                      </h4>
-                      <ul className="list-disc pl-5 space-y-1">
-                        {highlight.achievements.map((achievement, i) => (
-                          <li key={i} className="text-white/80">{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
+                <div key={index} className="grid md:grid-cols-12 gap-6 py-10">
+                  <div className="md:col-span-4">
+                    <span className="inline-block rounded-full bg-ink/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-ink/50 mb-3">
+                      {highlight.year}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-1">
+                      {highlight.role}
+                    </h3>
+                    <p className="text-accent2 font-medium">{highlight.company}</p>
+                  </div>
+                  <div className="md:col-span-8 max-w-2xl">
+                    <p className="mb-5 text-base md:text-lg text-ink/60 leading-relaxed">{highlight.description}</p>
+                    <ul className="space-y-2">
+                      {highlight.achievements.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-ink/70">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent2" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
