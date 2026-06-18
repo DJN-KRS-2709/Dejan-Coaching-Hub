@@ -44,7 +44,7 @@ const About = () => {
               <div className="lg:flex-1 w-full">
                 <div className="relative w-full max-w-[480px] mx-auto aspect-[6/5] overflow-hidden rounded-3xl border border-ink/10">
                   <img
-                    src="/lovable-uploads/dejan-profile-brick.jpg"
+                    src="/lovable-uploads/dejan-profile-2026.png"
                     alt="Dejan Krstic - Product Leadership Coach"
                     className="object-cover w-full h-full"
                   />
