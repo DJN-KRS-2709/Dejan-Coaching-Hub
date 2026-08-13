@@ -28,13 +28,13 @@ const About = () => {
                 </h1>
                 <div className="space-y-6 text-base md:text-lg text-ink/60 leading-relaxed max-w-xl">
                   <p>
-                    "I've built and launched products across both B2C and B2B — some scaled beautifully, and others failed gloriously. Each experience sharpened my understanding of what it truly takes to create products that solve real problems and drive impact."
+                    "I've built and launched products across both B2C and B2B. Some scaled beautifully, and others failed gloriously. Each experience sharpened my understanding of what it truly takes to create products that solve real problems and drive impact."
                   </p>
                   <p>
                     My journey in product leadership has taught me that the most impactful products are built not just with technical excellence, but with deep empathy, understanding, and a relentless focus on solving real human problems.
                   </p>
                   <p>
-                    Today, I'm deeply immersed in <strong className="text-ink font-semibold">AI and intelligent automation</strong>. I build AI agents, prototype with cutting-edge tools, and help organizations harness AI for operational excellence — committed to helping product leaders navigate this new frontier.
+                    Today, I'm deeply immersed in <strong className="text-ink font-semibold">AI and intelligent automation</strong>. I build AI agents, prototype with cutting-edge tools, and help organizations harness AI for operational excellence, committed to helping product leaders navigate this new frontier.
                   </p>
                   <p>
                     I believe in leading with heart, fostering psychological safety, and creating environments where innovation thrives through open collaboration and fearless experimentation.

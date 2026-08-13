@@ -37,7 +37,7 @@ const Booking = () => {
     {
       icon: <Sparkles className="h-6 w-6" />,
       title: "AI Team Workshop",
-      description: "Interactive workshops on leveraging AI for product teams—from prototyping to production agents.",
+      description: "Interactive workshops on leveraging AI for product teams, from prototyping to production agents.",
       duration: "2 hours",
       price: "€3,500",
       features: [

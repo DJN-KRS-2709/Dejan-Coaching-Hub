@@ -17,12 +17,12 @@ const Achievements = () => {
     {
       icon: <Sparkles className="h-6 w-6" />,
       title: "AI Prototyping & Innovation",
-      description: "Hands-on prototyping with cutting-edge AI tools and LLMs—exploring new frontiers in product development, discovery, and intelligent automation.",
+      description: "Hands-on prototyping with cutting-edge AI tools and LLMs, exploring new frontiers in product development, discovery, and intelligent automation.",
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: "User-Centric Royalties",
-      description: "Launched Fan-Powered Royalties at SoundCloud—the industry's first user-centric payout model. Empowered creators with greater transparency and control over their earnings.",
+      description: "Launched Fan-Powered Royalties at SoundCloud, the industry's first user-centric payout model. Empowered creators with greater transparency and control over their earnings.",
     },
     {
       icon: <Trophy className="h-6 w-6" />,
@@ -42,7 +42,7 @@ const Achievements = () => {
     {
       icon: <BookOpen className="h-6 w-6" />,
       title: "Data-Led Discovery",
-      description: "Built frameworks to measure product impact using both quantitative and qualitative data—enabling better, faster decisions.",
+      description: "Built frameworks to measure product impact using both quantitative and qualitative data to enable better, faster decisions.",
     },
     {
       icon: <Award className="h-6 w-6" />,
@@ -56,7 +56,7 @@ const Achievements = () => {
       year: "Current",
       role: "Chief Product Officer",
       company: "Product School",
-      description: "Leading product at Product School with a single north star: making sure every student and every piece of content is set up for success building AI products. The most important shift in our field is becoming an AI builder—not just an AI user—and I'm building the strategy around exactly that. From curriculum to tooling, I'm shaping how the next generation of product leaders learns to design, prototype, and ship AI products with confidence.",
+      description: "Leading product at Product School with a single north star: making sure every student and every piece of content is set up for success building AI products. The most important shift in our field is becoming an AI builder, not just an AI user, and I'm building the strategy around exactly that. From curriculum to tooling, I'm shaping how the next generation of product leaders learns to design, prototype, and ship AI products with confidence.",
       achievements: [
         "Setting the product strategy to make every student an AI builder",
         "Ensuring all content and programs prepare students to ship AI products",
@@ -82,7 +82,7 @@ const Achievements = () => {
       year: "Ongoing",
       role: "AI Product Leadership Coach & Speaker",
       company: "Independent",
-      description: "For over three years, I've shared practical frameworks and real-world experiences with a global community of 1M+ product professionals. Today, I focus heavily on AI product management—helping leaders understand how to build, integrate, and leverage AI in their products and processes. Whether through workshops or 1:1 coaching, I help PMs grow into confident, AI-savvy leaders who drive impact at scale.",
+      description: "For over three years, I've shared practical frameworks and real-world experiences with a global community of 1M+ product professionals. Today, I focus heavily on AI product management, helping leaders understand how to build, integrate, and leverage AI in their products and processes. Whether through workshops or 1:1 coaching, I help PMs grow into confident, AI-savvy leaders who drive impact at scale.",
       achievements: [
         "Shared frameworks with 1M+ product professionals",
         "Leading workshops on AI in product management",
@@ -107,7 +107,7 @@ const Achievements = () => {
       year: "Previous",
       role: "Director of Business Analysis",
       company: "BMG",
-      description: "Led teams focused on royalty systems and technical services, enabling smarter licensing negotiations and operational excellence. Built bridges between technology, rights, and finance—bringing clarity to one of the industry's most complex value chains.",
+      description: "Led teams focused on royalty systems and technical services, enabling smarter licensing negotiations and operational excellence. Built bridges between technology, rights, and finance to bring clarity to one of the industry's most complex value chains.",
       achievements: [
         "Led royalty systems and technical services teams",
         "Enabled smarter licensing negotiations",

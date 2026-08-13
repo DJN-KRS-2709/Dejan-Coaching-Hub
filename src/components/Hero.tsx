@@ -15,7 +15,7 @@ const Hero = () => {
 
           <p className="mt-8 text-base md:text-lg text-ink/60 max-w-xl leading-relaxed">
             Building the future of product management through AI agents, intelligent
-            automation, and hands-on prototyping — 20+ years of product leadership meets
+            automation, and hands-on prototyping. 20+ years of product leadership meets
             cutting-edge AI innovation.
           </p>
 

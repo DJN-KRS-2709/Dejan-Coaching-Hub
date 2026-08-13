@@ -1,0 +1,35 @@
+---
+description: Never use em dashes anywhere in this project
+alwaysApply: true
+---
+
+# No Em Dashes
+
+Never use the em dash character (`—`, U+2014) anywhere: UI copy, comments,
+docs, commit messages, or any generated text. This applies to every update.
+
+Also avoid the en dash (`–`, U+2013) as a substitute for punctuation.
+
+## What to use instead
+
+Rewrite the sentence with standard punctuation:
+
+- A comma for a light pause
+- A period or semicolon to split into two clauses
+- A colon before a list or explanation
+- Parentheses for an aside
+- A regular hyphen (`-`) only for compound words (e.g. `AI-driven`)
+
+## Examples
+
+```
+// BAD
+I build AI agents — automating complex workflows.
+Interactive workshops for product teams—from prototyping to production.
+
+// GOOD
+I build AI agents, automating complex workflows.
+Interactive workshops for product teams, from prototyping to production.
+```
+
+When editing existing files, also remove any em dashes you encounter.

@@ -46,7 +46,7 @@ const Frameworks = () => {
           <p><span className="font-semibold text-ink">Intake (Should we do it?)</span><br />All new ideas are collected and reviewed to quickly assess strategic fit and potential value. Finance stakeholders meet monthly to prioritize the highest-impact initiatives.</p>
           <p><span className="font-semibold text-ink">Opportunity Discovery (Is it worth it?)</span><br />Product managers lead a deep dive to understand the problem, explore opportunities, and define the value. Finance leadership reviews the findings to ensure alignment before moving forward.</p>
           <p><span className="font-semibold text-ink">Technical Discovery (How should we do it?)</span><br />Engineers design the technical solution, map dependencies, and finalize architecture. This is reviewed by FinE leadership and finance stakeholders for final go-ahead.</p>
-          <p><span className="font-semibold text-ink">Build (Let's do it!)</span><br />Once approved, cross-functional teams collaborate to develop and deliver the initiative—tracking progress every step of the way.</p>
+          <p><span className="font-semibold text-ink">Build (Let's do it!)</span><br />Once approved, cross-functional teams collaborate to develop and deliver the initiative, tracking progress every step of the way.</p>
         </div>
       ),
     },
@@ -55,7 +55,7 @@ const Frameworks = () => {
       body: (
         <div className="space-y-6 text-base md:text-lg text-ink/70 leading-relaxed">
           <p>
-            Unlock greater impact through smarter prioritization. Tired of juggling competing priorities and wondering if your team is focused on what truly matters? This transparent, data-driven prioritization framework is designed to revolutionize our planning process — aligning how we handle incoming requests across the entire organization so effort is directed towards the highest-impact initiatives.
+            Unlock greater impact through smarter prioritization. Tired of juggling competing priorities and wondering if your team is focused on what truly matters? This transparent, data-driven prioritization framework is designed to revolutionize our planning process, aligning how we handle incoming requests across the entire organization so effort is directed towards the highest-impact initiatives.
           </p>
           <p><span className="font-semibold text-ink">High Impact, Low Effort</span><br />Quick wins that deliver immediate value with minimal resource investment.</p>
           <p><span className="font-semibold text-ink">High Impact, High Effort</span><br />Strategic initiatives that can transform our business capabilities.</p>

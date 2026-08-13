@@ -12,12 +12,12 @@ const Index = () => {
     {
       label: "What I Do",
       title: "Strategy that connects users to the business.",
-      body: "I build high-performing product teams grounded in ownership, trust, and continuous experimentation — shaping product strategies that deliver operationally efficient solutions in complex, high-stakes environments.",
+      body: "I build high-performing product teams grounded in ownership, trust, and continuous experimentation, shaping product strategies that deliver operationally efficient solutions in complex, high-stakes environments.",
     },
     {
       label: "AI-First Approach",
       title: "Hands-on with the tech defining product's next era.",
-      body: "I prototype with cutting-edge AI tools, build autonomous agents for operational excellence, and apply AI-driven insights to strategic decisions — from streamlining internal processes to reimagining product discovery.",
+      body: "I prototype with cutting-edge AI tools, build autonomous agents for operational excellence, and apply AI-driven insights to strategic decisions, from streamlining internal processes to reimagining product discovery.",
     },
     {
       label: "How I Lead",
@@ -85,7 +85,7 @@ const Index = () => {
               You bring the vision. I'll help you ship it.
             </h2>
             <p className="mt-6 max-w-2xl text-base md:text-lg text-ink/60 leading-relaxed">
-              I help product teams move faster, think clearer, and build smarter — combining
+              I help product teams move faster, think clearer, and build smarter, combining
               deep domain expertise with battle-tested frameworks, AI-powered solutions, and a
               people-first approach. Over 20 years of product leadership in music-tech, across
               B2C and B2B, launching, scaling, and learning from every step.
@@ -145,7 +145,7 @@ const Index = () => {
               Ready to elevate your product leadership?
             </h2>
             <p className="mt-6 text-base md:text-lg text-ink/60 max-w-xl mx-auto leading-relaxed">
-              Book a session to work through your specific challenges and goals — and take your
+              Book a session to work through your specific challenges and goals, and take your
               product leadership to the next level.
             </p>
             <div className="mt-10">
