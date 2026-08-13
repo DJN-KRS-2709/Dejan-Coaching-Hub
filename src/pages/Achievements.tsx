@@ -54,21 +54,34 @@ const Achievements = () => {
   const careerHighlights = [
     {
       year: "Current",
+      role: "Chief Product Officer",
+      company: "Product School",
+      description: "Leading product at Product School with a single north star: making sure every student and every piece of content is set up for success building AI products. The most important shift in our field is becoming an AI builder—not just an AI user—and I'm building the strategy around exactly that. From curriculum to tooling, I'm shaping how the next generation of product leaders learns to design, prototype, and ship AI products with confidence.",
+      achievements: [
+        "Setting the product strategy to make every student an AI builder",
+        "Ensuring all content and programs prepare students to ship AI products",
+        "Championing hands-on AI building over passive AI usage",
+        "Aligning curriculum, tooling, and community around AI product success",
+        "Scaling AI-first product education to a global learner community",
+      ],
+    },
+    {
+      year: "Until Aug 2026",
       role: "Group Product Manager, Creator and Enterprise Payouts",
       company: "Spotify",
-      description: "Driving innovation in the complex world of royalties and creator payouts. Built and led high-performing teams across EMEA, launching scalable solutions that power the financial backbone of Spotify's creator economy. Actively leveraging AI to automate complex financial workflows and build intelligent agents for operational excellence.",
+      description: "Drove innovation in the complex world of royalties and creator payouts through August 31, 2026. Built and led high-performing teams across EMEA, launching scalable solutions that power the financial backbone of Spotify's creator economy. Leveraged AI to automate complex financial workflows and build intelligent agents for operational excellence.",
       achievements: [
         "Led cross-functional teams across EMEA",
         "Launched scalable payout solutions",
         "Improved the financial infrastructure for the creator economy",
-        "Building AI agents for process automation and efficiency",
-        "Pioneering AI-driven approaches to complex financial operations",
+        "Built AI agents for process automation and efficiency",
+        "Pioneered AI-driven approaches to complex financial operations",
       ],
     },
     {
       year: "Ongoing",
       role: "AI Product Leadership Coach & Speaker",
-      company: "Product School, Independent",
+      company: "Independent",
       description: "For over three years, I've shared practical frameworks and real-world experiences with a global community of 1M+ product professionals. Today, I focus heavily on AI product management—helping leaders understand how to build, integrate, and leverage AI in their products and processes. Whether through workshops or 1:1 coaching, I help PMs grow into confident, AI-savvy leaders who drive impact at scale.",
       achievements: [
         "Shared frameworks with 1M+ product professionals",
