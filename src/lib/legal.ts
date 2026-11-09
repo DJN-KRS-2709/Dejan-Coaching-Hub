@@ -5,5 +5,5 @@ export const LEGAL = {
   city: "31319 Sehnde",
   country: "Deutschland",
   email: "dejan.krstic@web.de",
-  vatId: "",
+  vatId: "DE462617290",
 };
