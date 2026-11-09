@@ -128,7 +128,8 @@ const Frameworks = () => (
               From ambiguity to clarity
             </h1>
             <p className="mt-6 text-base md:text-lg text-ink/60 max-w-2xl leading-relaxed">
-              One line runs through everything I teach: the Confidence Line. Whether you are a PM
+              One line runs through everything I teach:{" "}
+              <span className="text-accent2 font-medium">the Confidence Line</span>. Whether you are a PM
               finding your feet or a leader taking a whole organization to AI-native, I meet you where
               you are and help you at every step. Every stage ends in an outcome you can see.
             </p>
