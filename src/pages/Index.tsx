@@ -63,7 +63,7 @@ const Index = () => {
         <section className="pb-16 md:pb-24">
           <div className="container px-4 md:px-6">
             <p className="text-center text-xs font-medium uppercase tracking-widest text-ink/40 mb-8">
-              20+ years across the music-tech industry
+              20+ years in product management
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
               {trustedBy.map((name) => (
