@@ -22,7 +22,7 @@ const Index = () => {
     {
       label: "How I Lead",
       title: "Psychological safety, curiosity, and purpose.",
-      body: "I champion collaborative planning, embrace failure as a catalyst for learning, and mentor people to grow in their craft and confidence. I also speak on AI in product management and mentor PMs through Product School and Growth School.",
+      body: "I champion collaborative planning, embrace failure as a catalyst for learning, and mentor people to grow in their craft and confidence. I also speak on AI in product management and mentor PMs through Product School.",
     },
   ];
 
