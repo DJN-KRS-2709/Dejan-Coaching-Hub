@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -95,13 +96,14 @@ const process = [
   { title: "Review what changed", body: "A candid readout: what moved, and your next step on the curve." },
 ];
 
-// Points on the maturity curve, in a 1000 x 260 viewBox.
-const curveY = (x: number) => 240 - 210 * Math.pow((x - 20) / 960, 2.2);
-const curvePath = Array.from({ length: 49 }, (_, i) => {
-  const x = 20 + i * 20;
-  return `${i === 0 ? "M" : "L"}${x},${curveY(x).toFixed(1)}`;
-}).join(" ");
-const stageX = [100, 300, 500, 700, 900];
+// The five steps of the curve: bar height on desktop, bar width on mobile.
+const steps = [
+  { short: "No shared way of doing product yet.", height: "60px", width: "20%" },
+  { short: "AI is a chat tool for one-off tasks.", height: "115px", width: "40%" },
+  { short: "A prototype every week, not a PRD every month.", height: "175px", width: "60%" },
+  { short: "Agents doing real work, inside bounds you set.", height: "235px", width: "80%" },
+  { short: "AI in production, measured and trusted.", height: "235px", width: "100%" },
+];
 
 const Eyebrow = ({ children, dark = false }: { children: string; dark?: boolean }) => (
   <span
@@ -205,41 +207,30 @@ const Frameworks = () => (
             the Confidence Line repeats: a new kind of ambiguity, the same path to clarity.
           </p>
 
-          {/* Curve */}
-          <div className="mt-12 rounded-3xl bg-white border border-ink/10 p-6 md:p-10">
-            <svg viewBox="0 0 1000 260" className="w-full h-auto" role="img" aria-label="Maturity curve rising through five stages, from Building the foundation to AI-native">
-              <defs>
-                <linearGradient id="curve-stroke" x1="0" x2="1" y1="0" y2="0">
-                  <stop offset="0%" stopColor="#0a0a0a" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="#2563eb" />
-                </linearGradient>
-              </defs>
-              <path d={curvePath} fill="none" stroke="url(#curve-stroke)" strokeWidth="6" strokeLinecap="round" />
-              {stageX.map((x, i) => (
-                <g key={x}>
-                  <circle cx={x} cy={curveY(x)} r="22" fill={i === 4 ? "#2563eb" : "#ffffff"} stroke="#2563eb" strokeWidth="3" />
-                  <text
-                    x={x}
-                    y={curveY(x) + 7}
-                    textAnchor="middle"
-                    fontSize="20"
-                    fontFamily="Anton, Inter, sans-serif"
-                    fill={i === 4 ? "#ffffff" : "#2563eb"}
-                  >
-                    0{i + 1}
-                  </text>
-                </g>
-              ))}
-            </svg>
-            <div className="mt-4 hidden md:grid grid-cols-5 gap-4 text-center">
-              {stages.map((stage) => (
-                <span key={stage.name} className="text-sm font-semibold">{stage.name}</span>
-              ))}
-            </div>
-          </div>
+          {/* Curve: five rising steps */}
+          <ol className="mt-14 grid md:grid-cols-5 gap-6 md:gap-4" aria-label="Five stages to AI-native">
+            {stages.map((stage, i) => (
+              <li key={stage.name} className="flex flex-col">
+                <div className="flex md:h-[235px] md:items-end">
+                  <div
+                    aria-hidden="true"
+                    className={`h-4 md:h-[var(--bar-h)] w-[var(--bar-w)] md:w-full rounded-full md:rounded-2xl ${
+                      i === steps.length - 1
+                        ? "bg-gradient-to-br from-accent2 to-indigo-700"
+                        : "bg-blue-100"
+                    }`}
+                    style={{ "--bar-h": steps[i].height, "--bar-w": steps[i].width } as CSSProperties}
+                  />
+                </div>
+                <span className="mt-4 text-xs font-medium tracking-widest text-accent2">0{i + 1}</span>
+                <h3 className="mt-1 text-lg font-semibold tracking-tight">{stage.name}</h3>
+                <p className="mt-1 text-sm text-ink/60 leading-relaxed">{steps[i].short}</p>
+              </li>
+            ))}
+          </ol>
 
           {/* Bands */}
-          <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <div className="mt-14 grid md:grid-cols-3 gap-4">
             {bands.map((band) => (
               <div key={band.name} className="rounded-3xl bg-white border border-ink/10 p-6 md:p-8">
                 <p className="text-xs font-medium uppercase tracking-widest text-ink/40 mb-3">{band.stages}</p>
