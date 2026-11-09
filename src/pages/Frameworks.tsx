@@ -142,7 +142,7 @@ const Frameworks = () => (
         <div className="container px-4 md:px-6">
           <Eyebrow>The Confidence Line</Eyebrow>
           <h2 className="font-display text-[clamp(2.25rem,6vw,5rem)] text-ink max-w-4xl">
-            Building stopped being the bottleneck. Believing did.
+            AI made building easy. Knowing what to build is the hard part.
           </h2>
           <div className="mt-6 max-w-2xl space-y-4 text-base md:text-lg text-ink/60 leading-relaxed">
             <p>
@@ -189,7 +189,7 @@ const Frameworks = () => (
             </div>
           </div>
 
-          <blockquote className="mt-10 max-w-3xl font-display text-2xl md:text-4xl text-ink leading-tight">
+          <blockquote className="mt-10 font-display text-2xl md:text-[clamp(1.25rem,3vw,2.25rem)] md:whitespace-nowrap text-ink leading-tight">
             "The hypothesis is the product. The code is just the test."
           </blockquote>
         </div>
