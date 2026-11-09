@@ -8,10 +8,11 @@ import About from "./pages/About";
 import Achievements from "./pages/Achievements";
 import Frameworks from "./pages/Frameworks";
 import Booking from "./pages/Booking";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -23,13 +24,14 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
-          <GoogleAnalytics />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/frameworks" element={<Frameworks />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

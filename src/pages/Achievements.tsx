@@ -82,14 +82,13 @@ const Achievements = () => {
       year: "Ongoing",
       role: "AI Product Leadership Coach & Speaker",
       company: "Independent",
-      description: "For over three years, I've shared practical frameworks and real-world experiences with a global community of 1M+ product professionals. Today, I focus heavily on AI product management, helping leaders understand how to build, integrate, and leverage AI in their products and processes. Whether through workshops or 1:1 coaching, I help PMs grow into confident, AI-savvy leaders who drive impact at scale.",
+      description: "For over three years, I've shared practical frameworks and real-world experiences with a global community of product professionals. Today, I focus heavily on AI product management, helping leaders understand how to build, integrate, and leverage AI in their products and processes. Whether through workshops or 1:1 coaching, I help PMs grow into confident, AI-savvy leaders who drive impact at scale.",
       achievements: [
-        "Shared frameworks with 1M+ product professionals",
+        "Shared frameworks with a global community of product professionals",
         "Leading workshops on AI in product management",
         "Coaching on AI agent development and implementation",
         "Helping organizations adopt AI-first product strategies",
         "Developed custom AI-enhanced frameworks for product leadership",
-        "Coached 100+ product leaders from startups to enterprise companies",
       ],
     },
     {

@@ -16,12 +16,6 @@ const Frameworks = () => {
 
   const frameworks: Framework[] = [
     {
-      title: "How We Bring Ideas to Life",
-      description:
-        "The Unified Intake Process streamlines the journey from idea to execution by strategically assessing, prioritizing, and delivering high-impact initiatives through structured discovery, technical planning, and cross-functional collaboration.",
-      image: "/lovable-uploads/development-process-flow-dark.png",
-    },
-    {
       title: "Prioritization Toolkit",
       description:
         "You need a transparent, data-driven prioritization framework to align efforts across the organization, helping us focus on high-impact initiatives, foster better collaboration, streamline workflows, and drive smarter, more effective decision-making.",
@@ -36,20 +30,6 @@ const Frameworks = () => {
   ];
 
   const modalContent: { title: string; body: React.ReactNode }[] = [
-    {
-      title: "Unified Intake Process Details",
-      body: (
-        <div className="space-y-6 text-base md:text-lg text-ink/70 leading-relaxed">
-          <p>
-            Our Unified Intake Process is a structured way to evaluate, prioritize, and deliver initiatives that align with our strategy and create meaningful impact. While the name may evolve, the purpose remains clear: bring the right ideas to life through thoughtful collaboration and clear decision-making.
-          </p>
-          <p><span className="font-semibold text-ink">Intake (Should we do it?)</span><br />All new ideas are collected and reviewed to quickly assess strategic fit and potential value. Finance stakeholders meet monthly to prioritize the highest-impact initiatives.</p>
-          <p><span className="font-semibold text-ink">Opportunity Discovery (Is it worth it?)</span><br />Product managers lead a deep dive to understand the problem, explore opportunities, and define the value. Finance leadership reviews the findings to ensure alignment before moving forward.</p>
-          <p><span className="font-semibold text-ink">Technical Discovery (How should we do it?)</span><br />Engineers design the technical solution, map dependencies, and finalize architecture. This is reviewed by FinE leadership and finance stakeholders for final go-ahead.</p>
-          <p><span className="font-semibold text-ink">Build (Let's do it!)</span><br />Once approved, cross-functional teams collaborate to develop and deliver the initiative, tracking progress every step of the way.</p>
-        </div>
-      ),
-    },
     {
       title: "Prioritization Framework Details",
       body: (

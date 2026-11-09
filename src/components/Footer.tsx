@@ -30,7 +30,13 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/50">© {currentYear} Dejan Krstic. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
+            <p className="text-sm text-white/50">© {currentYear} Dejan Krstic. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <Link to="/impressum" className="text-sm text-white/50 hover:text-white transition-colors">Impressum</Link>
+              <Link to="/datenschutz" className="text-sm text-white/50 hover:text-white transition-colors">Datenschutz</Link>
+            </div>
+          </div>
           <a href="https://www.linkedin.com/in/dejan-krstic-b4a7a98a/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
             <Linkedin className="h-5 w-5" />
           </a>
