@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 
 const Index = () => {
-  const trustedBy = ["Spotify", "SoundCloud", "BMG", "Product School", "Growth School"];
+  const trustedBy = ["Spotify", "SoundCloud", "Universal Music", "BMG", "Product School"];
 
   const approach = [
     {
@@ -42,7 +42,7 @@ const Index = () => {
     {
       icon: <Code className="h-6 w-6" />,
       title: "Frameworks",
-      description: "Battle-tested product management frameworks enhanced with AI-powered decision-making.",
+      description: "The Confidence Line and five stages to AI-native: from ambiguity to clarity, one step at a time.",
       link: "/frameworks",
     },
     {
