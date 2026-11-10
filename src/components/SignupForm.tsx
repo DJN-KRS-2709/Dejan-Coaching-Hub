@@ -61,7 +61,7 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = 
 
   return (
     <form onSubmit={onSubmit} noValidate className={cn("grid gap-2", className)}>
-      <label htmlFor={`${id}-email`} className={cn("text-sm font-semibold", dark ? "text-white" : "text-ink")}>
+      <label htmlFor={`${id}-email`} className={cn("flex min-h-[44px] items-end text-sm font-semibold", dark ? "text-white" : "text-ink")}>
         {label}
       </label>
       <div className="flex flex-col gap-2 sm:flex-row">

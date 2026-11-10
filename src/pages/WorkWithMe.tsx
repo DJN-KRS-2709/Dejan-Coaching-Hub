@@ -75,7 +75,7 @@ const OfferTabs = () => {
   }, []);
 
   return (
-    <div className="sticky top-16 z-40 border-y border-ink/10 bg-canvas/95 backdrop-blur-md">
+    <div className="sticky top-[65px] z-40 border-y border-ink/10 bg-canvas/95 backdrop-blur-md">
       <div className="container px-4 py-2 md:px-6">
         <nav aria-label="Offers" className="flex w-full gap-1 rounded-full border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
           {TABS.map((tab) => (

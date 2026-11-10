@@ -47,7 +47,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
       <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
         <form className="grid min-w-0 gap-4" aria-label="Self-check questions" onSubmit={(e) => e.preventDefault()}>
           {/* Slim progress bar, pinned under the header on phones. */}
-          <div className="sticky top-16 z-30 -mx-4 bg-canvas/95 px-4 py-3 backdrop-blur md:-mx-6 md:px-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+          <div className="sticky top-[65px] z-30 -mx-4 bg-canvas/95 px-4 py-3 backdrop-blur md:-mx-6 md:px-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <div className="mb-1.5 flex justify-between text-xs font-semibold text-ink/60">
               <span>{answered === 0 ? "Four questions" : "Your progress"}</span>
               <span aria-live="polite">{answered > 0 && `${answered}/${questions.length}`}</span>

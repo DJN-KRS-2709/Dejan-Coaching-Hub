@@ -13,7 +13,7 @@ const CAREER = [
   { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
   { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
   { org: "BMG", role: "Director of Business Analysis" },
-  { org: "Universal Music", role: "Product leadership" },
+  { org: "Universal Music", role: "Built the infrastructure and products that ship audio to streaming services." },
 ];
 
 const BMG = {

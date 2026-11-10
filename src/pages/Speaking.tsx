@@ -31,17 +31,31 @@ const Speaking = () => {
               </p>
             </div>
             <figure className="grid gap-2">
-              {/* Event photo by Experience Summit (Clientology Institute); their watermark stays on. */}
-              <img
-                src="/images/speaking-experience-summit-1600.jpg"
-                srcSet="/images/speaking-experience-summit-900.jpg 900w, /images/speaking-experience-summit-1600.jpg 1600w"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                width={1600}
-                height={1284}
-                alt="Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work"
-                className="h-auto w-full rounded-3xl border border-ink/10"
-              />
-              <figcaption className="text-sm text-ink/50">"Context is the work", Experience Summit, Prague, 2026</figcaption>
+              {/* Event photo by Experience Summit (Clientology Institute). The crops frame Dejan from just
+                  above the slide headline down to his belt: 4:5 on phones, 16:10 from lg up. The tighter
+                  crop leaves out the event watermark, so the credit is in the caption. */}
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet="/images/speaking-stage-desktop-1000.jpg 1000w, /images/speaking-stage-desktop-1600.jpg 1600w"
+                  sizes="50vw"
+                  width={1600}
+                  height={1000}
+                />
+                <img
+                  src="/images/speaking-stage-phone-900.jpg"
+                  srcSet="/images/speaking-stage-phone-600.jpg 600w, /images/speaking-stage-phone-900.jpg 900w"
+                  sizes="100vw"
+                  width={900}
+                  height={1125}
+                  alt="Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work"
+                  className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-[50%_40%] lg:aspect-[16/10]"
+                />
+              </picture>
+              <figcaption className="text-sm text-ink/50">
+                "Context is the work", Experience Summit, Prague, 2026. Photo: Experience Summit by Clientology
+                Institute.
+              </figcaption>
             </figure>
           </div>
         </div>

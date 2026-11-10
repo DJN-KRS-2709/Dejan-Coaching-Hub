@@ -110,7 +110,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
 
       <div
         aria-live="polite"
-        className="mt-6 grid gap-6 rounded-3xl border border-ink/10 border-t-[6px] border-t-brand bg-white p-6 md:p-8"
+        className="mt-6 grid gap-6 rounded-3xl border border-ink/10 border-t-[6px] border-t-ink bg-white p-6 md:p-8"
       >
         <div className="grid justify-items-start gap-3">
           <StageBadge>
