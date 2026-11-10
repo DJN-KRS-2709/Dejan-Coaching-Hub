@@ -68,11 +68,14 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
           </div>
 
           {questions.map((q, qi) => (
-            <fieldset key={`${mode}-${qi}`} className="rounded-3xl border border-ink/10 bg-white px-4 pb-4 pt-3 md:px-5">
-              <legend className="px-1 text-base font-bold text-ink">
+            // The card is a plain div around a borderless fieldset, so the question (the legend)
+            // sits inside the card instead of being drawn on the card's border.
+            <div key={`${mode}-${qi}`} className="rounded-3xl border border-ink/10 bg-white px-4 pb-4 pt-5 md:px-5">
+              <fieldset className="m-0 min-w-0 border-0 p-0">
+              <legend className="px-2 text-base font-bold leading-snug text-ink">
                 {qi + 1}. {q.q}
               </legend>
-              <div className="mt-1 grid gap-0.5">
+              <div className="mt-2 grid gap-0.5">
                 {q.a.map((a, ai) => {
                   const id = `q-${mode}-${qi}-${ai}`;
                   return (
@@ -95,7 +98,8 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
                   );
                 })}
               </div>
-            </fieldset>
+              </fieldset>
+            </div>
           ))}
         </form>
 
