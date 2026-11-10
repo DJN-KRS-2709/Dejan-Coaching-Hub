@@ -3,28 +3,30 @@ import { ArrowRight } from "lucide-react";
 import SignupForm from "@/components/SignupForm";
 import { ClosingLine, Eyebrow, PageHero, PageShell, Section, SectionHead, StageBadge, TEXT_LINK } from "@/components/site";
 import { buttonVariants } from "@/components/ui/button";
-import { COURSE_WEEKS } from "@/content/proof";
+import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { INTRO_CALL_URL } from "@/lib/links";
 
 const FACTS = [
-  ["Format", "One 2-hour live session a week, office hours and recordings"],
-  ["Group", "20 people, so everyone gets feedback on their build"],
+  ["Format", "4 live sessions of 90 minutes over 3 weeks: 6 live hours"],
+  ["Schedule", "Week 1: one session. Week 2: one session. Week 3: two sessions, the last one is demo day."],
+  ["When", "Daytime sessions, Berlin time. No late evenings."],
+  ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
-  ["You need", "A laptop, a problem and about 4 hours a week. No code."],
+  ["You need", "A laptop, a problem and about 2 hours a week for your own project. No code."],
   ["Price", "€990. Founding cohort €690."],
 ];
 
 const Course = () => {
   usePageTitle(
     "Spectator to Builder",
-    "A 6-week live cohort for 20 people. From a problem in your work to a tested prototype and a workflow that runs without you. €990, founding cohort €690.",
+    "A 3-week live cohort for up to 20 people: 4 sessions, 6 live hours. From a problem in your work to a prototype you have tested with real users. €990, founding cohort €690.",
   );
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="The course · 6-week live cohort"
+        eyebrow="The course · 3-week live cohort · 6 live hours"
         title={
           <>
             Spectator
@@ -46,7 +48,7 @@ const Course = () => {
 
       <Section>
         <div className="max-w-3xl">
-          <SectionHead eyebrow="The facts" title="Six weeks, 20 people, one real problem." />
+          <SectionHead eyebrow="The facts" title="Three weeks, 6 live hours, one real problem." />
           <dl className="grid gap-0">
             {FACTS.map(([k, v]) => (
               <div key={k} className="grid gap-1 border-t border-ink/10 py-3 sm:grid-cols-[8rem_1fr] sm:gap-4">
@@ -60,24 +62,29 @@ const Course = () => {
 
       <Section>
         <SectionHead
-          eyebrow="The six weeks"
-          title="Every week ends with something you made."
-          lead="Weeks 1 to 3 meet you at stages 1 and 2. Weeks 4 to 6 take you to stage 3: building, and judging what you built."
+          eyebrow="The three weeks"
+          title="Every session ends with something you made."
+          lead="Week 1 meets you at stage 1 and week 2 at stage 2. Week 3 takes you to stage 3: you build, judge what you built, and show it on demo day."
         />
         <ol className="border-t-2 border-ink">
-          {COURSE_WEEKS.map((w) => (
-            <li key={w.week} className="grid grid-cols-[4.5rem_1fr] gap-4 border-b border-ink/10 py-5 md:grid-cols-[7rem_1fr]">
-              <div className="grid content-start justify-items-start gap-2">
-                <span className="text-2xl font-bold leading-none">W{w.week}</span>
-                <StageBadge>Stage {w.stage}</StageBadge>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold tracking-tight">{w.title}</h3>
-                <p className="mt-1 text-[0.95rem] text-ink/70">{w.body}</p>
-                <p className="mt-3 inline-block rounded-md bg-muted px-2.5 py-1 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10">
-                  You leave with: {w.leave}
-                </p>
-              </div>
+          {[1, 2, 3].map((week) => (
+            <li key={week} className="grid gap-3 border-b border-ink/10 py-6 md:grid-cols-[8rem_1fr] md:gap-4">
+              <span className="text-2xl font-bold leading-none">Week {week}</span>
+              <ol className="grid gap-6">
+                {COURSE_SESSIONS.filter((s) => s.week === week).map((s) => (
+                  <li key={s.session} className="grid gap-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-sm font-semibold text-ink/60">Session {s.session}</span>
+                      <StageBadge>Stage {s.stage}</StageBadge>
+                    </div>
+                    <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
+                    <p className="text-[0.95rem] text-ink/70">{s.body}</p>
+                    <p className="mt-2 justify-self-start rounded-md bg-muted px-2.5 py-1 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10">
+                      You leave with: {s.leave}
+                    </p>
+                  </li>
+                ))}
+              </ol>
             </li>
           ))}
         </ol>

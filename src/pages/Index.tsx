@@ -144,8 +144,8 @@ const Index = () => {
           </div>
           <div className="grid gap-5">
             <p className="text-lg leading-relaxed text-white/80">
-              Six weeks, 20 people, one real problem from your work. You leave with a prototype you have tested with
-              real users and a workflow that runs without you. No code needed.
+              Three weeks, 6 live hours, max 20 people, one real problem from your work. You leave with a prototype
+              you have tested with real users and shown on demo day. No code needed.
             </p>
             <p className="text-2xl font-extrabold tabular-nums">
               €990 <span className="text-base font-medium text-white/60">Founding cohort €690</span>
@@ -155,7 +155,7 @@ const Index = () => {
                 Join the waitlist
               </Link>
               <Link to="/course" className={buttonVariants({ variant: "outlineLight" })}>
-                See the six weeks
+                See the three weeks
               </Link>
             </div>
           </div>

@@ -26,7 +26,7 @@ export const OFFER_GROUPS: { id: OfferGroup; title: string; lead: string }[] = [
   {
     id: "you",
     title: "For you",
-    lead: "Start free, learn to build in six weeks, or work with me one to one.",
+    lead: "Start free, learn to build in three weeks, or work with me one to one.",
   },
   {
     id: "team",
@@ -61,8 +61,8 @@ export const OFFERS: Offer[] = [
     group: "you",
     stages: [1, 3],
     title: "Spectator to Builder",
-    body: "Six weeks from a problem in your work to a working prototype you have tested with real users, plus your first workflow that runs without you.",
-    format: "6-week live cohort · 20 people · no code needed",
+    body: "Three weeks from a problem in your work to a working prototype you have tested with real users, shown on demo day.",
+    format: "3-week live cohort · 4 sessions, 6 live hours · max 20 people · no code needed",
     price: "€990",
     priceNote: "Founding cohort €690",
     featured: true,

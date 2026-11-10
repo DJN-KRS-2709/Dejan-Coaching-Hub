@@ -111,47 +111,39 @@ export const TALKS = [
   },
 ];
 
-export const COURSE_WEEKS = [
+// Spectator to Builder: 3 weeks, 4 live sessions of 90 minutes (6 live hours). Week 1 and 2 have one
+// session each, week 3 has two; the last one is demo day. About 2 hours a week on your own project.
+export const COURSE_SESSIONS = [
   {
+    session: 1,
     week: 1,
     stage: 1,
-    title: "How AI works, and how product people think",
-    body: "What a model actually does, where it fails, and the three questions every product decision answers: what problem, for whom, and how you will know.",
-    leave: "A problem statement from your own work",
+    title: "From a real problem to what is worth building",
+    body: "What a model actually does and where it fails. Then the three questions every product decision answers: what problem, for whom, and how you will know. You talk to users and separate evidence from opinion.",
+    leave: "A problem from your own work, backed by evidence",
   },
   {
+    session: 2,
     week: 2,
-    stage: 2,
-    title: "Find out what is worth building",
-    body: "Talk to users, make sense of what you heard with AI, and separate evidence from opinion.",
-    leave: "One opportunity, backed by evidence",
-  },
-  {
-    week: 3,
     stage: 2,
     title: "Context is the work",
     body: "Write the brief that people and AI can both build from. This is where most AI output is won or lost.",
     leave: "A one-page spec",
   },
   {
-    week: 4,
+    session: 3,
+    week: 3,
     stage: 3,
-    title: "Build it",
-    body: "From spec to working prototype in an afternoon. Then again, better.",
-    leave: "Something a colleague can click",
+    title: "Build it, then judge it",
+    body: "From spec to working prototype in one session. Then put it in front of real users and decide: kill, change or ship.",
+    leave: "A prototype a colleague can click",
   },
   {
-    week: 5,
+    session: 4,
+    week: 3,
     stage: 3,
-    title: "Judge it like you built it",
-    body: "Test with five users, measure what matters, and decide: kill, change or ship.",
-    leave: "A test readout and a decision",
-  },
-  {
-    week: 6,
-    stage: 3,
-    title: "Make it part of your week",
-    body: "Your first workflow or agent that does real work without you, then demo day.",
-    leave: "A running workflow and a 5-minute demo",
+    title: "Demo day",
+    body: "Everyone shows their own build in five minutes: the problem, the prototype, what users did with it and what you decided. You get feedback from the group and a next step for your work.",
+    leave: "A tested prototype and a 5-minute demo",
   },
 ];
