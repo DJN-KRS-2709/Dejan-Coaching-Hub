@@ -40,9 +40,13 @@ const About = () => {
             </div>
             <div className="mx-auto w-full max-w-[480px] overflow-hidden rounded-3xl border border-ink/10 lg:col-start-2 lg:row-span-2 lg:row-start-1">
               <img
-                src="/lovable-uploads/dejan-profile-2026.png"
-                alt="Portrait of Dejan Krstic"
-                className="aspect-[6/5] h-full w-full object-cover"
+                src="/images/dejan-portrait-960.jpg"
+                srcSet="/images/dejan-portrait-480.jpg 480w, /images/dejan-portrait-960.jpg 960w"
+                sizes="(min-width: 480px) 480px, 100vw"
+                width={960}
+                height={1200}
+                alt="Portrait of Dejan Krstic, smiling, in a black t-shirt"
+                className="aspect-[4/5] h-auto w-full object-cover"
               />
             </div>
             <div className="grid max-w-xl gap-5 text-base leading-relaxed text-ink/75 md:text-lg lg:col-start-1 lg:row-start-2">
