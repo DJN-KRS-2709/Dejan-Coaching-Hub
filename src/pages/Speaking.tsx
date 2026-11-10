@@ -1,7 +1,7 @@
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { CaseCard } from "@/components/Proof";
-import { ClosingLine, PageHero, PageShell, Section, SectionHead } from "@/components/site";
+import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
 import { offer } from "@/content/offers";
 import { CLIENT_CASES, TALKS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -16,11 +16,36 @@ const Speaking = () => {
 
   return (
     <PageShell>
-      <PageHero
-        eyebrow="Speaking"
-        title="Talks that end with something built on stage."
-        lead="Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build, followed by a live demo. In English or German."
-      />
+      {/* Hero: text left, stage photo right on desktop; photo under the text on phones. */}
+      <section className="pb-12 pt-12 md:pb-16 md:pt-20">
+        <div className="container px-4 md:px-6">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+            <div className="animate-fade-in">
+              <Eyebrow>Speaking</Eyebrow>
+              <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)] text-ink">
+                Talks that end with something built on stage.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+                Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build,
+                followed by a live demo. In English or German.
+              </p>
+            </div>
+            <figure className="grid gap-2">
+              {/* Event photo by Experience Summit (Clientology Institute); their watermark stays on. */}
+              <img
+                src="/images/speaking-experience-summit-1600.jpg"
+                srcSet="/images/speaking-experience-summit-900.jpg 900w, /images/speaking-experience-summit-1600.jpg 1600w"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                width={1600}
+                height={1284}
+                alt="Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work"
+                className="h-auto w-full rounded-3xl border border-ink/10"
+              />
+              <figcaption className="text-sm text-ink/50">"Context is the work", Experience Summit, Prague, 2026</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
 
       <Section>
         <SectionHead eyebrow="Talks" title="Three talks, each one adapted to your room." />
