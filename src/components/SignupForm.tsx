@@ -17,12 +17,14 @@ interface Props {
   stage?: number;
   mode?: Mode;
   dark?: boolean;
+  // The one blue button on screen. Other forms submit with a dark button.
+  primary?: boolean;
   className?: string;
 }
 
 // One email field for the newsletter, the course waitlist, masterclass dates and the
 // self-check readout. Where it posts: src/lib/signup.ts.
-const SignupForm = ({ list, label, button, stage, mode, dark = false, className }: Props) => {
+const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = false, className }: Props) => {
   const id = useId();
   const { pathname } = useLocation();
   const [email, setEmail] = useState("");
@@ -79,10 +81,10 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, className 
           aria-invalid={status === "invalid"}
           aria-describedby={`${id}-msg`}
           className={cn(
-            "h-11 w-full min-w-0 rounded-full sm:w-auto sm:flex-1 border px-4 text-base outline-none transition-colors focus-visible:ring-2 focus-visible:ring-brand md:text-sm",
+            "h-12 w-full min-w-0 rounded-full border px-5 text-base outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ink sm:w-auto sm:flex-1 md:text-sm",
             dark
               ? "border-white/20 bg-white/10 text-white placeholder:text-white/50"
-              : "border-ink/15 bg-white text-ink placeholder:text-ink/40",
+              : "border-input bg-white text-ink placeholder:text-ink/40",
           )}
         />
         {/* Honeypot: hidden from people, bots fill it in. */}
@@ -96,7 +98,12 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, className 
           className="hidden"
           aria-hidden="true"
         />
-        <Button type="submit" variant={dark ? "light" : "brand"} disabled={status === "sending" || sent}>
+        <Button
+          type="submit"
+          variant={dark ? "light" : primary ? "brand" : "default"}
+          className="h-12"
+          disabled={status === "sending" || sent}
+        >
           {button}
         </Button>
       </div>

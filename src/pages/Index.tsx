@@ -3,28 +3,27 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
-import { ClientCases, Testimonials, WorkedWith } from "@/components/Proof";
+import { ClientCases, REAL_TESTIMONIALS, Testimonials, WorkedWith } from "@/components/Proof";
 import SignupForm from "@/components/SignupForm";
-import StagePath from "@/components/StagePath";
-import { Eyebrow, ModeSwitch, PageShell, Section, SectionHead } from "@/components/site";
+import StagePath, { Staircase } from "@/components/StagePath";
+import { Eyebrow, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
 import { buttonVariants } from "@/components/ui/button";
 import { offer } from "@/content/offers";
 import type { Mode } from "@/content/stages";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { YEARS } from "@/lib/links";
+import { INTRO_CALL_LABEL, INTRO_CALL_URL, YEARS } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
-const OFFERS_FOR: Record<Mode, string[]> = {
-  person: ["masterclass", "course", "coaching", "advisory"],
-  team: ["diagnostic", "workshops", "builder-program", "keynotes"],
-};
+// Home packages: 1:1 coaching and the team offers. The course has its own band above,
+// and advisory and keynotes are on /work-with-me ("See every offer and price").
+const HOME_PACKAGES = ["coaching", "diagnostic", "workshops", "builder-program"];
 
 const Index = () => {
   usePageTitle(
     "AI builders, not AI spectators",
     "Dejan Krstic, independent AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
   );
-  // Links like /?for=team&stage=3#path (from the self-check result) open the path at that stage.
+  // Links like /?for=team&stage=3#path open the path at that stage.
   const [params] = useSearchParams();
   const [mode, setMode] = useState<Mode>("person");
   const [active, setActive] = useState(0);
@@ -37,24 +36,41 @@ const Index = () => {
 
   return (
     <PageShell>
-      {/* Hero */}
+      {/* 1. Hero: headline left, staircase preview right on desktop */}
       <section className="pb-12 pt-12 md:pb-20 md:pt-24">
         <div className="container px-4 md:px-6">
-          <div className="animate-fade-in">
-            <Eyebrow>Independent AI product leadership coach</Eyebrow>
-            <h1 className="mt-5 font-display text-[clamp(3.1rem,11vw,8.4rem)] text-ink">
-              AI builders,
-              <br />
-              not AI <span className="text-brand">spectators.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
-              I take people and product teams from first steps to AI-native, one stage at a time, on their own work.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
-                Find your stage
-              </Link>
+          <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
+            <div className="animate-fade-in">
+              <Eyebrow>Independent AI product leadership coach</Eyebrow>
+              <h1 className="mt-5 font-display text-[clamp(3.1rem,11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
+                AI builders,
+                <br />
+                not AI <span className="text-brand">spectators.</span>
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
+                I take people and product teams from first steps to AI-native, one stage at a time, on their own work.
+              </p>
+              <div className="mt-8 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-6">
+                <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
+                  Find your stage
+                </Link>
+                <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={TEXT_LINK}>
+                  Or {INTRO_CALL_LABEL.charAt(0).toLowerCase() + INTRO_CALL_LABEL.slice(1)}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
+            <Link
+              to="/#path"
+              aria-label="See the five stages from curious to AI-native"
+              className="hidden rounded-3xl transition-opacity hover:opacity-90 lg:block"
+            >
+              <Staircase variant="preview" />
+              <div className="mt-2 flex justify-between text-xs text-ink/50">
+                <span>Just starting</span>
+                <span>AI-native</span>
+              </div>
+            </Link>
           </div>
           <div className="mt-12 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-ink/10 pt-6">
             <Eyebrow className="basis-full">{YEARS} years building products</Eyebrow>
@@ -65,7 +81,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* The path */}
+      {/* 2. The path */}
       <Section id="path">
         <SectionHead
           eyebrow="The path"
@@ -80,7 +96,7 @@ const Index = () => {
         <StagePath mode={mode} onModeChange={setMode} active={active} onActiveChange={setActive} />
       </Section>
 
-      {/* Free first step */}
+      {/* 3. Free first steps */}
       <Section id="start">
         <SectionHead
           eyebrow="Start free"
@@ -95,7 +111,7 @@ const Index = () => {
             </p>
             <Link
               to={`/self-check?for=${mode}`}
-              className={cn(buttonVariants({ variant: "brand", size: "sm" }), "mt-2 justify-self-start")}
+              className={cn(buttonVariants({ variant: "brand" }), "mt-2 h-12 justify-self-start")}
             >
               Take the self-check
             </Link>
@@ -117,39 +133,13 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Offers */}
-      <Section id="offers">
-        <SectionHead
-          eyebrow="Ways to work together"
-          title="Packages with a clear outcome, not hourly sessions."
-          lead="Every offer is the next step from where you are. Paid work starts with a free 20-minute intro call or a waitlist."
-        >
-          <div>
-            <ModeSwitch mode={mode} onChange={setMode} label="Show offers for" />
-          </div>
-        </SectionHead>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {OFFERS_FOR[mode].map((id) => (
-            <OfferCard key={id} offer={offer(id)} compact />
-          ))}
-        </div>
-        <Link
-          to="/work-with-me"
-          className="mt-8 inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink hover:text-brand-ink"
-        >
-          See every offer and price <ArrowRight className="h-4 w-4" />
-        </Link>
-      </Section>
-
-      {/* Course */}
+      {/* 4. The course */}
       <section className="bg-ink py-14 text-white md:py-24">
         <div className="container grid gap-8 px-4 md:grid-cols-[1.1fr_1fr] md:items-end md:px-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.09em] text-white/60">The course</p>
-            <h2 className="mt-4 font-display text-[clamp(2.8rem,8vw,5.5rem)] text-white">
-              Spectator
-              <br />
-              to Builder
+            <h2 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-6xl">
+              Spectator to Builder
             </h2>
           </div>
           <div className="grid gap-5">
@@ -172,21 +162,39 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Proof */}
-      <Section id="proof" className="border-t-0">
+      {/* 5. Packages */}
+      <Section id="offers" className="border-t-0">
         <SectionHead
-          eyebrow="Proof"
-          title="From students who had never written a spec to teams shipping AI."
+          eyebrow="Ways to work together"
+          title="Packages with a clear outcome, not hourly sessions."
+          lead="1:1 coaching for you, fixed-price packages for your team. Paid work starts with a free 20-minute intro call."
         />
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {HOME_PACKAGES.map((id) => (
+            <OfferCard key={id} offer={offer(id)} compact />
+          ))}
+        </div>
+        <Link to="/work-with-me" className={cn(TEXT_LINK, "mt-6")}>
+          See every offer and price, including advisory and keynotes <ArrowRight className="h-4 w-4" />
+        </Link>
+      </Section>
+
+      {/* 6. Proof */}
+      <Section id="proof">
+        <SectionHead eyebrow="Proof" title="From students who had never written a spec to teams shipping AI." />
         <WorkedWith />
         <div className="mt-8">
           <ClientCases />
         </div>
-        <h3 className="mb-4 mt-12 text-xl font-semibold tracking-tight">What clients say</h3>
-        <Testimonials />
+        {REAL_TESTIMONIALS.length > 0 && (
+          <>
+            <h3 className="mb-4 mt-12 text-xl font-semibold tracking-tight">What clients say</h3>
+            <Testimonials />
+          </>
+        )}
       </Section>
 
-      {/* Final CTA */}
+      {/* 7. Close */}
       <Section id="contact">
         <div className="max-w-3xl">
           <h2 className="font-display text-[clamp(3rem,9vw,6.5rem)] text-ink">Start where you are.</h2>

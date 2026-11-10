@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SignupForm from "@/components/SignupForm";
-import { StageChips } from "@/components/site";
+import { StageChips, TEXT_LINK } from "@/components/site";
 import { buttonVariants } from "@/components/ui/button";
 import type { Offer } from "@/content/offers";
+import { INTRO_CALL_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -12,13 +13,10 @@ interface Props {
   compact?: boolean;
 }
 
+// Cards never carry a solid blue button: the page's one blue button is its close.
 const OfferCard = ({ offer, compact = false }: Props) => {
   const { cta } = offer;
-  const variant = offer.featured ? "brand" : "outline";
-
-  // Text links are at least 44px tall, so they are easy to tap on a phone.
-  const textLink =
-    "inline-flex min-h-[44px] items-center gap-1 justify-self-start text-sm font-semibold text-ink hover:text-brand-ink";
+  const textLink = cn(TEXT_LINK, "justify-self-start text-sm");
 
   let action;
   if (compact) {
@@ -28,15 +26,14 @@ const OfferCard = ({ offer, compact = false }: Props) => {
       </Link>
     );
   } else if (cta.kind === "intro") {
-    // No booking button per card: the page has one intro call button at the end.
     action = (
-      <Link to="/work-with-me#how-it-works" className={textLink}>
-        How to start <ArrowRight className="h-4 w-4" />
-      </Link>
+      <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={textLink}>
+        Book a call <ArrowRight className="h-4 w-4" />
+      </a>
     );
   } else if (cta.kind === "link") {
     action = (
-      <Link to={cta.to} className={cn(buttonVariants({ variant, size: "sm" }), "justify-self-start")}>
+      <Link to={cta.to} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "justify-self-start")}>
         {cta.label}
       </Link>
     );
@@ -48,14 +45,16 @@ const OfferCard = ({ offer, compact = false }: Props) => {
     <article
       id={compact ? undefined : offer.id}
       className={cn(
-        "grid min-w-0 scroll-mt-24 content-start gap-3 rounded-3xl bg-white p-6 md:p-7",
-        offer.featured ? "border-2 border-brand" : "border border-ink/10",
+        "grid min-w-0 scroll-mt-24 content-start gap-3 rounded-3xl border bg-white p-6 md:p-7",
+        offer.featured ? "border-ink" : "border-ink/10",
       )}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <StageChips from={offer.stages[0]} to={offer.stages[1]} />
         {offer.tag && (
-          <span className="rounded-full bg-brand-bg px-2.5 py-1 text-xs font-semibold text-brand-ink">{offer.tag}</span>
+          <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-ink ring-1 ring-inset ring-ink/10">
+            {offer.tag}
+          </span>
         )}
       </div>
       <h3 className="text-xl font-semibold tracking-tight text-ink">{offer.title}</h3>

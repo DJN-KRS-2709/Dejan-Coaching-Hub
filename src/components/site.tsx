@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { STAGE_FILL } from "@/content/stages";
 import type { Mode } from "@/content/stages";
 import { cn } from "@/lib/utils";
 
 // Small building blocks shared by every page.
+//
+// Design rules: Anton only for page H1s and closing lines. Blue only for buttons, the
+// stressed headline word and the active stage, and one solid blue button per screen.
 
 export const PageShell = ({ children }: { children: ReactNode }) => (
   <div className="flex min-h-screen flex-col bg-canvas text-ink">
@@ -16,6 +18,10 @@ export const PageShell = ({ children }: { children: ReactNode }) => (
     <Footer />
   </div>
 );
+
+// A text link that is still a 44px tap target on phones.
+export const TEXT_LINK =
+  "inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink underline-offset-4 hover:underline";
 
 export const Eyebrow = ({ children, className }: { children: ReactNode; className?: string }) => (
   <p className={cn("text-xs font-semibold uppercase tracking-[0.09em] text-ink/50", className)}>{children}</p>
@@ -77,7 +83,12 @@ export const PageHero = ({
   </section>
 );
 
-// Stage chips: small numbered squares in the stage shades, e.g. 1 2 3 for "stages 1 to 3".
+// Closing line of a page, in Anton.
+export const ClosingLine = ({ children }: { children: ReactNode }) => (
+  <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-ink">{children}</h2>
+);
+
+// Stage chips: small warm gray numbered squares, e.g. 1 2 3 for "stages 1 to 3".
 export const StageChips = ({ from, to }: { from: number; to: number }) => {
   const label = from === 1 && to === 5 ? "Any stage" : from === to ? `Stage ${from}` : `Stages ${from} to ${to}`;
   const nums = Array.from({ length: to - from + 1 }, (_, i) => from + i);
@@ -87,10 +98,7 @@ export const StageChips = ({ from, to }: { from: number; to: number }) => {
         {nums.map((n) => (
           <span
             key={n}
-            className={cn(
-              "inline-grid h-5 w-5 place-items-center rounded-[5px] text-[0.68rem] font-extrabold ring-1 ring-inset ring-ink/10",
-              STAGE_FILL[n],
-            )}
+            className="inline-grid h-5 w-5 place-items-center rounded-[5px] bg-muted text-[0.68rem] font-extrabold text-ink ring-1 ring-inset ring-ink/10"
           >
             {n}
           </span>
@@ -101,13 +109,8 @@ export const StageChips = ({ from, to }: { from: number; to: number }) => {
   );
 };
 
-export const StageBadge = ({ n, children }: { n: number; children: ReactNode }) => (
-  <span
-    className={cn(
-      "inline-flex items-center whitespace-nowrap rounded-md px-2.5 py-1.5 text-[0.68rem] font-bold uppercase leading-none tracking-[0.05em] ring-1 ring-inset ring-ink/10",
-      STAGE_FILL[n],
-    )}
-  >
+export const StageBadge = ({ children }: { children: ReactNode }) => (
+  <span className="inline-flex items-center whitespace-nowrap rounded-md bg-muted px-2.5 py-1.5 text-[0.68rem] font-bold uppercase leading-none tracking-[0.05em] text-ink ring-1 ring-inset ring-ink/10">
     {children}
   </span>
 );

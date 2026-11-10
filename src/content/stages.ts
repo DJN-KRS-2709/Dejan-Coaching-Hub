@@ -181,23 +181,6 @@ export const STAGES: Stage[] = [
   },
 ];
 
-// Tailwind needs full class names, so each stage maps to fixed classes.
-export const STAGE_FILL: Record<number, string> = {
-  1: "bg-stage-1 text-ink",
-  2: "bg-stage-2 text-ink",
-  3: "bg-stage-3 text-ink",
-  4: "bg-stage-4 text-ink",
-  5: "bg-stage-5 text-white",
-};
-
-export const STAGE_TOP_BORDER: Record<number, string> = {
-  1: "border-t-stage-1",
-  2: "border-t-stage-2",
-  3: "border-t-stage-3",
-  4: "border-t-stage-4",
-  5: "border-t-stage-5",
-};
-
 export interface Question {
   q: string;
   a: string[];

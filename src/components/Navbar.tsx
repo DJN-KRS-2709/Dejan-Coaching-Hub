@@ -45,7 +45,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <IntroCallLink size="sm" className="hidden lg:inline-flex" />
+        <IntroCallLink variant="default" size="sm" className="hidden lg:inline-flex" />
 
         <button
           type="button"
@@ -85,7 +85,7 @@ const Navbar = () => {
               </NavLink>
             ))}
           </nav>
-          <IntroCallLink className="mt-4 w-full" onClick={() => setOpen(false)} />
+          <IntroCallLink variant="default" className="mt-4 w-full" onClick={() => setOpen(false)} />
         </div>
       )}
     </header>

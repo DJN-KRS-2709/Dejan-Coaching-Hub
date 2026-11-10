@@ -1,7 +1,7 @@
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { CaseCard } from "@/components/Proof";
-import { PageHero, PageShell, Section, SectionHead } from "@/components/site";
+import { ClosingLine, PageHero, PageShell, Section, SectionHead } from "@/components/site";
 import { offer } from "@/content/offers";
 import { CLIENT_CASES, TALKS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -44,7 +44,7 @@ const Speaking = () => {
 
       <Section id="book">
         <div className="max-w-3xl">
-          <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)]">Planning an event?</h2>
+          <ClosingLine>Planning an event?</ClosingLine>
           <p className="mt-5 text-lg leading-relaxed text-ink/75">
             Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.
           </p>

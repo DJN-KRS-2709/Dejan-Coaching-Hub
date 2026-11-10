@@ -50,8 +50,9 @@ export interface Testimonial {
   placeholder?: boolean;
 }
 
-// PLACEHOLDERS. Replace each one with a real quote, the person's real name and title, and
-// their written OK to publish it. Delete the placeholders that are not filled by launch.
+// PLACEHOLDERS, hidden on the site. Replace each one with a real quote, the person's real name
+// and title, and their written OK, then remove `placeholder: true`. The "What clients say"
+// block on the home page appears as soon as one real quote exists.
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote: "A real quote from a team client goes here.",

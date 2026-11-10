@@ -8,7 +8,7 @@ export const WorkedWith = () => (
       <Eyebrow className="mb-3">Worked with</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {WORKED_WITH.map((name) => (
-          <li key={name} className="font-display text-2xl text-ink/80 md:text-3xl">
+          <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">
             {name}
           </li>
         ))}
@@ -18,7 +18,7 @@ export const WorkedWith = () => (
       <Eyebrow className="mb-3">Built product at</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {BACKGROUND.map((name) => (
-          <li key={name} className="font-display text-2xl text-ink/80 md:text-3xl">
+          <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">
             {name}
           </li>
         ))}
@@ -43,32 +43,22 @@ export const ClientCases = () => (
   </div>
 );
 
-// Testimonials. Placeholders are clearly marked and say what goes there. See src/content/proof.ts.
+// Testimonials: only real quotes are shown. The placeholders in src/content/proof.ts stay
+// hidden until they are replaced with real quotes (name, title and written OK).
+export const REAL_TESTIMONIALS = TESTIMONIALS.filter((t) => !t.placeholder);
+
 export const Testimonials = () => {
-  if (TESTIMONIALS.length === 0) return null;
+  if (REAL_TESTIMONIALS.length === 0) return null;
   return (
     <div className="grid gap-4 md:grid-cols-3">
-      {TESTIMONIALS.map((t, i) =>
-        t.placeholder ? (
-          <figure
-            key={i}
-            className="grid content-start gap-3 rounded-3xl border-2 border-dashed border-[#e2be4a] bg-[#fff4cc] p-6 text-[#4d3b00]"
-          >
-            <span className="justify-self-start rounded-md bg-[#4d3b00] px-2 py-1 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-[#fff4cc]">
-              Testimonial placeholder
-            </span>
-            <blockquote className="text-[0.95rem]">{t.quote}</blockquote>
-            <figcaption className="text-sm">Add the person's name and title, with their written OK.</figcaption>
-          </figure>
-        ) : (
-          <figure key={i} className="grid content-start gap-4 rounded-3xl border border-ink/10 bg-white p-6">
-            <blockquote className="text-lg font-semibold leading-snug text-ink">"{t.quote}"</blockquote>
-            <figcaption className="text-sm text-ink/60">
-              <span className="font-semibold text-ink">{t.name}</span>, {t.role}
-            </figcaption>
-          </figure>
-        ),
-      )}
+      {REAL_TESTIMONIALS.map((t) => (
+        <figure key={t.name} className="grid content-start gap-4 rounded-3xl border border-ink/10 bg-white p-6">
+          <blockquote className="text-lg font-semibold leading-snug text-ink">"{t.quote}"</blockquote>
+          <figcaption className="text-sm text-ink/60">
+            <span className="font-semibold text-ink">{t.name}</span>, {t.role}
+          </figcaption>
+        </figure>
+      ))}
     </div>
   );
 };
