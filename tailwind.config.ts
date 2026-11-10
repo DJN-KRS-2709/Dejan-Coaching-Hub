@@ -23,14 +23,28 @@ export default {
         display: ['Anton', 'Inter', 'sans-serif'],
       },
       colors: {
-        border: '#e3e1dd',
+        border: '#e4e3dd',
         input: '#d8d6d1',
         ring: '#0a0a0a',
-        background: '#f3f2f0',
+        background: '#f3f2ef',
         foreground: '#0a0a0a',
-        canvas: '#f3f2f0',
+        // Warm gray page, near-black ink, one electric blue.
+        canvas: '#f3f2ef',
         ink: '#0a0a0a',
-        accent2: '#2563eb',
+        accent2: '#2b59ff',
+        brand: {
+          DEFAULT: '#2b59ff',
+          ink: '#1b3fcc',
+          bg: '#ecf0ff',
+        },
+        // One blue in five shades, palest for stage 1, full blue for stage 5.
+        stage: {
+          1: '#dde5ff',
+          2: '#b9c9ff',
+          3: '#8ca5ff',
+          4: '#5c7eff',
+          5: '#2b59ff',
+        },
         primary: {
           DEFAULT: '#0a0a0a',
           foreground: '#ffffff',
@@ -44,11 +58,11 @@ export default {
           foreground: '#ffffff',
         },
         muted: {
-          DEFAULT: '#ebe9e5',
+          DEFAULT: '#ecebe6',
           foreground: '#6b6b6b',
         },
         accent: {
-          DEFAULT: '#ebe9e5',
+          DEFAULT: '#ecebe6',
           foreground: '#0a0a0a',
         },
         popover: {

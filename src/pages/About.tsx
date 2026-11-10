@@ -1,95 +1,119 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, Heart, Handshake, MessageSquare, Bot, Sparkles } from "lucide-react";
+import IntroCallLink from "@/components/IntroCallLink";
+import { CaseCard, WorkedWith } from "@/components/Proof";
+import { Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
+import { buttonVariants } from "@/components/ui/button";
+import { BACKGROUND_CASES } from "@/content/proof";
+import { usePageTitle } from "@/hooks/use-page-title";
+import { YEARS } from "@/lib/links";
+
+const CAREER = [
+  { org: "Independent", role: "AI product leadership coach, from 2027", now: true },
+  { org: "Product School", role: "Chief Product Officer, 2026. Instructor and speaker before that." },
+  { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
+  { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
+  { org: "BMG", role: "Director of Business Analysis" },
+  { org: "Universal Music", role: "Product leadership" },
+];
+
+const BMG = {
+  who: "BMG · Director of Business Analysis",
+  title: "Royalty systems",
+  body: "Led the teams behind royalty systems and technical services, connecting technology, rights and finance in one of the most complex value chains in music.",
+};
 
 const About = () => {
-  const values = [
-    { icon: <Bot className="h-6 w-6" />, title: "AI-First Mindset", desc: "Building and deploying AI agents that transform how teams work and deliver value." },
-    { icon: <Sparkles className="h-6 w-6" />, title: "Hands-On Innovation", desc: "Prototyping with cutting-edge AI tools and bringing ideas to life through experimentation." },
-    { icon: <Heart className="h-6 w-6" />, title: "Lead with Empathy", desc: "Understanding user needs and team dynamics through genuine connection and care." },
-    { icon: <Handshake className="h-6 w-6" />, title: "Foster Collaboration", desc: "Building bridges between teams and creating environments where everyone can thrive." },
-    { icon: <Users className="h-6 w-6" />, title: "Grow Together", desc: "Mentoring and learning from others while fostering a culture of continuous improvement." },
-    { icon: <MessageSquare className="h-6 w-6" />, title: "Open Dialogue", desc: "Creating space for honest conversations and meaningful feedback." },
-  ];
+  usePageTitle(
+    "About",
+    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO of Product School, now an independent AI product leadership coach.`,
+  );
 
   return (
-    <div className="flex min-h-screen flex-col bg-canvas text-ink">
-      <Navbar />
-      <main className="flex-1 pt-16">
-        {/* Hero */}
-        <section className="py-16 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 animate-fade-in">
-              <div className="flex-1 space-y-8">
-                <h1 className="font-display text-[clamp(2.75rem,8vw,6rem)] text-ink">
-                  Hi, I'm Dejan
-                </h1>
-                <div className="space-y-6 text-base md:text-lg text-ink/60 leading-relaxed max-w-xl">
-                  <p>
-                    "I've built and launched products across both B2C and B2B. Some scaled beautifully, and others failed gloriously. Each experience sharpened my understanding of what it truly takes to create products that solve real problems and drive impact."
-                  </p>
-                  <p>
-                    My journey in product leadership has taught me that the most impactful products are built not just with technical excellence, but with deep empathy, understanding, and a relentless focus on solving real human problems.
-                  </p>
-                  <p>
-                    Today, I'm deeply immersed in <strong className="text-ink font-semibold">AI and intelligent automation</strong>. I build AI agents, prototype with cutting-edge tools, and help organizations harness AI for operational excellence, committed to helping product leaders navigate this new frontier.
-                  </p>
-                  <p>
-                    I believe in leading with heart, fostering psychological safety, and creating environments where innovation thrives through open collaboration and fearless experimentation.
-                  </p>
-                </div>
-              </div>
-              <div className="lg:flex-1 w-full">
-                <div className="relative w-full max-w-[480px] mx-auto aspect-[6/5] overflow-hidden rounded-3xl border border-ink/10">
-                  <img
-                    src="/lovable-uploads/dejan-profile-2026.png"
-                    alt="Dejan Krstic - Product Leadership Coach"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
+    <PageShell>
+      <section className="pb-12 pt-12 md:pb-20 md:pt-20">
+        <div className="container px-4 md:px-6">
+          <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+            <div className="animate-fade-in">
+              <Eyebrow>About</Eyebrow>
+              <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)]">Hi, I'm Dejan.</h1>
+              <div className="mt-6 grid max-w-xl gap-5 text-base leading-relaxed text-ink/75 md:text-lg">
+                <p className="text-xl font-semibold leading-snug text-ink md:text-2xl">
+                  I call myself a product management dinosaur.
+                </p>
+                <p>
+                  When I started, I wrote thirty-page specs and then waited six months to find out whether anyone had
+                  built what I meant. They never had.
+                </p>
+                <p>
+                  Today you can test an idea in an afternoon, and anyone in the room can do it. That is the most
+                  exciting thing that has happened to product work in my career, and most people are watching it
+                  instead of doing it.
+                </p>
+                <p>
+                  I've spent {YEARS} years building products in music and tech, and taught, coached and spoke on the
+                  side for most of them. Now it is my whole job: helping people and product teams get from watching to
+                  building.
+                </p>
+                <p>I teach in German and English, and I am at home in Croatian, Serbian and Bosnian.</p>
               </div>
             </div>
+            <div className="mx-auto w-full max-w-[480px] overflow-hidden rounded-3xl border border-ink/10">
+              <img
+                src="/lovable-uploads/dejan-profile-2026.png"
+                alt="Portrait of Dejan Krstic"
+                className="aspect-[6/5] h-full w-full object-cover"
+              />
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values */}
-        <section className="py-16 md:py-24 border-t border-ink/10">
-          <div className="container px-4 md:px-6">
-            <h2 className="font-display text-[clamp(2rem,5vw,4rem)] text-ink mb-12 max-w-3xl">
-              What I stand for
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {values.map((value, index) => (
-                <div key={index} className="rounded-3xl bg-white border border-ink/10 p-7">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-canvas text-accent2">
-                    {value.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-sm text-ink/60 leading-relaxed">{value.desc}</p>
-                </div>
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+          <div>
+            <SectionHead eyebrow="Career" title={`${YEARS} years of building products.`} />
+            <ol className="border-l-2 border-ink">
+              {CAREER.map((c) => (
+                <li key={c.org} className="relative pb-5 pl-5">
+                  <span
+                    className={`absolute -left-[7px] top-2 h-3 w-3 rounded-full border-2 ${
+                      c.now ? "border-brand bg-brand" : "border-ink bg-canvas"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <p className="font-semibold text-ink">{c.org}</p>
+                  <p className="text-sm text-ink/60">{c.role}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <SectionHead eyebrow="What I built" title="The work behind the advice." />
+            <div className="grid gap-4">
+              {[...BACKGROUND_CASES, BMG].map((c) => (
+                <CaseCard key={c.who} c={c} />
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </Section>
 
-        {/* CTA */}
-        <section className="py-20 md:py-32 border-t border-ink/10">
-          <div className="container px-4 md:px-6 text-center">
-            <h2 className="font-display text-[clamp(2.5rem,7vw,6rem)] text-ink max-w-4xl mx-auto">
-              Ready to transform your product leadership?
-            </h2>
-            <div className="mt-10">
-              <Link to="/booking">
-                <Button size="lg">Start Your Journey</Button>
-              </Link>
-            </div>
+      <Section>
+        <WorkedWith />
+      </Section>
+
+      <Section className="border-t-0 pt-0 md:pt-0">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)]">Start where you are.</h2>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <IntroCallLink size="lg" />
+            <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              Find your stage
+            </Link>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </Section>
+    </PageShell>
   );
 };
 

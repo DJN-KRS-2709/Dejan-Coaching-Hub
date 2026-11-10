@@ -2,13 +2,16 @@ import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LEGAL } from "@/lib/legal";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 interface LegalLayoutProps {
   title: string;
   children: ReactNode;
 }
 
-const LegalLayout = ({ title, children }: LegalLayoutProps) => (
+const LegalLayout = ({ title, children }: LegalLayoutProps) => {
+  usePageTitle(title);
+  return (
   <div className="flex min-h-screen flex-col bg-canvas text-ink">
     <Navbar />
     <main className="flex-1 pt-16">
@@ -25,7 +28,8 @@ const LegalLayout = ({ title, children }: LegalLayoutProps) => (
     </main>
     <Footer />
   </div>
-);
+  );
+};
 
 export const LegalAddress = () => (
   <p>
