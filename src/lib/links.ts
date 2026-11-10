@@ -14,4 +14,4 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/dejan-krstic-b4a7a98a/"
 export const CONTACT_EMAIL = LEGAL.email;
 
 // The one experience figure used everywhere on the site.
-export const YEARS = "16+";
+export const YEARS = "20+";

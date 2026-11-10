@@ -8,7 +8,7 @@ import { usePageTitle } from "@/hooks/use-page-title";
 import { YEARS } from "@/lib/links";
 
 const CAREER = [
-  { org: "Independent", role: "AI product leadership coach, from 2027", now: true },
+  { org: "Dejan Krstic", role: "Founder, AI product leadership coach, from 2027", now: true },
   { org: "Product School", role: "Ex-CPO, 2026. Instructor and speaker before that." },
   { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
   { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
@@ -25,7 +25,7 @@ const BMG = {
 const About = () => {
   usePageTitle(
     "About",
-    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO of Product School, now an independent AI product leadership coach.`,
+    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO of Product School. Founder, AI product leadership coach.`,
   );
 
   return (

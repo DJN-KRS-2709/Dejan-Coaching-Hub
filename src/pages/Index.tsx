@@ -21,7 +21,7 @@ const HOME_PACKAGES = ["coaching", "diagnostic", "workshops", "builder-program"]
 const Index = () => {
   usePageTitle(
     "AI builders, not AI spectators",
-    "Dejan Krstic, independent AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
+    "Dejan Krstic, Founder, AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
   );
   // Links like /?for=team&stage=3#path open the path at that stage.
   const [params] = useSearchParams();
@@ -41,7 +41,7 @@ const Index = () => {
         <div className="container px-4 md:px-6">
           <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
             <div className="animate-fade-in">
-              <Eyebrow>Independent AI product leadership coach</Eyebrow>
+              <Eyebrow>Founder, AI product leadership coach</Eyebrow>
               <h1 className="mt-5 font-display text-[clamp(3.1rem,11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
                 AI builders,
                 <br />
