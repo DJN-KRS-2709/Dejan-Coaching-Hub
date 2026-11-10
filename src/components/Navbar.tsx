@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-ink/5 bg-canvas/90 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between gap-4 px-4 md:px-6">
-        <Link to="/" className="text-xl text-ink md:text-2xl" onClick={() => setOpen(false)}>
+        <Link to="/" className="inline-flex min-h-[44px] items-center text-xl text-ink md:text-2xl" onClick={() => setOpen(false)}>
           <Wordmark />
         </Link>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-ink/5 lg:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-ink hover:bg-ink/5 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -67,7 +67,7 @@ const Navbar = () => {
               end
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `rounded-full px-4 py-2.5 text-base font-medium ${isActive ? "bg-ink text-white" : "text-ink/70 hover:bg-ink/5"}`
+                `flex min-h-[44px] items-center rounded-full px-4 py-2.5 text-base font-medium ${isActive ? "bg-ink text-white" : "text-ink/70 hover:bg-ink/5"}`
               }
             >
               Home
@@ -78,7 +78,7 @@ const Navbar = () => {
                 to={link.to}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2.5 text-base font-medium ${isActive ? "bg-ink text-white" : "text-ink/70 hover:bg-ink/5"}`
+                  `flex min-h-[44px] items-center rounded-full px-4 py-2.5 text-base font-medium ${isActive ? "bg-ink text-white" : "text-ink/70 hover:bg-ink/5"}`
                 }
               >
                 {link.label}

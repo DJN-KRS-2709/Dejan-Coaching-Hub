@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import IntroCallLink from "@/components/IntroCallLink";
 import SignupForm from "@/components/SignupForm";
 import { StageChips } from "@/components/site";
 import { buttonVariants } from "@/components/ui/button";
@@ -17,18 +16,24 @@ const OfferCard = ({ offer, compact = false }: Props) => {
   const { cta } = offer;
   const variant = offer.featured ? "brand" : "outline";
 
+  // Text links are at least 44px tall, so they are easy to tap on a phone.
+  const textLink =
+    "inline-flex min-h-[44px] items-center gap-1 justify-self-start text-sm font-semibold text-ink hover:text-brand-ink";
+
   let action;
   if (compact) {
     action = (
-      <Link
-        to={`/work-with-me#${offer.id}`}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-ink hover:text-brand-ink"
-      >
+      <Link to={`/work-with-me#${offer.id}`} className={textLink}>
         Details <ArrowRight className="h-4 w-4" />
       </Link>
     );
   } else if (cta.kind === "intro") {
-    action = <IntroCallLink variant={variant} size="sm" className="justify-self-start" />;
+    // No booking button per card: the page has one intro call button at the end.
+    action = (
+      <Link to="/work-with-me#how-it-works" className={textLink}>
+        How to start <ArrowRight className="h-4 w-4" />
+      </Link>
+    );
   } else if (cta.kind === "link") {
     action = (
       <Link to={cta.to} className={cn(buttonVariants({ variant, size: "sm" }), "justify-self-start")}>

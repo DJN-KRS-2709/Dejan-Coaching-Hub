@@ -79,7 +79,7 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, className 
           aria-invalid={status === "invalid"}
           aria-describedby={`${id}-msg`}
           className={cn(
-            "h-11 min-w-0 flex-1 rounded-full border px-4 text-base outline-none transition-colors focus-visible:ring-2 focus-visible:ring-brand md:text-sm",
+            "h-11 w-full min-w-0 rounded-full sm:w-auto sm:flex-1 border px-4 text-base outline-none transition-colors focus-visible:ring-2 focus-visible:ring-brand md:text-sm",
             dark
               ? "border-white/20 bg-white/10 text-white placeholder:text-white/50"
               : "border-ink/15 bg-white text-ink placeholder:text-ink/40",
@@ -118,7 +118,7 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, className 
       </p>
       <p className={cn("text-xs", dark ? "text-white/50" : "text-ink/50")}>
         No spam. Unsubscribe any time.{" "}
-        <Link to="/datenschutz" className="underline underline-offset-2">
+        <Link to="/datenschutz" className="inline-flex min-h-[44px] items-center underline underline-offset-2">
           Privacy (Datenschutz)
         </Link>
       </p>

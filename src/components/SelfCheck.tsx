@@ -60,7 +60,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
                     <label
                       key={id}
                       htmlFor={id}
-                      className="flex cursor-pointer items-start gap-3 rounded-xl px-2 py-2 text-[0.95rem] leading-snug text-ink/80 hover:bg-muted"
+                      className="flex min-h-[44px] cursor-pointer items-start gap-3 rounded-xl px-2 py-2.5 text-[0.95rem] leading-snug text-ink/80 hover:bg-muted"
                     >
                       <input
                         type="radio"

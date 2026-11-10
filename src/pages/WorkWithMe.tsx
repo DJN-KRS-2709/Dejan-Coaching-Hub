@@ -49,8 +49,7 @@ const WorkWithMe = () => {
         lead="Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <IntroCallLink size="lg" />
-          <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
+          <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
             Find your stage
           </Link>
         </div>
@@ -91,7 +90,7 @@ const WorkWithMe = () => {
         </div>
       </Section>
 
-      <Section>
+      <Section id="how-it-works">
         <SectionHead eyebrow="How it works" title="Four steps, no surprises." />
         <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (

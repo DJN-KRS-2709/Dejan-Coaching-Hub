@@ -11,7 +11,7 @@ const Speaking = () => {
     "Speaking",
     "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
   );
-  const keynote = { ...offer("keynotes"), cta: { kind: "intro" as const } };
+  const keynote = { ...offer("keynotes"), cta: { kind: "link" as const, label: "How to book a talk", to: "/speaking#book" } };
   const prague = CLIENT_CASES.find((c) => c.who.startsWith("Clientology"));
 
   return (
@@ -20,11 +20,7 @@ const Speaking = () => {
         eyebrow="Speaking"
         title="Talks that end with something built on stage."
         lead="Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build, followed by a live demo. In English or German."
-      >
-        <div className="mt-8">
-          <IntroCallLink size="lg" />
-        </div>
-      </PageHero>
+      />
 
       <Section>
         <SectionHead eyebrow="Talks" title="Three talks, each one adapted to your room." />
@@ -43,6 +39,18 @@ const Speaking = () => {
         <div className="grid gap-6 lg:grid-cols-2">
           <OfferCard offer={keynote} />
           {prague && <CaseCard c={prague} />}
+        </div>
+      </Section>
+
+      <Section id="book">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)]">Planning an event?</h2>
+          <p className="mt-5 text-lg leading-relaxed text-ink/75">
+            Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.
+          </p>
+          <div className="mt-8">
+            <IntroCallLink size="lg" />
+          </div>
         </div>
       </Section>
     </PageShell>

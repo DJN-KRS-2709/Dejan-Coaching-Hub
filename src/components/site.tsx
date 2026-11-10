@@ -135,7 +135,7 @@ export const ModeSwitch = ({
         aria-pressed={mode === value}
         onClick={() => onChange(value)}
         className={cn(
-          "rounded-full px-4 py-2.5 text-sm font-semibold leading-none transition-colors",
+          "min-h-[44px] rounded-full px-4 py-2.5 text-sm font-semibold leading-none transition-colors",
           mode === value ? "bg-ink text-white" : "text-ink/70 hover:text-ink",
         )}
       >

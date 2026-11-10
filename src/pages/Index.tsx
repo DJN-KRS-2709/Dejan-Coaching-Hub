@@ -54,7 +54,6 @@ const Index = () => {
               <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
                 Find your stage
               </Link>
-              <IntroCallLink variant="outline" size="lg" />
             </div>
           </div>
           <div className="mt-12 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-ink/10 pt-6">
@@ -136,7 +135,7 @@ const Index = () => {
         </div>
         <Link
           to="/work-with-me"
-          className="mt-8 inline-flex items-center gap-1 font-semibold text-ink hover:text-brand-ink"
+          className="mt-8 inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink hover:text-brand-ink"
         >
           See every offer and price <ArrowRight className="h-4 w-4" />
         </Link>

@@ -23,7 +23,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
         <ModeSwitch mode={mode} onChange={onModeChange} />
         <p className="text-sm text-ink/60">
           Not sure where you are?{" "}
-          <Link to={`/self-check?for=${mode}`} className="font-semibold text-brand-ink underline-offset-2 hover:underline">
+          <Link to={`/self-check?for=${mode}`} className="inline-flex min-h-[44px] items-center font-semibold text-brand-ink underline-offset-2 hover:underline">
             Take the two-minute self-check.
           </Link>
         </p>
@@ -90,7 +90,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
                 <Link
                   key={h.label}
                   to={h.to}
-                  className="rounded-full bg-brand-bg px-3 py-1.5 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand hover:text-white"
+                  className="inline-flex min-h-[44px] items-center rounded-full bg-brand-bg px-4 py-1.5 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand hover:text-white"
                 >
                   {h.label}
                 </Link>

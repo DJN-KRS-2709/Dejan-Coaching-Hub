@@ -9,7 +9,7 @@ import { YEARS } from "@/lib/links";
 
 const CAREER = [
   { org: "Independent", role: "AI product leadership coach, from 2027", now: true },
-  { org: "Product School", role: "Chief Product Officer, 2026. Instructor and speaker before that." },
+  { org: "Product School", role: "Ex-CPO, 2026. Instructor and speaker before that." },
   { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
   { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
   { org: "BMG", role: "Director of Business Analysis" },
