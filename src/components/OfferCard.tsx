@@ -4,6 +4,7 @@ import SignupForm from "@/components/SignupForm";
 import { StageChips, TEXT_LINK } from "@/components/site";
 import { buttonVariants } from "@/components/ui/button";
 import type { Offer } from "@/content/offers";
+import { SHOW_PRICING, SHOW_WAITLIST } from "@/lib/flags";
 import { INTRO_CALL_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,11 @@ interface Props {
 
 // Cards never carry a solid blue button: the page's one blue button is its close.
 const OfferCard = ({ offer, compact = false }: Props) => {
-  const { cta } = offer;
+  // With the waitlist held back, anything that points at it becomes the intro call.
+  const toWaitlist =
+    (offer.cta.kind === "link" && offer.cta.to.includes("#waitlist")) ||
+    (offer.cta.kind === "signup" && offer.cta.list === "cohort-waitlist");
+  const cta = !SHOW_WAITLIST && toWaitlist ? ({ kind: "intro" } as const) : offer.cta;
   const textLink = cn(TEXT_LINK, "justify-self-start text-sm");
 
   let action;
@@ -60,10 +65,12 @@ const OfferCard = ({ offer, compact = false }: Props) => {
       <h3 className="text-xl font-semibold tracking-tight text-ink">{offer.title}</h3>
       <p className="text-[0.95rem] leading-relaxed text-ink/70">{offer.body}</p>
       <p className="text-sm text-ink/50">{offer.format}</p>
-      <p className="text-xl font-extrabold tabular-nums tracking-tight text-ink">
-        {offer.price}
-        {offer.priceNote && <span className="ml-2 text-sm font-medium tracking-normal text-ink/50">{offer.priceNote}</span>}
-      </p>
+      {SHOW_PRICING && (
+        <p className="text-xl font-extrabold tabular-nums tracking-tight text-ink">
+          {offer.price}
+          {offer.priceNote && <span className="ml-2 text-sm font-medium tracking-normal text-ink/50">{offer.priceNote}</span>}
+        </p>
+      )}
       <div className="mt-1 grid">{action}</div>
     </article>
   );

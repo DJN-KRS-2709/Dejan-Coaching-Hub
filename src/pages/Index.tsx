@@ -11,6 +11,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { offer } from "@/content/offers";
 import type { Mode } from "@/content/stages";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SHOW_PRICING, SHOW_WAITLIST } from "@/lib/flags";
 import { INTRO_CALL_LABEL, INTRO_CALL_URL, YEARS } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +22,7 @@ const HOME_PACKAGES = ["coaching", "diagnostic", "workshops", "builder-program"]
 const Index = () => {
   usePageTitle(
     "AI builders, not AI spectators",
-    "Dejan Krstic, Founder, AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
+    "Dejan Krstic, AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
   );
   // Links like /?for=team&stage=3#path open the path at that stage.
   const [params] = useSearchParams();
@@ -41,7 +42,7 @@ const Index = () => {
         <div className="container px-4 md:px-6">
           <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
             <div className="animate-fade-in">
-              <Eyebrow>Founder, AI product leadership coach</Eyebrow>
+              <Eyebrow>AI product leadership coach</Eyebrow>
               <h1 className="mt-5 font-display text-[clamp(3.1rem,11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
                 AI builders,
                 <br />
@@ -74,7 +75,7 @@ const Index = () => {
           </div>
           <div className="mt-12 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-ink/10 pt-6">
             <Eyebrow className="basis-full">{YEARS} years building products</Eyebrow>
-            <span className="font-semibold text-ink">Ex-CPO Product School</span>
+            <span className="font-semibold text-ink">CPO, Product School</span>
             <span className="font-semibold text-ink">Spotify</span>
             <span className="font-semibold text-ink">SoundCloud</span>
           </div>
@@ -147,13 +148,21 @@ const Index = () => {
               Three weeks, 6 live hours, max 20 people, one real problem from your work. You leave with a prototype
               you have tested with real users and shown on demo day. No code needed.
             </p>
-            <p className="text-2xl font-extrabold tabular-nums">
-              €990 <span className="text-base font-medium text-white/60">Founding cohort €690</span>
-            </p>
+            {SHOW_PRICING && (
+              <p className="text-2xl font-extrabold tabular-nums">
+                €990 <span className="text-base font-medium text-white/60">Founding cohort €690</span>
+              </p>
+            )}
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/course#waitlist" className={buttonVariants({ variant: "light" })}>
-                Join the waitlist
-              </Link>
+              {SHOW_WAITLIST ? (
+                <Link to="/course#waitlist" className={buttonVariants({ variant: "light" })}>
+                  Join the waitlist
+                </Link>
+              ) : (
+                <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "light" })}>
+                  Ask about the course
+                </a>
+              )}
               <Link to="/course" className={buttonVariants({ variant: "outlineLight" })}>
                 See the three weeks
               </Link>
@@ -167,7 +176,7 @@ const Index = () => {
         <SectionHead
           eyebrow="Ways to work together"
           title="Packages with a clear outcome, not hourly sessions."
-          lead="1:1 coaching for you, fixed-price packages for your team. Paid work starts with a free 20-minute intro call."
+          lead={`1:1 coaching for you, ${SHOW_PRICING ? "fixed-price packages" : "packages"} for your team. Paid work starts with a free 20-minute intro call.`}
         />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {HOME_PACKAGES.map((id) => (
@@ -175,7 +184,7 @@ const Index = () => {
           ))}
         </div>
         <Link to="/work-with-me" className={cn(TEXT_LINK, "mt-6")}>
-          See every offer and price, including advisory and keynotes <ArrowRight className="h-4 w-4" />
+          {SHOW_PRICING ? "See every offer and price" : "See every offer"}, including advisory and keynotes <ArrowRight className="h-4 w-4" />
         </Link>
       </Section>
 

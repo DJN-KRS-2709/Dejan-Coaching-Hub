@@ -8,6 +8,7 @@ import { OFFER_GROUPS, offersIn } from "@/content/offers";
 import type { OfferGroup } from "@/content/offers";
 import { PRINCIPLES } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SHOW_PRICING } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 
 const STEPS = [
@@ -17,7 +18,9 @@ const STEPS = [
   },
   {
     title: "A one-page proposal",
-    body: "The outcome, the format and a fixed price. Teams pay by invoice.",
+    body: SHOW_PRICING
+      ? "The outcome, the format and a fixed price. Teams pay by invoice."
+      : "The outcome, the format and what it costs. Teams pay by invoice.",
   },
   {
     title: "Work on your real work",
@@ -108,7 +111,7 @@ const WorkWithMe = () => {
       <PageHero
         eyebrow="Work with me"
         title="Packages, not hourly sessions."
-        lead="Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits."
+        lead={`Every offer is the next step from where you or your team are today.${SHOW_PRICING ? " Fixed prices." : ""} Paid work starts with a free 20-minute intro call, so we both know it fits.`}
       >
         <div className="mt-8">
           <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>

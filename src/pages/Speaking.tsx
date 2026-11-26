@@ -5,11 +5,12 @@ import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/compone
 import { offer } from "@/content/offers";
 import { CLIENT_CASES, TALKS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { SHOW_PRICING } from "@/lib/flags";
 
 const Speaking = () => {
   usePageTitle(
     "Speaking",
-    "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
+    `Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German.${SHOW_PRICING ? " From €2,500." : ""}`,
   );
   const keynote = { ...offer("keynotes"), cta: { kind: "link" as const, label: "How to book a talk", to: "/speaking#book" } };
   const prague = CLIENT_CASES.find((c) => c.who.startsWith("Clientology"));

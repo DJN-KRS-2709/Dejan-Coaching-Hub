@@ -5,6 +5,8 @@ import { ClosingLine, Eyebrow, PageHero, PageShell, Section, SectionHead, StageB
 import { buttonVariants } from "@/components/ui/button";
 import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
+import IntroCallLink from "@/components/IntroCallLink";
+import { SHOW_PRICING, SHOW_WAITLIST } from "@/lib/flags";
 import { INTRO_CALL_URL } from "@/lib/links";
 
 const FACTS = [
@@ -14,13 +16,13 @@ const FACTS = [
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
   ["You need", "A laptop, a problem and about 2 hours a week for your own project. No code."],
-  ["Price", "€990. Founding cohort €690."],
+  ...(SHOW_PRICING ? [["Price", "€990. Founding cohort €690."]] : []),
 ];
 
 const Course = () => {
   usePageTitle(
     "Spectator to Builder",
-    "A 3-week live cohort for up to 20 people: 4 sessions, 6 live hours. From a problem in your work to a prototype you have tested with real users. €990, founding cohort €690.",
+    `A 3-week live cohort for up to 20 people: 4 sessions, 6 live hours. From a problem in your work to a prototype you have tested with real users.${SHOW_PRICING ? " €990, founding cohort €690." : ""}`,
   );
 
   return (
@@ -37,9 +39,13 @@ const Course = () => {
         lead="For anyone who works on products or wants to: product managers, product owners, designers, analysts and people switching careers. You bring one real problem from your work. You leave with something built, tested and running."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#waitlist" className={buttonVariants({ variant: "brand", size: "lg" })}>
-            Join the waitlist
-          </a>
+          {SHOW_WAITLIST ? (
+            <a href="#waitlist" className={buttonVariants({ variant: "brand", size: "lg" })}>
+              Join the waitlist
+            </a>
+          ) : (
+            <IntroCallLink size="lg" label="Ask about the course" />
+          )}
           <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
             Is it for me? Take the self-check
           </Link>
@@ -90,25 +96,40 @@ const Course = () => {
         </ol>
       </Section>
 
-      {/* Close: the founding cohort waitlist */}
-      <Section id="waitlist" className="scroll-mt-4">
-        <div className="max-w-xl">
-          <ClosingLine>Join the founding cohort.</ClosingLine>
-          <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
-            <Eyebrow>Founding cohort waitlist</Eyebrow>
-            <p className="mt-3 text-2xl font-extrabold tabular-nums tracking-tight">
-              €690 <span className="text-base font-medium text-ink/50 line-through">€990</span>
+      {/* Close: the founding cohort waitlist, or the intro call while the waitlist is held back */}
+      {!SHOW_WAITLIST && (
+        <Section id="waitlist" className="scroll-mt-4">
+          <div className="max-w-3xl">
+            <ClosingLine>Want to be in the first cohort?</ClosingLine>
+            <p className="mt-5 text-lg leading-relaxed text-ink/75">
+              Book 20 minutes. Tell me what you want to build, and I will tell you if the course fits.
             </p>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
-              The first cohort pays €690 instead of €990. The waitlist hears about dates first.
-            </p>
-            <SignupForm list="cohort-waitlist" label="Your email" button="Join the waitlist" primary className="mt-5" />
+            <div className="mt-8">
+              <IntroCallLink size="lg" variant="outline" />
+            </div>
           </div>
-          <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={`${TEXT_LINK} mt-4`}>
-            Questions first? Book a free 20-min intro call <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-      </Section>
+        </Section>
+      )}
+      {SHOW_WAITLIST && (
+        <Section id="waitlist" className="scroll-mt-4">
+          <div className="max-w-xl">
+            <ClosingLine>Join the founding cohort.</ClosingLine>
+            <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
+              <Eyebrow>Founding cohort waitlist</Eyebrow>
+              <p className="mt-3 text-2xl font-extrabold tabular-nums tracking-tight">
+                €690 <span className="text-base font-medium text-ink/50 line-through">€990</span>
+              </p>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
+                The first cohort pays €690 instead of €990. The waitlist hears about dates first.
+              </p>
+              <SignupForm list="cohort-waitlist" label="Your email" button="Join the waitlist" primary className="mt-5" />
+            </div>
+            <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={`${TEXT_LINK} mt-4`}>
+              Questions first? Book a free 20-min intro call <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </Section>
+      )}
     </PageShell>
   );
 };

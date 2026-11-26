@@ -8,8 +8,7 @@ import { usePageTitle } from "@/hooks/use-page-title";
 import { YEARS } from "@/lib/links";
 
 const CAREER = [
-  { org: "Dejan Krstic", role: "Founder, AI product leadership coach, from 2027", now: true },
-  { org: "Product School", role: "Ex-CPO, 2026. Instructor and speaker before that." },
+  { org: "Product School", role: "CPO, 2026 to today. Instructor and speaker before that.", now: true },
   { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
   { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
   { org: "BMG", role: "Director of Business Analysis" },
@@ -25,7 +24,7 @@ const BMG = {
 const About = () => {
   usePageTitle(
     "About",
-    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO of Product School. Founder, AI product leadership coach.`,
+    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, CPO of Product School. AI product leadership coach.`,
   );
 
   return (
@@ -64,7 +63,7 @@ const About = () => {
               </p>
               <p>
                 I've spent {YEARS} years building products in music and tech, and taught, coached and spoke on the side
-                for most of them. Now it is my whole job: helping people and product teams get from watching to
+                for most of them. What I care about most is helping people and product teams get from watching to
                 building.
               </p>
               <p>I teach in German and English, and I am at home in Croatian, Serbian and Bosnian.</p>
