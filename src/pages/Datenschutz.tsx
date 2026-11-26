@@ -23,6 +23,11 @@ const Datenschutz = () => (
         Werbedienste. Personenbezogene Daten werden nur in dem Umfang verarbeitet, der für
         den Betrieb der Website und die Beantwortung Ihrer Anfragen erforderlich ist.
       </p>
+      <p>
+        Der Selbstcheck wird vollständig in Ihrem Browser ausgewertet. Ihre Antworten werden
+        nicht übertragen und nicht gespeichert, solange Sie die Auswertung nicht per E-Mail
+        anfordern (siehe Abschnitt 7).
+      </p>
     </section>
 
     <section>
@@ -81,7 +86,7 @@ const Datenschutz = () => (
     <section>
       <h2>6. Terminbuchung über Setmore</h2>
       <p>
-        Für die Buchung von Coaching-Terminen verlinkt diese Website auf den
+        Für die Buchung eines kostenlosen Kennenlerngesprächs verlinkt diese Website auf den
         Online-Terminbuchungsdienst Setmore. Erst wenn Sie einen Buchungslink anklicken,
         werden Sie zu Setmore weitergeleitet. Dort geben Sie die für die Buchung nötigen
         Daten ein (zum Beispiel Name, E-Mail-Adresse, Telefonnummer und gewünschter Termin).
@@ -99,7 +104,31 @@ const Datenschutz = () => (
     </section>
 
     <section>
-      <h2>7. Links zu anderen Websites</h2>
+      <h2>7. Newsletter, Warteliste und Masterclass</h2>
+      <p>
+        Wenn Sie sich für meinen Newsletter, die Warteliste des Kurses, die Termine der
+        Masterclass oder die Auswertung des Selbstchecks eintragen, verarbeite ich Ihre
+        E-Mail-Adresse und die Angabe, wofür Sie sich eingetragen haben. Bei der Auswertung des
+        Selbstchecks speichere ich zusätzlich Ihr Ergebnis (die Stufe und ob Sie den Check für
+        sich oder für Ihr Team gemacht haben). Ich nutze diese Daten nur, um Ihnen die
+        gewünschten E-Mails zu senden.
+      </p>
+      <p>
+        Nach der Anmeldung erhalten Sie eine E-Mail, in der Sie die Anmeldung bestätigen
+        (Double-Opt-in). Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+        Sie können sie jederzeit widerrufen, über den Abmeldelink in jeder E-Mail oder per
+        E-Mail an mich. Nach der Abmeldung lösche ich Ihre Daten.
+      </p>
+      {/* PLATZHALTER: vor dem Start den E-Mail-Dienst eintragen (Name, Anschrift, Ort der
+          Verarbeitung, Vertrag zur Auftragsverarbeitung). Siehe src/lib/signup.ts. */}
+      <p>
+        Für den Versand nutze ich den E-Mail-Dienst [Platzhalter: Anbieter wird vor dem Start
+        ergänzt], mit dem ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO besteht.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Links zu anderen Websites</h2>
       <p>
         Diese Website enthält einfache Links, zum Beispiel zu meinem LinkedIn-Profil. Dabei
         werden keine Inhalte von LinkedIn eingebunden und keine Daten an LinkedIn übertragen,
@@ -109,7 +138,7 @@ const Datenschutz = () => (
     </section>
 
     <section>
-      <h2>8. Ihre Rechte</h2>
+      <h2>9. Ihre Rechte</h2>
       <p>Sie haben im Rahmen der gesetzlichen Vorgaben das Recht auf:</p>
       <ul>
         <li>Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -121,6 +150,7 @@ const Datenschutz = () => (
           Widerspruch gegen Verarbeitungen, die auf Art. 6 Abs. 1 lit. f DSGVO beruhen
           (Art. 21 DSGVO)
         </li>
+        <li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
       </ul>
       <p>
         Zur Ausübung Ihrer Rechte genügt eine E-Mail an{" "}
@@ -130,7 +160,7 @@ const Datenschutz = () => (
     </section>
 
     <section>
-      <h2>9. SSL- bzw. TLS-Verschlüsselung</h2>
+      <h2>10. SSL- bzw. TLS-Verschlüsselung</h2>
       <p>
         Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine
         verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres
