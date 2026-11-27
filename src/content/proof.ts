@@ -126,8 +126,8 @@ export const TALKS = [
   },
 ];
 
-// Spectator to Builder: 2 weeks, 4 live sessions of 2 hours (8 live hours), two sessions a week.
-// AI product management foundations, built around the biggest changes AI brings and how to work with them.
+// Prompt to Product: 2 weeks, 4 live sessions of 2 hours (8 live hours), two sessions a week.
+// Entry level. Arc: idea and spec, build, deploy, evals and demo. Agents are not covered.
 export const COURSE_SESSIONS = [
   {
     session: 1,
@@ -142,23 +142,23 @@ export const COURSE_SESSIONS = [
     week: 1,
     stage: 2,
     title: "Pick a problem worth solving",
-    body: "The three questions every product decision answers: what problem, for whom, and how you will know. You pick one real problem from your work and back it with evidence, not opinion.",
-    leave: "A problem from your own work, backed by evidence",
+    body: "The three questions every product decision answers: what problem, for whom, and how you will know. You pick one real problem from your work, back it with evidence, and write the spec you will build from.",
+    leave: "A problem backed by evidence, and a one-page spec",
   },
   {
     session: 3,
     week: 2,
     stage: 3,
-    title: "Build your first AI prototype",
-    body: "Write the context AI builds from, then go from that brief to a working prototype in one session. This is where most AI output is won or lost.",
-    leave: "A prototype a colleague can click",
+    title: "Build and deploy your first AI product",
+    body: "Vibe code from your spec to a working product in one session, then deploy it so other people can use it.",
+    leave: "A working product at a link you can share",
   },
   {
     session: 4,
     week: 2,
     stage: 3,
     title: "Test it with evals, show it, plan what's next",
-    body: "Write simple evals that check whether your prototype does its job. Show it to the group in five minutes, get feedback, and plan your next step.",
-    leave: "A tested prototype, a 5-minute demo and a plan for what's next",
+    body: "Light evals: score your product against a simple rubric to check it does its job. Show it to the group in five minutes, get feedback, and plan your next step.",
+    leave: "A tested product, a 5-minute demo and a plan for what's next",
   },
 ];

@@ -6,34 +6,48 @@ import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const FACTS = [
+  ["For", "Entry level. You know some product management but are not confident with AI yet, or you want to become an AI product person."],
   ["Format", "4 live sessions of 2 hours over 2 weeks: 8 live hours"],
-  ["Schedule", "Two sessions a week. Week 1: how AI works and a problem worth solving. Week 2: build, test and show."],
+  ["Schedule", "Two sessions a week. Week 1: how AI works, an idea worth building and the spec. Week 2: build, deploy, test and show."],
   ["When", "Daytime sessions, Berlin time. No late evenings."],
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
-  ["You need", "A laptop and one real problem from your work. No code."],
+  ["You need", "A laptop and one real problem from your work. No coding experience."],
   ["Price", "$795. Early bird $700."],
+];
+
+const PARTS = [
+  {
+    title: "AI product management basics",
+    body: "How AI works, what is worth building, and how to write the spec you build from.",
+  },
+  {
+    title: "Vibe coding to a working product",
+    body: "Build from your spec with AI, then deploy it, so you have a working product at a link you can share.",
+  },
+  {
+    title: "Light evals",
+    body: "Check your product against a simple rubric, so you know whether it does its job before you show it.",
+  },
 ];
 
 const Course = () => {
   usePageTitle(
-    "Spectator to Builder",
-    "AI product management foundations in a 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. The biggest changes AI brings to product work, and how to work with them. $795, early bird $700.",
+    "Prompt to Product",
+    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. $795, early bird $700.",
   );
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="The course · 2-week live cohort · 8 live hours"
-        title={
-          <>
-            Spectator
-            <br />
-            to Builder
-          </>
-        }
-        lead="AI product management foundations, built around the biggest changes AI brings to product work and how to work with them. For anyone who works on products or wants to: product managers, product owners, designers, analysts and people switching careers. You bring one real problem from your work. You leave with an AI prototype you have built, tested and shown."
+        eyebrow="Prompt to Product · 2-week live cohort · 8 live hours"
+        title="Ship a real AI product in 14 days"
+        lead="In 14 days from idea to your own AI product."
       >
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+          For people with some product management knowledge who are not confident with AI yet, and for anyone who
+          wants to become an AI product person. You bring one real problem from your work.
+        </p>
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
           <IntroCallLink size="lg" />
           <Link to="/self-check" className={TEXT_LINK}>
@@ -41,6 +55,20 @@ const Course = () => {
           </Link>
         </div>
       </PageHero>
+
+      <Section>
+        <SectionHead eyebrow="What you learn" title="Three parts, one product of your own." />
+        <ol className="grid gap-4 md:grid-cols-3">
+          {PARTS.map((p, i) => (
+            <li key={p.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
+              <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
+              <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
+              <p className="text-[0.95rem] text-ink/70">{p.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-6 text-sm text-ink/60">Not covered: AI agents.</p>
+      </Section>
 
       <Section>
         <div className="max-w-3xl">
@@ -60,7 +88,7 @@ const Course = () => {
         <SectionHead
           eyebrow="The two weeks"
           title="Every session ends with something you made."
-          lead="Week 1 covers how AI works and which problem is worth solving. Week 2 takes you to stage 3: you build an AI prototype, test it with evals and show it to the group."
+          lead="Week 1 covers how AI works, an idea worth building and the spec. Week 2 takes you to stage 3: you build and deploy your product, test it with evals and show it to the group."
         />
         <ol className="border-t-2 border-ink">
           {[1, 2].map((week) => (

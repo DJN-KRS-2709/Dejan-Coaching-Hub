@@ -98,7 +98,7 @@ const OfferTabs = () => {
 const WorkWithMe = () => {
   usePageTitle(
     "Work with me",
-    "Packages, not hourly sessions: the Spectator to Builder course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
+    "Packages, not hourly sessions: the Prompt to Product course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
   );
 
   return (

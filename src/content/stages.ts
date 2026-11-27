@@ -37,7 +37,7 @@ export const STAGES: Stage[] = [
       ],
       next: "Learn how AI actually works, and how product people decide what is worth building. In plain language, no code.",
       help: [
-        { label: "Spectator to Builder", to: "/course" },
+        { label: "Prompt to Product", to: "/course" },
         { label: "Self-check", to: "/self-check" },
       ],
     },
@@ -68,7 +68,7 @@ export const STAGES: Stage[] = [
       ],
       next: "Build your first working prototype from a real problem in your work. In an afternoon, not a quarter.",
       help: [
-        { label: "Spectator to Builder", to: "/course" },
+        { label: "Prompt to Product", to: "/course" },
         { label: "Self-check", to: "/self-check" },
       ],
     },
@@ -99,7 +99,7 @@ export const STAGES: Stage[] = [
       ],
       next: "Judge what you build with the same seriousness you used to build it: test with real users, measure, decide. Then make it part of your week.",
       help: [
-        { label: "Spectator to Builder", to: "/course" },
+        { label: "Prompt to Product", to: "/course" },
         { label: "1:1 coaching", to: "/work-with-me#coaching" },
       ],
     },

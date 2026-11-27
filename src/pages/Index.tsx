@@ -102,15 +102,14 @@ const Index = () => {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.09em] text-white/60">The course</p>
             <h2 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-6xl">
-              Spectator to Builder
+              Prompt to Product
             </h2>
           </div>
           <div className="grid gap-5">
             <p className="text-lg leading-relaxed text-white/80">
-              AI product management foundations in two weeks: the biggest changes AI brings to product work, and how
-              to work with them. Four live sessions of 2 hours, 8 live hours, max 20 people, one real problem from
-              your work. You leave with an AI prototype you have tested with evals and shown to the group. No code
-              needed.
+              Ship a real AI product in 14 days. AI product management basics, vibe coding to a working, deployed
+              product, and light evals with a simple rubric. Four live sessions of 2 hours, max 20 people, one real
+              problem from your work. Entry level, no coding experience needed.
             </p>
             <p className="flex flex-wrap items-baseline gap-x-3 tabular-nums">
               <span className="text-4xl font-extrabold md:text-5xl">$700</span>
