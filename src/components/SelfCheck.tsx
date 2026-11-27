@@ -45,7 +45,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
       <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
         <form className="grid min-w-0 gap-4" aria-label="Self-check questions" onSubmit={(e) => e.preventDefault()}>
           {/* Slim progress bar, pinned under the header on phones. */}
-          <div className="sticky top-[65px] z-30 -mx-4 bg-canvas/95 px-4 py-3 backdrop-blur md:-mx-6 md:px-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+          <div className="sticky top-[65px] z-30 bg-canvas/95 py-3 backdrop-blur lg:static lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <div className="mb-1.5 flex justify-between text-xs font-semibold text-ink/60">
               <span>{answered === 0 ? "Four questions" : "Your progress"}</span>
               <span aria-live="polite">{answered > 0 && `${answered}/${questions.length}`}</span>
@@ -80,7 +80,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
                     <label
                       key={id}
                       htmlFor={id}
-                      className="flex min-h-[44px] cursor-pointer items-start gap-3 rounded-xl px-2 py-2.5 text-[0.95rem] leading-snug text-ink/80 hover:bg-muted"
+                      className="flex min-h-[44px] cursor-pointer items-start gap-3 rounded-xl px-2 py-2.5 text-base leading-snug text-ink/80 hover:bg-muted"
                     >
                       <input
                         type="radio"

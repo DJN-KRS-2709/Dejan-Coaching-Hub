@@ -38,9 +38,9 @@ export const CaseCard = ({ c, lead = false, className }: { c: Case; lead?: boole
       className,
     )}
   >
-    <p className="text-xs font-bold uppercase tracking-[0.07em] text-ink/50">{c.who}</p>
+    <p className="text-xs font-bold uppercase tracking-[0.07em] text-ink/60">{c.who}</p>
     <h3 className={cn("font-semibold tracking-tight text-ink", lead ? "text-xl md:text-2xl" : "text-lg")}>{c.title}</h3>
-    <p className={cn("text-[0.95rem] leading-relaxed text-ink/70", lead && "max-w-3xl")}>{c.body}</p>
+    <p className={cn("text-base leading-relaxed text-ink/70", lead && "max-w-[62ch]")}>{c.body}</p>
     {c.link && (
       <a href={c.link.href} target="_blank" rel="noopener noreferrer" className={cn(TEXT_LINK, "justify-self-start text-sm")}>
         {c.link.label} <ArrowRight className="h-4 w-4" />

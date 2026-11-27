@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-ink/5 bg-canvas/90 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between gap-2 px-4 md:gap-4 md:px-6">
-        <Link to="/" className="inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-lg text-ink sm:text-xl md:text-2xl" onClick={() => setOpen(false)}>
+        <Link to="/" className="inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px]" onClick={() => setOpen(false)}>
           <Wordmark />
         </Link>
 
@@ -61,10 +61,10 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1">
-          <IntroCallLink variant="navOutline" size="sm" className="hidden md:h-11 lg:inline-flex" />
+        <div className="flex min-w-0 items-center gap-1">
+          <IntroCallLink variant="navOutline" size="sm" className="hidden whitespace-nowrap lg:inline-flex" />
           {pastHero && !open && (
-            <IntroCallLink variant="navOutline" size="sm" className="px-3 text-[13px] lg:hidden" />
+            <IntroCallLink variant="navOutline" size="sm" className="min-w-0 px-3 text-[13px] leading-tight md:h-11 lg:hidden" />
           )}
 
         <button

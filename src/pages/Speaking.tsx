@@ -1,9 +1,8 @@
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
-import { CaseCard } from "@/components/Proof";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
 import { offer } from "@/content/offers";
-import { CLIENT_CASES, TALKS } from "@/content/proof";
+import { TALKS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const Speaking = () => {
@@ -12,7 +11,6 @@ const Speaking = () => {
     "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
   );
   const keynote = offer("keynotes");
-  const prague = CLIENT_CASES.find((c) => c.who.startsWith("Clientology"));
 
   return (
     <PageShell>
@@ -22,7 +20,7 @@ const Speaking = () => {
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="animate-fade-in">
               <Eyebrow>Speaking</Eyebrow>
-              <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)] text-ink">
+              <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)] text-ink">
                 Talks that end with something built on stage.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
@@ -52,7 +50,7 @@ const Speaking = () => {
                   className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-[50%_40%] lg:aspect-[16/10]"
                 />
               </picture>
-              <figcaption className="text-sm text-ink/50">
+              <figcaption className="text-sm text-ink/60">
                 "Context is the work", Experience Summit, Prague, 2026. Photo: Experience Summit by Clientology
                 Institute.
               </figcaption>
@@ -67,17 +65,17 @@ const Speaking = () => {
           {TALKS.map((t) => (
             <article key={t.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
               <h3 className="text-lg font-semibold tracking-tight">{t.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{t.body}</p>
-              <p className="text-sm text-ink/50">{t.where}</p>
+              <p className="text-base text-ink/70">{t.body}</p>
+              <p className="text-sm text-ink/60">{t.where}</p>
             </article>
           ))}
         </div>
       </Section>
 
       <Section>
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* The talks list and the photo caption already cover Prague, so no case card here. */}
+        <div className="max-w-2xl">
           <OfferCard offer={keynote} />
-          {prague && <CaseCard c={prague} />}
         </div>
       </Section>
 

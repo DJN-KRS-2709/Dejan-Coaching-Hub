@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClientCases, REAL_TESTIMONIALS, Testimonials, WorkedWith } from "@/components/Proof";
-import StagePath, { Staircase } from "@/components/StagePath";
+import StagePath from "@/components/StagePath";
 import { Eyebrow, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
-import { offer } from "@/content/offers";
+import { COURSE_PRICE, COURSE_PRICE_NOTE, offer } from "@/content/offers";
 import type { Mode } from "@/content/stages";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { buttonVariants } from "@/components/ui/button";
@@ -20,7 +20,7 @@ const HOME_PACKAGES = ["coaching", "diagnostic", "workshops", "builder-program"]
 const Index = () => {
   usePageTitle(
     "AI builders, not AI spectators",
-    "Dejan Krstic, Founder, AI product leadership coach. I take people and product teams from first steps to AI-native, one stage at a time, on their own work.",
+    "Dejan Krstic, AI product leadership coach. I help product people and teams go from trying AI to building with it. One stage at a time, on your real work.",
   );
   // Links like /?for=team&stage=3#path open the path at that stage.
   const [params] = useSearchParams();
@@ -35,24 +35,34 @@ const Index = () => {
 
   return (
     <PageShell>
-      {/* 1. Hero: headline left, staircase preview right on desktop */}
+      {/* 1. Hero: headline left, portrait right on desktop. The staircase lives in The path only. */}
       <section className="pb-12 pt-12 md:pb-20 md:pt-24">
         <div className="container px-4 md:px-6">
           <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
             <div className="animate-fade-in">
-              <Eyebrow>Founder, AI product leadership coach</Eyebrow>
-              <h1 className="mt-5 font-display text-[clamp(3.1rem,11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
+              <Eyebrow>AI product leadership coach</Eyebrow>
+              <h1 className="mt-5 font-display text-[clamp(min(3.1rem,12.7vw),11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
                 AI builders,
                 <br />
                 not AI <span className="text-brand">spectators.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
-                I take people and product teams from first steps to AI-native, one stage at a time, on their own work.
+                I help product people and teams go from trying AI to building with it. One stage at a time, on your real
+                work.
               </p>
               <div className="mt-8 grid justify-items-start">
                 <IntroCallLink size="lg" />
                 {/* Proof sits directly under the one filled button above the fold. */}
-                <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-ink/60">
+                <div className="mt-4 flex items-center gap-3">
+                {/* Phone only: a small portrait next to the proof line. */}
+                <img
+                  src="/images/dejan-portrait-480.jpg"
+                  width={480}
+                  height={600}
+                  alt="Dejan Krstic"
+                  className="h-14 w-14 shrink-0 rounded-full border border-ink/10 object-cover object-top lg:hidden"
+                />
+                <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-ink/60">
                   <span>{YEARS} years building products:</span>
                   <span className="font-semibold text-ink">Ex-CPO at Product School</span>
                   <span aria-hidden="true">·</span>
@@ -60,23 +70,24 @@ const Index = () => {
                   <span aria-hidden="true">·</span>
                   <span className="font-semibold text-ink">SoundCloud</span>
                 </p>
+                </div>
                 <Link to="/self-check" className={cn(TEXT_LINK, "mt-2 text-sm text-ink/80")}>
                   Not sure where you are? Take the self-check
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
-            <Link
-              to="/#path"
-              aria-label="See the five stages from curious to AI-native"
-              className="hidden rounded-3xl transition-opacity hover:opacity-90 lg:block"
-            >
-              <Staircase variant="preview" />
-              <div className="mt-2 flex justify-between text-xs text-ink/50">
-                <span>Just starting</span>
-                <span>AI-native</span>
-              </div>
-            </Link>
+            <div className="mx-auto hidden w-full max-w-[440px] overflow-hidden rounded-3xl border border-ink/10 lg:block">
+              <img
+                src="/images/dejan-portrait-960.jpg"
+                srcSet="/images/dejan-portrait-480.jpg 480w, /images/dejan-portrait-960.jpg 960w"
+                sizes="440px"
+                width={960}
+                height={1200}
+                alt="Portrait of Dejan Krstic, smiling, in a black t-shirt"
+                className="aspect-[4/5] h-auto w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -87,11 +98,11 @@ const Index = () => {
           eyebrow="The path"
           title={
             <>
-              Five stages from curious to <span className="whitespace-nowrap">AI-native.</span> The same path for a
-              person and for a whole team.
+              Five stages, from curious to <span className="whitespace-nowrap">AI-native.</span> For you or your whole
+              team.
             </>
           }
-          lead="Most AI training assumes you are already a product person, or already technical. I start where you are and teach the next step. Pick a stage to see what that step is."
+          lead="Most AI training assumes you already know product or code. I start where you are and teach the next step. Pick a stage to see it."
         />
         <StagePath mode={mode} onModeChange={setMode} active={active} onActiveChange={setActive} />
       </Section>
@@ -106,15 +117,14 @@ const Index = () => {
             </h2>
           </div>
           <div className="grid gap-5">
-            <p className="text-lg leading-relaxed text-white/80">
-              Ship a real AI product in 14 days. AI product management basics, vibe coding to a working, deployed
-              product, and light evals with a simple rubric. Four live sessions of 2 hours, max 20 people, one real
-              problem from your work. Entry level, no coding experience needed.
+            <p className="max-w-[62ch] text-lg leading-relaxed text-white/80">
+              Ship a real AI product in 14 days. Bring one real problem from your work. Leave with your own AI
+              product, live and checked with evals. 4 live sessions, 8 hours, up to 20 people. No coding experience
+              needed.
             </p>
             <p className="flex flex-wrap items-baseline gap-x-3 tabular-nums">
-              <span className="text-4xl font-extrabold md:text-5xl">$700</span>
-              <span className="text-xl font-medium text-white/50 line-through">$795</span>
-              <span className="text-sm font-medium text-white/60">Early bird</span>
+              <span className="text-4xl font-extrabold md:text-5xl">{COURSE_PRICE}</span>
+              <span className="text-base font-medium text-white/70">{COURSE_PRICE_NOTE}</span>
             </p>
             <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
               {/* White fill is reserved for the course band's own action. */}
@@ -127,7 +137,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline"
               >
-                Not sure it fits? Book a 20-min call <ArrowRight className="h-4 w-4" />
+                Not sure it fits? Book a free 20-min call <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -138,12 +148,13 @@ const Index = () => {
       <Section id="offers" className="border-t-0">
         <SectionHead
           eyebrow="Ways to work together"
-          title="Packages with a clear outcome, not hourly sessions."
+          title="Fixed packages, each with a clear outcome."
           lead="1:1 coaching for you, fixed-price packages for your team. Paid work starts with a free 20-minute intro call."
         />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {HOME_PACKAGES.map((id) => (
-            <OfferCard key={id} offer={offer(id)} compact />
+          {/* Phone: the first two packages, then the link to every offer. */}
+          {HOME_PACKAGES.map((id, i) => (
+            <OfferCard key={id} offer={offer(id)} compact className={i >= 2 ? "hidden md:grid" : undefined} />
           ))}
         </div>
         <Link to="/work-with-me" className={cn(TEXT_LINK, "mt-6")}>
@@ -169,7 +180,7 @@ const Index = () => {
       {/* 6. Close */}
       <Section id="contact" className="py-24 md:py-40">
         <div className="max-w-3xl">
-          <h2 className="font-display text-[clamp(3rem,9vw,6.5rem)] text-ink">Start where you are.</h2>
+          <h2 className="text-balance font-display text-[clamp(min(3rem,12.3vw),9vw,6.5rem)] text-ink">Start where you are.</h2>
           <p className="mt-6 text-lg leading-relaxed text-ink/75">
             Tell me where you or your team are today, and I will tell you the next step, even if it is not with me.
           </p>

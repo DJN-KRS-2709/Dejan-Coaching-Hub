@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import { ClosingLine, Eyebrow, PageHero, PageShell, Section, SectionHead, StageBadge, TEXT_LINK } from "@/components/site";
+import { COURSE_PRICE, COURSE_PRICE_LINE, COURSE_PRICE_NOTE } from "@/content/offers";
 import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 
@@ -13,7 +14,7 @@ const FACTS = [
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
   ["You need", "A laptop and one real problem from your work. No coding experience."],
-  ["Price", "$795. Early bird $700."],
+  ["Price", COURSE_PRICE_LINE],
 ];
 
 const PARTS = [
@@ -34,7 +35,7 @@ const PARTS = [
 const Course = () => {
   usePageTitle(
     "Prompt to Product",
-    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. $795, early bird $700.",
+    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. $700 early bird until 14 days before the start, $795 after that.",
   );
 
   return (
@@ -63,7 +64,7 @@ const Course = () => {
             <li key={p.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
               <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
               <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{p.body}</p>
+              <p className="text-base text-ink/70">{p.body}</p>
             </li>
           ))}
         </ol>
@@ -102,7 +103,7 @@ const Course = () => {
                       <StageBadge>Stage {s.stage}</StageBadge>
                     </div>
                     <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-                    <p className="text-[0.95rem] text-ink/70">{s.body}</p>
+                    <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
                     <p className="mt-2 justify-self-start rounded-md bg-muted px-2.5 py-1 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10">
                       You leave with: {s.leave}
                     </p>
@@ -121,11 +122,10 @@ const Course = () => {
           <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
             <Eyebrow>Price</Eyebrow>
             <p className="mt-3 flex flex-wrap items-baseline gap-x-3 tabular-nums tracking-tight">
-              <span className="text-4xl font-extrabold">$700</span>
-              <span className="text-xl font-medium text-ink/50 line-through">$795</span>
-              <span className="text-sm font-medium text-ink/60">Early bird</span>
+              <span className="text-4xl font-extrabold">{COURSE_PRICE}</span>
+              <span className="text-base font-medium text-ink/70">{COURSE_PRICE_NOTE}</span>
             </p>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
+            <p className="mt-3 text-base leading-relaxed text-ink/70">
               Book a free 20-minute intro call. We check the course fits your work, and I tell you the next dates.
             </p>
             <IntroCallLink size="lg" className="mt-5" />

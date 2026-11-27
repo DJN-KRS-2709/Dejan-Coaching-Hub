@@ -75,14 +75,14 @@ const OfferTabs = () => {
   return (
     <div className="sticky top-[65px] z-40 border-y border-ink/10 bg-canvas/95 backdrop-blur-md">
       <div className="container px-4 py-2 md:px-6">
-        <nav aria-label="Offers" className="flex w-full gap-1 rounded-full border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
+        <nav aria-label="Offers" className="flex w-full flex-wrap gap-1 rounded-[1.5rem] border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
           {TABS.map((tab) => (
             <a
               key={tab.id}
               href={`#${tab.id}`}
               aria-current={active === tab.id ? "location" : undefined}
               className={cn(
-                "flex min-h-[44px] flex-1 items-center justify-center rounded-full px-4 text-sm font-semibold transition-colors sm:flex-none sm:px-5",
+                "flex min-h-[44px] flex-1 items-center justify-center rounded-full px-3 text-sm font-semibold transition-colors sm:flex-none sm:px-5",
                 active === tab.id ? "bg-ink text-white" : "text-ink/70 hover:text-ink",
               )}
             >
@@ -131,7 +131,7 @@ const WorkWithMe = () => {
             <li key={s.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
               <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
               <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{s.body}</p>
+              <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
             </li>
           ))}
         </ol>
@@ -173,7 +173,7 @@ const WorkWithMe = () => {
               className={`grid gap-2 border-b border-ink/10 py-6 md:py-7 ${i % 2 === 0 ? "md:border-r md:pr-8" : "md:pl-8"}`}
             >
               <h3 className="text-xl font-semibold tracking-tight text-ink md:text-2xl">{p.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{p.body}</p>
+              <p className="max-w-[65ch] text-base text-ink/70">{p.body}</p>
             </div>
           ))}
         </div>

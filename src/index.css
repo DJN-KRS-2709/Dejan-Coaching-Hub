@@ -61,3 +61,10 @@ html {
     animation: none;
   }
 }
+
+/* Large text (200% and up): long words break instead of pushing the page sideways. */
+@layer base {
+  h1, h2, h3, p, li, dd, dt, figcaption, blockquote {
+    overflow-wrap: anywhere;
+  }
+}

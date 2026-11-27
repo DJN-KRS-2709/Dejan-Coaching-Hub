@@ -19,7 +19,7 @@ export interface Case {
 export const GOVTECH_CASE: Case = {
   who: "GovTech Singapore · AI product management program",
   title: "The most senior people in the room were the ones taking the most notes",
-  body: "Four days with GovTech Singapore's senior product leaders on an AI product management program I led and taught. They built working AI prototypes during the week. What I took away: the citizen is in every decision, they are not waiting for permission to use AI, and seniority without ego. I came to teach and left with a notebook full of my own learnings.",
+  body: "Four days with GovTech Singapore's senior product leaders on an AI product management program I led and taught. They built working AI prototypes during the week. What I took away: every decision starts with the citizen, nobody waits for permission to use AI, and seniority comes without ego. I came to teach and left with a notebook full of my own learnings.",
   link: {
     label: "Read the post on LinkedIn",
     href: "https://www.linkedin.com/posts/dejan-krstic-b4a7a98a_the-most-senior-people-in-the-room-were-the-share-7530901610605092864-Zq2r/",

@@ -23,7 +23,7 @@ const BMG = {
 const About = () => {
   usePageTitle(
     "About",
-    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO of Product School. Founder, AI product leadership coach.`,
+    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, Ex-CPO at Product School. Founder, AI product leadership coach.`,
   );
 
   return (
@@ -34,7 +34,7 @@ const About = () => {
           <div className="grid items-start gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-x-16 lg:gap-y-6">
             <div className="animate-fade-in lg:col-start-1 lg:row-start-1">
               <Eyebrow>About</Eyebrow>
-              <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)]">Hi, I'm Dejan.</h1>
+              <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)]">Hi, I'm Dejan.</h1>
             </div>
             <div className="mx-auto w-full max-w-[480px] overflow-hidden rounded-3xl border border-ink/10 lg:col-start-2 lg:row-span-2 lg:row-start-1">
               <img
@@ -61,8 +61,8 @@ const About = () => {
                 it.
               </p>
               <p>
-                I've spent {YEARS} years building products in music and tech, and taught, coached and spoke on the side
-                for most of them. Now it is my whole job: helping people and product teams get from watching to
+                I've spent {YEARS} years building products in music and tech, and for most of them I also taught,
+                coached and gave talks. Now it is my whole job: helping people and product teams get from watching to
                 building.
               </p>
               <p>I teach in German and English, and I am at home in Croatian, Serbian and Bosnian.</p>

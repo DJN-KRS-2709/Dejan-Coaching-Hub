@@ -168,7 +168,7 @@ const Datenschutz = () => (
       </p>
     </section>
 
-    <p className="text-sm text-ink/50">Stand: November 2026</p>
+    <p className="text-sm text-ink/60">Stand: November 2026</p>
   </LegalLayout>
 );
 

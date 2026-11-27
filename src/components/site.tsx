@@ -24,7 +24,7 @@ export const TEXT_LINK =
   "inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink underline-offset-4 hover:underline";
 
 export const Eyebrow = ({ children, className }: { children: ReactNode; className?: string }) => (
-  <p className={cn("text-xs font-semibold uppercase tracking-[0.09em] text-ink/50", className)}>{children}</p>
+  <p className={cn("text-xs font-semibold uppercase tracking-[0.09em] text-ink/60", className)}>{children}</p>
 );
 
 export const Section = ({
@@ -55,7 +55,7 @@ export const SectionHead = ({
   <div className="mb-8 grid max-w-3xl gap-4 md:mb-12">
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
     <h2 className="text-balance text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-[2.5rem]">{title}</h2>
-    {lead && <p className="text-base leading-relaxed text-ink/70 md:text-lg">{lead}</p>}
+    {lead && <p className="max-w-[62ch] text-base leading-relaxed text-ink/70 md:text-lg">{lead}</p>}
     {children}
   </div>
 );
@@ -75,7 +75,7 @@ export const PageHero = ({
     <div className="container px-4 md:px-6">
       <div className="max-w-4xl animate-fade-in">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)] text-ink">{title}</h1>
+        <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)] text-ink">{title}</h1>
         {lead && <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">{lead}</p>}
         {children}
       </div>
@@ -85,7 +85,7 @@ export const PageHero = ({
 
 // Closing line of a page, in Anton.
 export const ClosingLine = ({ children }: { children: ReactNode }) => (
-  <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-ink">{children}</h2>
+  <h2 className="text-balance font-display text-[clamp(min(2.5rem,10.2vw),7vw,5rem)] text-ink">{children}</h2>
 );
 
 // Stage chips: small warm gray numbered squares, e.g. 1 2 3 for "stages 1 to 3".
@@ -110,7 +110,7 @@ export const StageChips = ({ from, to }: { from: number; to: number }) => {
 };
 
 export const StageBadge = ({ children }: { children: ReactNode }) => (
-  <span className="inline-flex items-center whitespace-nowrap rounded-md bg-muted px-2.5 py-1.5 text-[0.68rem] font-bold uppercase leading-none tracking-[0.05em] text-ink ring-1 ring-inset ring-ink/10">
+  <span className="inline-flex items-center rounded-md bg-muted px-2.5 py-1.5 text-[0.68rem] font-bold uppercase leading-none tracking-[0.05em] text-ink ring-1 ring-inset ring-ink/10">
     {children}
   </span>
 );
