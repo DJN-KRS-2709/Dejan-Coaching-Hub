@@ -51,7 +51,7 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `inline-flex min-h-[44px] items-center rounded-full px-3 text-sm font-medium transition-colors ${
+                `inline-flex min-h-[44px] items-center rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
                   isActive ? "text-ink" : "text-ink/60 hover:text-ink"
                 }`
               }

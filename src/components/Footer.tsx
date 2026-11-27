@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Wordmark } from "@/components/Brand";
+import { FOCUS_RING } from "@/lib/focus";
 import { NAV_LINKS } from "@/components/Navbar";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/links";
 import { analyticsConfigured, writeConsent } from "@/lib/analytics";
 
 // Every footer link is at least 44px tall, so it is easy to tap on a phone.
-const FOOTER_LINK = "inline-flex min-h-[44px] items-center text-sm text-white/60 transition-colors hover:text-white";
-const LEGAL_LINK = "inline-flex min-h-[44px] items-center text-sm text-white/50 transition-colors hover:text-white";
+const FOOTER_LINK = `inline-flex min-h-[44px] items-center text-sm text-white/60 transition-colors hover:text-white ${FOCUS_RING}`;
+const LEGAL_LINK = `inline-flex min-h-[44px] items-center text-sm text-white/50 transition-colors hover:text-white ${FOCUS_RING}`;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

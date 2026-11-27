@@ -5,7 +5,7 @@ import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClientCases, REAL_TESTIMONIALS, Testimonials, WorkedWith } from "@/components/Proof";
 import StagePath from "@/components/StagePath";
-import { Eyebrow, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
+import { Eyebrow, FOCUS_RING, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
 import { COURSE_PRICE, COURSE_PRICE_NOTE, offer } from "@/content/offers";
 import type { Mode } from "@/content/stages";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -41,6 +41,17 @@ const Index = () => {
           <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
             <div className="animate-fade-in">
               <Eyebrow>AI product leadership coach</Eyebrow>
+              {/* Proof line directly under the title. Phone: a small portrait next to it. */}
+              <div className="mt-3 flex items-center gap-3">
+                <img
+                  src="/images/dejan-portrait-480.jpg"
+                  width={480}
+                  height={600}
+                  alt="Dejan Krstic"
+                  className="h-12 w-12 shrink-0 rounded-full border border-ink/10 object-cover object-top lg:hidden"
+                />
+                <p className="text-sm font-semibold text-ink">Ex-CPO at Product School · Spotify · SoundCloud</p>
+              </div>
               <h1 className="mt-5 font-display text-[clamp(min(3.1rem,12.7vw),11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
                 AI builders,
                 <br />
@@ -52,26 +63,7 @@ const Index = () => {
               </p>
               <div className="mt-8 grid justify-items-start">
                 <IntroCallLink size="lg" />
-                {/* Proof sits directly under the one filled button above the fold. */}
-                <div className="mt-4 flex items-center gap-3">
-                {/* Phone only: a small portrait next to the proof line. */}
-                <img
-                  src="/images/dejan-portrait-480.jpg"
-                  width={480}
-                  height={600}
-                  alt="Dejan Krstic"
-                  className="h-14 w-14 shrink-0 rounded-full border border-ink/10 object-cover object-top lg:hidden"
-                />
-                <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-ink/60">
-                  <span>{YEARS} years building products:</span>
-                  <span className="font-semibold text-ink">Ex-CPO at Product School</span>
-                  <span aria-hidden="true">·</span>
-                  <span className="font-semibold text-ink">Spotify</span>
-                  <span aria-hidden="true">·</span>
-                  <span className="font-semibold text-ink">SoundCloud</span>
-                </p>
-                </div>
-                <Link to="/self-check" className={cn(TEXT_LINK, "mt-2 text-sm text-ink/80")}>
+                <Link to="/self-check" className={cn(TEXT_LINK, "mt-3 text-sm text-ink/80")}>
                   Not sure where you are? Take the self-check
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -135,7 +127,7 @@ const Index = () => {
                 href={INTRO_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline"
+                className={cn("inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline", FOCUS_RING)}
               >
                 Not sure it fits? Book a free 20-min call <ArrowRight className="h-4 w-4" />
               </a>
@@ -154,7 +146,7 @@ const Index = () => {
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {/* Phone: the first two packages, then the link to every offer. */}
           {HOME_PACKAGES.map((id, i) => (
-            <OfferCard key={id} offer={offer(id)} compact className={i >= 2 ? "hidden md:grid" : undefined} />
+            <OfferCard key={id} offer={offer(id)} compact className={i >= 2 ? "hidden md:flex" : undefined} />
           ))}
         </div>
         <Link to="/work-with-me" className={cn(TEXT_LINK, "mt-6")}>

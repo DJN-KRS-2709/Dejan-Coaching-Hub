@@ -30,7 +30,7 @@ const OfferCard = ({ offer, compact = false, className }: Props) => {
     <article
       id={compact ? undefined : offer.id}
       className={cn(
-        "grid min-w-0 scroll-mt-24 content-start gap-3 rounded-3xl border bg-white p-6 md:p-7",
+        "flex min-w-0 scroll-mt-24 flex-col gap-3 rounded-3xl border bg-white p-6 md:p-7",
         offer.featured ? "border-ink" : "border-ink/10",
         className,
       )}
@@ -46,11 +46,14 @@ const OfferCard = ({ offer, compact = false, className }: Props) => {
       <h3 className="text-xl font-semibold tracking-tight text-ink">{offer.title}</h3>
       <p className="text-base leading-relaxed text-ink/70">{offer.body}</p>
       <p className="text-sm text-ink/60">{offer.format}</p>
-      <p className="text-xl font-extrabold tabular-nums tracking-tight text-ink">
-        {offer.price}
-        {offer.priceNote && <span className="ml-2 text-sm font-medium tracking-normal text-ink/60">{offer.priceNote}</span>}
-      </p>
-      <div className="mt-1 grid">{action}</div>
+      {/* Price and link sit at the bottom, so cards in a row line up. */}
+      <div className="mt-auto grid gap-3 pt-1">
+        <p className="text-xl font-extrabold tabular-nums tracking-tight text-ink">
+          {offer.price}
+          {offer.priceNote && <span className="ml-2 text-sm font-medium tracking-normal text-ink/60">{offer.priceNote}</span>}
+        </p>
+        <div className="grid">{action}</div>
+      </div>
     </article>
   );
 };

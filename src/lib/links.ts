@@ -12,5 +12,9 @@ export const INTRO_CALL_LABEL = "Book a free 20-min call";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/dejan-krstic-b4a7a98a/";
 export const CONTACT_EMAIL = LEGAL.email;
 
+// Short bio: About page and the share card (OG and Twitter description in index.html).
+export const SHORT_BIO =
+  "I help product people and teams go from trying AI to building with it. Ex-CPO at Product School · Spotify · SoundCloud.";
+
 // The one experience figure used everywhere on the site.
 export const YEARS = "20+";

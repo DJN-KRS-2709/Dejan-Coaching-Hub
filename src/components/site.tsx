@@ -2,7 +2,10 @@ import type { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Mode } from "@/content/stages";
+import { FOCUS_RING } from "@/lib/focus";
 import { cn } from "@/lib/utils";
+
+export { FOCUS_RING };
 
 // Small building blocks shared by every page.
 //
@@ -19,9 +22,9 @@ export const PageShell = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
+
 // A text link that is still a 44px tap target on phones.
-export const TEXT_LINK =
-  "inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink underline-offset-4 hover:underline";
+export const TEXT_LINK = `inline-flex min-h-[44px] items-center gap-1 font-semibold text-ink underline-offset-4 hover:underline ${FOCUS_RING}`;
 
 export const Eyebrow = ({ children, className }: { children: ReactNode; className?: string }) => (
   <p className={cn("text-xs font-semibold uppercase tracking-[0.09em] text-ink/60", className)}>{children}</p>

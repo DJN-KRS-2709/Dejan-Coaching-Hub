@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { Eyebrow, ModeSwitch, StageBadge } from "@/components/site";
+import { Eyebrow, FOCUS_RING, ModeSwitch, StageBadge } from "@/components/site";
 import { STAGES } from "@/content/stages";
 import type { Mode } from "@/content/stages";
 import { cn } from "@/lib/utils";
@@ -139,7 +139,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
                 <Link
                   key={h.label}
                   to={h.to}
-                  className="inline-flex min-h-[44px] items-center text-sm font-semibold text-ink underline underline-offset-4 hover:decoration-2"
+                  className={cn("inline-flex min-h-[44px] items-center text-sm font-semibold text-ink underline underline-offset-4 hover:decoration-2", FOCUS_RING)}
                 >
                   {h.label}
                 </Link>
