@@ -1,7 +1,7 @@
 import IntroCallLink from "@/components/IntroCallLink";
 import { CaseCard, WorkedWith } from "@/components/Proof";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
-import { BACKGROUND_CASES } from "@/content/proof";
+import { BACKGROUND_CASES, GOVTECH_CASE } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { YEARS } from "@/lib/links";
 
@@ -103,6 +103,7 @@ const About = () => {
 
       <Section>
         <WorkedWith />
+        <CaseCard c={GOVTECH_CASE} lead className="mt-8" />
       </Section>
 
       <Section className="border-t-0 pt-0 md:pt-0">

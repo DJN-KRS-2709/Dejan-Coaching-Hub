@@ -9,7 +9,22 @@ export interface Case {
   who: string;
   title: string;
   body: string;
+  // Optional text link to the source, opens in a new tab.
+  link?: { label: string; href: string };
 }
+
+// GovTech Singapore: a program Dejan led and taught (run through Product School, so it is framed
+// as his teaching, not as a client of his own practice). Source: his LinkedIn post, Nov 24 2026.
+// No metrics, names or quotes from attendees: the post has none to share.
+export const GOVTECH_CASE: Case = {
+  who: "GovTech Singapore · AI product management program",
+  title: "The most senior people in the room were the ones taking the most notes",
+  body: "Four days with GovTech Singapore's senior product leaders on an AI product management program I led and taught. They built working AI prototypes during the week. What I took away: the citizen is in every decision, they are not waiting for permission to use AI, and seniority without ego. I came to teach and left with a notebook full of my own learnings.",
+  link: {
+    label: "Read the post on LinkedIn",
+    href: "https://www.linkedin.com/posts/dejan-krstic-b4a7a98a_the-most-senior-people-in-the-room-were-the-share-7530901610605092864-Zq2r/",
+  },
+};
 
 export const CLIENT_CASES: Case[] = [
   {
