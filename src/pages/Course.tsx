@@ -1,32 +1,30 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import SignupForm from "@/components/SignupForm";
+import IntroCallLink from "@/components/IntroCallLink";
 import { ClosingLine, Eyebrow, PageHero, PageShell, Section, SectionHead, StageBadge, TEXT_LINK } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { INTRO_CALL_URL } from "@/lib/links";
 
 const FACTS = [
-  ["Format", "4 live sessions of 90 minutes over 3 weeks: 6 live hours"],
-  ["Schedule", "Week 1: one session. Week 2: one session. Week 3: two sessions, the last one is demo day."],
+  ["Format", "4 live sessions of 2 hours over 2 weeks: 8 live hours"],
+  ["Schedule", "Two sessions a week. Week 1: how AI works and a problem worth solving. Week 2: build, test and show."],
   ["When", "Daytime sessions, Berlin time. No late evenings."],
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
-  ["You need", "A laptop, a problem and about 2 hours a week for your own project. No code."],
-  ["Price", "€990. Founding cohort €690."],
+  ["You need", "A laptop and one real problem from your work. No code."],
+  ["Price", "$795. Early bird $700."],
 ];
 
 const Course = () => {
   usePageTitle(
     "Spectator to Builder",
-    "A 3-week live cohort for up to 20 people: 4 sessions, 6 live hours. From a problem in your work to a prototype you have tested with real users. €990, founding cohort €690.",
+    "AI product management foundations in a 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. The biggest changes AI brings to product work, and how to work with them. $795, early bird $700.",
   );
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="The course · 3-week live cohort · 6 live hours"
+        eyebrow="The course · 2-week live cohort · 8 live hours"
         title={
           <>
             Spectator
@@ -34,21 +32,19 @@ const Course = () => {
             to Builder
           </>
         }
-        lead="For anyone who works on products or wants to: product managers, product owners, designers, analysts and people switching careers. You bring one real problem from your work. You leave with something built, tested and running."
+        lead="AI product management foundations, built around the biggest changes AI brings to product work and how to work with them. For anyone who works on products or wants to: product managers, product owners, designers, analysts and people switching careers. You bring one real problem from your work. You leave with an AI prototype you have built, tested and shown."
       >
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#waitlist" className={buttonVariants({ variant: "brand", size: "lg" })}>
-            Join the waitlist
-          </a>
-          <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-            Is it for me? Take the self-check
+        <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <IntroCallLink size="lg" />
+          <Link to="/self-check" className={TEXT_LINK}>
+            Is it for me? Take the self-check <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageHero>
 
       <Section>
         <div className="max-w-3xl">
-          <SectionHead eyebrow="The facts" title="Three weeks, 6 live hours, one real problem." />
+          <SectionHead eyebrow="The facts" title="Two weeks, 8 live hours, one real problem." />
           <dl className="grid gap-0">
             {FACTS.map(([k, v]) => (
               <div key={k} className="grid gap-1 border-t border-ink/10 py-3 sm:grid-cols-[8rem_1fr] sm:gap-4">
@@ -62,12 +58,12 @@ const Course = () => {
 
       <Section>
         <SectionHead
-          eyebrow="The three weeks"
+          eyebrow="The two weeks"
           title="Every session ends with something you made."
-          lead="Week 1 meets you at stage 1 and week 2 at stage 2. Week 3 takes you to stage 3: you build, judge what you built, and show it on demo day."
+          lead="Week 1 covers how AI works and which problem is worth solving. Week 2 takes you to stage 3: you build an AI prototype, test it with evals and show it to the group."
         />
         <ol className="border-t-2 border-ink">
-          {[1, 2, 3].map((week) => (
+          {[1, 2].map((week) => (
             <li key={week} className="grid gap-3 border-b border-ink/10 py-6 md:grid-cols-[8rem_1fr] md:gap-4">
               <span className="text-2xl font-bold leading-none">Week {week}</span>
               <ol className="grid gap-6">
@@ -90,23 +86,20 @@ const Course = () => {
         </ol>
       </Section>
 
-      {/* Close: the founding cohort waitlist */}
-      <Section id="waitlist" className="scroll-mt-4">
+      {/* Close: one action, the free intro call */}
+      <Section id="join" className="scroll-mt-4">
         <div className="max-w-xl">
-          <ClosingLine>Join the founding cohort.</ClosingLine>
+          <ClosingLine>Want a seat?</ClosingLine>
           <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
-            <Eyebrow>Founding cohort waitlist</Eyebrow>
+            <Eyebrow>Price</Eyebrow>
             <p className="mt-3 text-2xl font-extrabold tabular-nums tracking-tight">
-              €690 <span className="text-base font-medium text-ink/50 line-through">€990</span>
+              $700 <span className="text-base font-medium text-ink/50">early bird, then $795</span>
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
-              The first cohort pays €690 instead of €990. The waitlist hears about dates first.
+              Book a free 20-minute intro call. We check the course fits your work, and I tell you the next dates.
             </p>
-            <SignupForm list="cohort-waitlist" label="Your email" button="Join the waitlist" primary className="mt-5" />
+            <IntroCallLink size="lg" className="mt-5" />
           </div>
-          <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={`${TEXT_LINK} mt-4`}>
-            Questions first? Book a free 20-min intro call <ArrowRight className="h-4 w-4" />
-          </a>
         </div>
       </Section>
     </PageShell>

@@ -11,7 +11,7 @@ const Speaking = () => {
     "Speaking",
     "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
   );
-  const keynote = { ...offer("keynotes"), cta: { kind: "link" as const, label: "How to book a talk", to: "/speaking#book" } };
+  const keynote = offer("keynotes");
   const prague = CLIENT_CASES.find((c) => c.who.startsWith("Clientology"));
 
   return (

@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClosingLine, PageHero, PageShell, Section, SectionHead } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { OFFER_GROUPS, offersIn } from "@/content/offers";
 import type { OfferGroup } from "@/content/offers";
 import { PRINCIPLES } from "@/content/proof";
@@ -100,7 +98,7 @@ const OfferTabs = () => {
 const WorkWithMe = () => {
   usePageTitle(
     "Work with me",
-    "Packages, not hourly sessions: a free masterclass, the Spectator to Builder course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
+    "Packages, not hourly sessions: the Spectator to Builder course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
   );
 
   return (
@@ -111,9 +109,7 @@ const WorkWithMe = () => {
         lead="Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits."
       >
         <div className="mt-8">
-          <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
-            Find your stage
-          </Link>
+          <IntroCallLink size="lg" />
         </div>
       </PageHero>
 

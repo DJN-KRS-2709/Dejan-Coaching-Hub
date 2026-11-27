@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import SignupForm from "@/components/SignupForm";
+import IntroCallLink from "@/components/IntroCallLink";
 import { Staircase } from "@/components/StagePath";
 import { Eyebrow, ModeSwitch, TEXT_LINK } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { QUESTIONS, STAGES, scoreStage } from "@/content/stages";
 import type { Mode } from "@/content/stages";
-import { INTRO_CALL_LABEL, INTRO_CALL_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -129,22 +127,10 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
                 <strong className="text-ink">Next step:</strong> {stage[mode].next}
               </p>
               <div className="grid justify-items-start gap-1">
-                <Link to={next.to} className={buttonVariants({ variant: "brand" })}>
-                  {next.label} <ArrowRight className="h-4 w-4" />
+                <IntroCallLink />
+                <Link to={next.to} className={cn(TEXT_LINK, "text-sm")}>
+                  See {next.label} <ArrowRight className="h-4 w-4" />
                 </Link>
-                <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={cn(TEXT_LINK, "text-sm")}>
-                  Or {INTRO_CALL_LABEL.charAt(0).toLowerCase() + INTRO_CALL_LABEL.slice(1)}
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-              <div className="border-t border-ink/10 pt-5">
-                <SignupForm
-                  list="self-check"
-                  label="Get your readout by email, with the next steps for your stage"
-                  button="Send my readout"
-                  stage={stage.n}
-                  mode={mode}
-                />
               </div>
             </>
           )}

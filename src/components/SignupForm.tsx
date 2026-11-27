@@ -22,8 +22,8 @@ interface Props {
   className?: string;
 }
 
-// One email field for the newsletter, the course waitlist, masterclass dates and the
-// self-check readout. Where it posts: src/lib/signup.ts.
+// One email field for the newsletter, the course waitlist and the self-check readout.
+// Not used on any page right now (one call to action: the free intro call). Where it posts: src/lib/signup.ts.
 const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = false, className }: Props) => {
   const id = useId();
   const { pathname } = useLocation();

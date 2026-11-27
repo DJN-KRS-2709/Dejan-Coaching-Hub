@@ -1,21 +1,18 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import SignupForm from "@/components/SignupForm";
 import { StageChips, TEXT_LINK } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import type { Offer } from "@/content/offers";
 import { INTRO_CALL_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 interface Props {
   offer: Offer;
-  // Compact cards (home page) link to the full offer instead of showing forms.
+  // Compact cards (home page) link to the full offer on /work-with-me.
   compact?: boolean;
 }
 
-// Cards never carry a solid blue button: the page's one blue button is its close.
+// Cards never carry a solid button. Their only action is the free intro call, as a text link.
 const OfferCard = ({ offer, compact = false }: Props) => {
-  const { cta } = offer;
   const textLink = cn(TEXT_LINK, "justify-self-start text-sm");
 
   let action;
@@ -25,20 +22,12 @@ const OfferCard = ({ offer, compact = false }: Props) => {
         Details <ArrowRight className="h-4 w-4" />
       </Link>
     );
-  } else if (cta.kind === "intro") {
+  } else {
     action = (
       <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={textLink}>
-        Book a call <ArrowRight className="h-4 w-4" />
+        Book a free intro call <ArrowRight className="h-4 w-4" />
       </a>
     );
-  } else if (cta.kind === "link") {
-    action = (
-      <Link to={cta.to} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "justify-self-start")}>
-        {cta.label}
-      </Link>
-    );
-  } else {
-    action = <SignupForm list={cta.list} label="Your email" button={cta.label} />;
   }
 
   return (

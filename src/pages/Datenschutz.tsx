@@ -104,10 +104,10 @@ const Datenschutz = () => (
     </section>
 
     <section>
-      <h2>7. Newsletter, Warteliste und Masterclass</h2>
+      <h2>7. Newsletter und Warteliste</h2>
       <p>
-        Wenn Sie sich für meinen Newsletter, die Warteliste des Kurses, die Termine der
-        Masterclass oder die Auswertung des Selbstchecks eintragen, verarbeite ich Ihre
+        Wenn Sie sich für meinen Newsletter, die Warteliste des Kurses oder die Auswertung des
+        Selbstchecks eintragen, verarbeite ich Ihre
         E-Mail-Adresse und die Angabe, wofür Sie sich eingetragen haben. Bei der Auswertung des
         Selbstchecks speichere ich zusätzlich Ihr Ergebnis (die Stufe und ob Sie den Check für
         sich oder für Ihr Team gemacht haben). Ich nutze diese Daten nur, um Ihnen die

@@ -1,7 +1,7 @@
 // Proof: who I have worked with, what happened, and room for real testimonials.
 // Never add a quote, number or client here that cannot be shown to be true.
 
-export const WORKED_WITH = ["Diamant Software", "HTW Berlin", "Clientology Institute"];
+export const WORKED_WITH = ["GovTech Singapore", "Medallia", "IKEA", "Diamant Software", "HTW Berlin", "Clientology Institute"];
 
 export const BACKGROUND = ["Spotify", "SoundCloud"];
 
@@ -61,7 +61,7 @@ export const TESTIMONIALS: Testimonial[] = [
     placeholder: true,
   },
   {
-    quote: "A real quote from a conference or masterclass client goes here.",
+    quote: "A real quote from a conference or workshop client goes here.",
     name: "Name",
     role: "Role, company",
     placeholder: true,
@@ -111,39 +111,39 @@ export const TALKS = [
   },
 ];
 
-// Spectator to Builder: 3 weeks, 4 live sessions of 90 minutes (6 live hours). Week 1 and 2 have one
-// session each, week 3 has two; the last one is demo day. About 2 hours a week on your own project.
+// Spectator to Builder: 2 weeks, 4 live sessions of 2 hours (8 live hours), two sessions a week.
+// AI product management foundations, built around the biggest changes AI brings and how to work with them.
 export const COURSE_SESSIONS = [
   {
     session: 1,
     week: 1,
     stage: 1,
-    title: "From a real problem to what is worth building",
-    body: "What a model actually does and where it fails. Then the three questions every product decision answers: what problem, for whom, and how you will know. You talk to users and separate evidence from opinion.",
-    leave: "A problem from your own work, backed by evidence",
+    title: "How AI works, and your first AI skill",
+    body: "What a model actually does, where it fails, and what that changes for product work. Live example: turn a vague request into a skill. Then you build your own.",
+    leave: "Your first AI skill, saved so you can use it again",
   },
   {
     session: 2,
-    week: 2,
+    week: 1,
     stage: 2,
-    title: "Context is the work",
-    body: "Write the brief that people and AI can both build from. This is where most AI output is won or lost.",
-    leave: "A one-page spec",
+    title: "Pick a problem worth solving",
+    body: "The three questions every product decision answers: what problem, for whom, and how you will know. You pick one real problem from your work and back it with evidence, not opinion.",
+    leave: "A problem from your own work, backed by evidence",
   },
   {
     session: 3,
-    week: 3,
+    week: 2,
     stage: 3,
-    title: "Build it, then judge it",
-    body: "From spec to working prototype in one session. Then put it in front of real users and decide: kill, change or ship.",
+    title: "Build your first AI prototype",
+    body: "Write the context AI builds from, then go from that brief to a working prototype in one session. This is where most AI output is won or lost.",
     leave: "A prototype a colleague can click",
   },
   {
     session: 4,
-    week: 3,
+    week: 2,
     stage: 3,
-    title: "Demo day",
-    body: "Everyone shows their own build in five minutes: the problem, the prototype, what users did with it and what you decided. You get feedback from the group and a next step for your work.",
-    leave: "A tested prototype and a 5-minute demo",
+    title: "Test it with evals, show it, plan what's next",
+    body: "Write simple evals that check whether your prototype does its job. Show it to the group in five minutes, get feedback, and plan your next step.",
+    leave: "A tested prototype, a 5-minute demo and a plan for what's next",
   },
 ];

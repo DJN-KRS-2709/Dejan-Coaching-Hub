@@ -4,14 +4,12 @@ import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClientCases, REAL_TESTIMONIALS, Testimonials, WorkedWith } from "@/components/Proof";
-import SignupForm from "@/components/SignupForm";
 import StagePath, { Staircase } from "@/components/StagePath";
 import { Eyebrow, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { offer } from "@/content/offers";
 import type { Mode } from "@/content/stages";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { INTRO_CALL_LABEL, INTRO_CALL_URL, YEARS } from "@/lib/links";
+import { YEARS } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 // Home packages: 1:1 coaching and the team offers. The course has its own band above,
@@ -51,13 +49,11 @@ const Index = () => {
                 I take people and product teams from first steps to AI-native, one stage at a time, on their own work.
               </p>
               <div className="mt-8 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-6">
-                <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
-                  Find your stage
-                </Link>
-                <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={TEXT_LINK}>
-                  Or {INTRO_CALL_LABEL.charAt(0).toLowerCase() + INTRO_CALL_LABEL.slice(1)}
+                <IntroCallLink size="lg" />
+                <Link to="/self-check" className={TEXT_LINK}>
+                  Not sure where you are? Take the self-check
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </div>
             <Link
@@ -74,7 +70,7 @@ const Index = () => {
           </div>
           <div className="mt-12 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-ink/10 pt-6">
             <Eyebrow className="basis-full">{YEARS} years building products</Eyebrow>
-            <span className="font-semibold text-ink">Ex-CPO Product School</span>
+            <span className="font-semibold text-ink">Ex-CPO at Product School</span>
             <span className="font-semibold text-ink">Spotify</span>
             <span className="font-semibold text-ink">SoundCloud</span>
           </div>
@@ -96,44 +92,7 @@ const Index = () => {
         <StagePath mode={mode} onModeChange={setMode} active={active} onActiveChange={setActive} />
       </Section>
 
-      {/* 3. Free first steps */}
-      <Section id="start">
-        <SectionHead
-          eyebrow="Start free"
-          title="Your first step costs nothing."
-          lead="Find your stage, build something live with me once a month, or get one build and one lesson in your inbox every two weeks."
-        />
-        <div className="grid gap-4 md:grid-cols-3">
-          <article className="grid content-start gap-3 rounded-3xl border border-ink/10 bg-white p-6 md:p-7">
-            <h3 className="text-xl font-semibold tracking-tight">AI-readiness self-check</h3>
-            <p className="text-[0.95rem] leading-relaxed text-ink/70">
-              Four questions, two minutes. See your stage, or your team's, and the next step.
-            </p>
-            <Link
-              to={`/self-check?for=${mode}`}
-              className={cn(buttonVariants({ variant: "brand" }), "mt-2 h-12 justify-self-start")}
-            >
-              Take the self-check
-            </Link>
-          </article>
-          <article className="grid content-start gap-3 rounded-3xl border border-ink/10 bg-white p-6 md:p-7">
-            <h3 className="text-xl font-semibold tracking-tight">Free monthly masterclass</h3>
-            <p className="text-[0.95rem] leading-relaxed text-ink/70">
-              Build something real in one hour, live, with me on screen. A new problem every month.
-            </p>
-            <SignupForm list="masterclass" label="Get the next date" button="Send me the date" className="mt-2" />
-          </article>
-          <article className="grid content-start gap-3 rounded-3xl border border-ink/10 bg-white p-6 md:p-7">
-            <h3 className="text-xl font-semibold tracking-tight">Newsletter</h3>
-            <p className="text-[0.95rem] leading-relaxed text-ink/70">
-              One build and one lesson, every two weeks. What I made, and what it taught me.
-            </p>
-            <SignupForm list="newsletter" label="Your email" button="Subscribe" className="mt-2" />
-          </article>
-        </div>
-      </Section>
-
-      {/* 4. The course */}
+      {/* 3. The course */}
       <section className="bg-ink py-14 text-white md:py-24">
         <div className="container grid gap-8 px-4 md:grid-cols-[1.1fr_1fr] md:items-end md:px-6">
           <div>
@@ -144,25 +103,28 @@ const Index = () => {
           </div>
           <div className="grid gap-5">
             <p className="text-lg leading-relaxed text-white/80">
-              Three weeks, 6 live hours, max 20 people, one real problem from your work. You leave with a prototype
-              you have tested with real users and shown on demo day. No code needed.
+              AI product management foundations in two weeks: the biggest changes AI brings to product work, and how
+              to work with them. Four live sessions of 2 hours, 8 live hours, max 20 people, one real problem from
+              your work. You leave with an AI prototype you have tested with evals and shown to the group. No code
+              needed.
             </p>
             <p className="text-2xl font-extrabold tabular-nums">
-              €990 <span className="text-base font-medium text-white/60">Founding cohort €690</span>
+              $795 <span className="text-base font-medium text-white/60">Early bird $700</span>
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/course#waitlist" className={buttonVariants({ variant: "light" })}>
-                Join the waitlist
-              </Link>
-              <Link to="/course" className={buttonVariants({ variant: "outlineLight" })}>
-                See the three weeks
+            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <IntroCallLink variant="light" />
+              <Link
+                to="/course"
+                className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+              >
+                See the two weeks <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Packages */}
+      {/* 4. Packages */}
       <Section id="offers" className="border-t-0">
         <SectionHead
           eyebrow="Ways to work together"
@@ -179,7 +141,7 @@ const Index = () => {
         </Link>
       </Section>
 
-      {/* 6. Proof */}
+      {/* 5. Proof */}
       <Section id="proof">
         <SectionHead eyebrow="Proof" title="From students who had never written a spec to teams shipping AI." />
         <WorkedWith />
@@ -194,19 +156,16 @@ const Index = () => {
         )}
       </Section>
 
-      {/* 7. Close */}
+      {/* 6. Close */}
       <Section id="contact">
         <div className="max-w-3xl">
           <h2 className="font-display text-[clamp(3rem,9vw,6.5rem)] text-ink">Start where you are.</h2>
           <p className="mt-6 text-lg leading-relaxed text-ink/75">
-            Take the self-check, or book 20 minutes with me. Tell me where you or your team are today, and I will tell
-            you the next step, even if it is not with me.
+            Book 20 minutes with me. Tell me where you or your team are today, and I will tell you the next step, even
+            if it is not with me.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
             <IntroCallLink size="lg" />
-            <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-              Find your stage
-            </Link>
           </div>
         </div>
       </Section>

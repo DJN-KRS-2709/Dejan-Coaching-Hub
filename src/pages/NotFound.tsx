@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageHero, PageShell } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
+import IntroCallLink from "@/components/IntroCallLink";
+import { TEXT_LINK } from "@/components/site";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const NotFound = () => {
@@ -10,14 +11,12 @@ const NotFound = () => {
       <PageHero
         eyebrow="404"
         title="Page not found."
-        lead="This page does not exist or has moved. Start from the home page, or find your stage."
+        lead="This page does not exist or has moved. Start from the home page, or book a free 20-minute intro call."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link to="/" className={buttonVariants({ size: "lg" })}>
+          <IntroCallLink size="lg" />
+          <Link to="/" className={TEXT_LINK}>
             Go to the home page
-          </Link>
-          <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-            Find your stage
           </Link>
         </div>
       </PageHero>

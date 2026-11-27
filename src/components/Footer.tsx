@@ -3,7 +3,7 @@ import { Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Wordmark } from "@/components/Brand";
 import { NAV_LINKS } from "@/components/Navbar";
-import { buttonVariants } from "@/components/ui/button";
+import IntroCallLink from "@/components/IntroCallLink";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/links";
 import { analyticsConfigured, writeConsent } from "@/lib/analytics";
 
@@ -24,9 +24,12 @@ const Footer = () => {
             <p className="mb-6 font-display text-5xl leading-[0.9] md:text-6xl">
               Let's build<br />what's next.
             </p>
-            <a href={`mailto:${CONTACT_EMAIL}`} className={buttonVariants({ variant: "outlineLight" })}>
-              Email me <Mail className="h-4 w-4" />
-            </a>
+            <div className="flex flex-col items-start gap-2">
+              <IntroCallLink variant="light" />
+              <a href={`mailto:${CONTACT_EMAIL}`} className={`${FOOTER_LINK} gap-2`}>
+                Or email me <Mail className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 sm:flex sm:flex-col sm:gap-0">

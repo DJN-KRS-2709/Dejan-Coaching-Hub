@@ -1,12 +1,7 @@
 // Every offer on the site, with its price. Packages, not hourly sessions.
-// Paid offers start with the free intro call or a waitlist, never with a paid booking.
+// Every offer has the same one call to action: the free 20-minute intro call (see src/lib/links.ts).
 
 export type OfferGroup = "you" | "team" | "leaders" | "speaking";
-
-export type OfferCta =
-  | { kind: "intro" }
-  | { kind: "link"; label: string; to: string }
-  | { kind: "signup"; label: string; list: "masterclass" | "cohort-waitlist" | "newsletter" };
 
 export interface Offer {
   id: string;
@@ -19,14 +14,13 @@ export interface Offer {
   priceNote?: string;
   tag?: string;
   featured?: boolean;
-  cta: OfferCta;
 }
 
 export const OFFER_GROUPS: { id: OfferGroup; title: string; lead: string }[] = [
   {
     id: "you",
     title: "For you",
-    lead: "Start free, learn to build in three weeks, or work with me one to one.",
+    lead: "Learn to build with AI in two weeks, or work with me one to one.",
   },
   {
     id: "team",
@@ -47,26 +41,15 @@ export const OFFER_GROUPS: { id: OfferGroup; title: string; lead: string }[] = [
 
 export const OFFERS: Offer[] = [
   {
-    id: "masterclass",
-    group: "you",
-    stages: [1, 2],
-    title: "Free monthly masterclass",
-    body: "Build something real in one hour, live, with me on screen. A new problem every month.",
-    format: "Monthly · 60 minutes · online",
-    price: "Free",
-    cta: { kind: "signup", label: "Get the next date", list: "masterclass" },
-  },
-  {
     id: "course",
     group: "you",
     stages: [1, 3],
     title: "Spectator to Builder",
-    body: "Three weeks from a problem in your work to a working prototype you have tested with real users, shown on demo day.",
-    format: "3-week live cohort · 4 sessions, 6 live hours · max 20 people · no code needed",
-    price: "€990",
-    priceNote: "Founding cohort €690",
+    body: "AI product management foundations in two weeks: the biggest changes AI brings to product work, and how to work with them. You go from a real problem in your work to an AI prototype you have tested with evals.",
+    format: "2-week live cohort · 4 sessions of 2 hours, 8 live hours · max 20 people · no code needed",
+    price: "$795",
+    priceNote: "Early bird $700",
     featured: true,
-    cta: { kind: "link", label: "Join the waitlist", to: "/course#waitlist" },
   },
   {
     id: "coaching",
@@ -77,7 +60,6 @@ export const OFFERS: Offer[] = [
     format: "3 months · 6 sessions",
     price: "€1,490",
     tag: "Few spots",
-    cta: { kind: "intro" },
   },
   {
     id: "diagnostic",
@@ -88,7 +70,6 @@ export const OFFERS: Offer[] = [
     format: "Fixed price · any stage",
     price: "€1,900",
     priceNote: "Credited toward a program",
-    cta: { kind: "intro" },
   },
   {
     id: "workshops",
@@ -99,7 +80,6 @@ export const OFFERS: Offer[] = [
     format: "Up to 20 people",
     price: "€1,900 half day",
     priceNote: "€3,500 full day",
-    cta: { kind: "intro" },
   },
   {
     id: "builder-program",
@@ -111,7 +91,6 @@ export const OFFERS: Offer[] = [
     price: "from €9,900",
     priceNote: "For up to 20 people",
     featured: true,
-    cta: { kind: "intro" },
   },
   {
     id: "advisory",
@@ -122,7 +101,6 @@ export const OFFERS: Offer[] = [
     format: "Monthly",
     price: "from €4,000",
     priceNote: "per month",
-    cta: { kind: "intro" },
   },
   {
     id: "keynotes",
@@ -133,7 +111,6 @@ export const OFFERS: Offer[] = [
     format: "20 to 45 minutes · English or German",
     price: "from €2,500",
     priceNote: "plus travel",
-    cta: { kind: "link", label: "See the talks", to: "/speaking" },
   },
 ];
 

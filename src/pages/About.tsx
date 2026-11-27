@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import IntroCallLink from "@/components/IntroCallLink";
 import { CaseCard, WorkedWith } from "@/components/Proof";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { BACKGROUND_CASES } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { YEARS } from "@/lib/links";
@@ -110,11 +108,8 @@ const About = () => {
       <Section className="border-t-0 pt-0 md:pt-0">
         <div className="max-w-3xl">
           <ClosingLine>Start where you are.</ClosingLine>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
             <IntroCallLink size="lg" />
-            <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-              Find your stage
-            </Link>
           </div>
         </div>
       </Section>
