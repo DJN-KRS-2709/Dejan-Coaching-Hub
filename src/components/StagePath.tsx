@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { Eyebrow, ModeSwitch, StageBadge } from "@/components/site";
+import { Eyebrow, FOCUS_RING, ModeSwitch, StageBadge } from "@/components/site";
 import { STAGES } from "@/content/stages";
 import type { Mode } from "@/content/stages";
 import { cn } from "@/lib/utils";
@@ -34,7 +34,7 @@ export const Staircase = ({ active = -1, variant, className }: StaircaseProps) =
             "flex min-w-0 flex-1 flex-col items-start gap-1 rounded-b-[4px] rounded-t-xl",
             preview ? "p-4" : "p-2",
             variant === "empty"
-              ? "border border-dashed border-ink/25 text-ink/40"
+              ? "border border-dashed border-ink/25 text-ink/60"
               : i === active
                 ? BAR_ACTIVE
                 : BAR,
@@ -43,7 +43,7 @@ export const Staircase = ({ active = -1, variant, className }: StaircaseProps) =
           <span className={cn("font-bold leading-none", preview ? "text-3xl" : "text-sm")}>{s.n}</span>
           {preview && (
             <>
-              <span className="text-[0.95rem] font-bold leading-tight">{s.name}</span>
+              <span className="text-base font-bold leading-tight">{s.name}</span>
               <span className="text-xs leading-snug text-ink/60">{s.sub}</span>
             </>
           )}
@@ -96,14 +96,14 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
             )}
           >
             <span className="text-2xl font-bold leading-none md:text-3xl">{s.n}</span>
-            <span className="text-[0.95rem] font-bold leading-tight">{s.name}</span>
-            <span className={cn("hidden text-xs leading-snug md:block", i === active ? "text-white/80" : "text-ink/60")}>
+            <span className="text-base font-bold leading-tight">{s.name}</span>
+            <span className={cn("hidden text-xs leading-snug md:block", i === active ? "text-white" : "text-ink/60")}>
               {s.sub}
             </span>
           </button>
         ))}
       </div>
-      <div className="mt-2 hidden justify-between text-xs text-ink/50 md:flex" aria-hidden="true">
+      <div className="mt-2 hidden justify-between text-xs text-ink/60 md:flex" aria-hidden="true">
         <span>Just starting</span>
         <span>AI-native</span>
       </div>
@@ -122,7 +122,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="grid content-start gap-2">
             <Eyebrow>You are here if</Eyebrow>
-            <ul className="grid list-disc gap-1.5 pl-5 text-[0.95rem] text-ink/75">
+            <ul className="grid list-disc gap-1.5 pl-5 text-base text-ink/75">
               {view.here.map((h) => (
                 <li key={h}>{h}</li>
               ))}
@@ -130,16 +130,16 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
           </div>
           <div className="grid content-start gap-2">
             <Eyebrow>Your next step</Eyebrow>
-            <p className="text-[0.95rem] text-ink/75">{view.next}</p>
+            <p className="text-base text-ink/75">{view.next}</p>
           </div>
           <div className="grid content-start gap-2">
             <Eyebrow>How I help</Eyebrow>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-x-5">
               {view.help.map((h) => (
                 <Link
                   key={h.label}
                   to={h.to}
-                  className="inline-flex min-h-[44px] items-center rounded-full bg-muted px-4 py-1.5 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10 transition-colors hover:bg-ink hover:text-white"
+                  className={cn("inline-flex min-h-[44px] items-center text-sm font-semibold text-ink underline underline-offset-4 hover:decoration-2", FOCUS_RING)}
                 >
                   {h.label}
                 </Link>

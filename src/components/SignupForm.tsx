@@ -22,8 +22,8 @@ interface Props {
   className?: string;
 }
 
-// One email field for the newsletter, the course waitlist, masterclass dates and the
-// self-check readout. Where it posts: src/lib/signup.ts.
+// One email field for the newsletter, the course waitlist and the self-check readout.
+// Not used on any page right now (one call to action: the free intro call). Where it posts: src/lib/signup.ts.
 const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = false, className }: Props) => {
   const id = useId();
   const { pathname } = useLocation();
@@ -84,7 +84,7 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = 
             "h-12 w-full min-w-0 rounded-full border px-5 text-base outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ink sm:w-auto sm:flex-1 md:text-sm",
             dark
               ? "border-white/20 bg-white/10 text-white placeholder:text-white/50"
-              : "border-input bg-white text-ink placeholder:text-ink/40",
+              : "border-input bg-white text-ink placeholder:text-ink/60",
           )}
         />
         {/* Honeypot: hidden from people, bots fill it in. */}
@@ -123,7 +123,7 @@ const SignupForm = ({ list, label, button, stage, mode, dark = false, primary = 
       >
         {messages[status]}
       </p>
-      <p className={cn("text-xs", dark ? "text-white/50" : "text-ink/50")}>
+      <p className={cn("text-xs", dark ? "text-white/50" : "text-ink/60")}>
         No spam. Unsubscribe any time.{" "}
         <Link to="/datenschutz" className="inline-flex min-h-[44px] items-center underline underline-offset-2">
           Privacy (Datenschutz)

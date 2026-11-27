@@ -1,5 +1,7 @@
-import { Eyebrow } from "@/components/site";
-import { BACKGROUND, CLIENT_CASES, TESTIMONIALS, WORKED_WITH } from "@/content/proof";
+import { ArrowRight } from "lucide-react";
+import { Eyebrow, TEXT_LINK } from "@/components/site";
+import { BACKGROUND, CLIENT_CASES, GOVTECH_CASE, TESTIMONIALS, WORKED_WITH } from "@/content/proof";
+import { cn } from "@/lib/utils";
 import type { Case } from "@/content/proof";
 
 export const WorkedWith = () => (
@@ -27,16 +29,30 @@ export const WorkedWith = () => (
   </div>
 );
 
-export const CaseCard = ({ c }: { c: Case }) => (
-  <article className="grid min-w-0 content-start gap-2 rounded-3xl border border-ink/10 bg-white p-6 md:p-7">
-    <p className="text-xs font-bold uppercase tracking-[0.07em] text-ink/50">{c.who}</p>
-    <h3 className="text-lg font-semibold tracking-tight text-ink">{c.title}</h3>
-    <p className="text-[0.95rem] leading-relaxed text-ink/70">{c.body}</p>
+// Case cards carry no call to action. A source link, when there is one, is a quiet text link.
+export const CaseCard = ({ c, lead = false, className }: { c: Case; lead?: boolean; className?: string }) => (
+  <article
+    className={cn(
+      "grid min-w-0 content-start gap-2 rounded-3xl border bg-white p-6 md:p-7",
+      lead ? "border-ink" : "border-ink/10",
+      className,
+    )}
+  >
+    <p className="text-xs font-bold uppercase tracking-[0.07em] text-ink/60">{c.who}</p>
+    <h3 className={cn("font-semibold tracking-tight text-ink", lead ? "text-xl md:text-2xl" : "text-lg")}>{c.title}</h3>
+    <p className={cn("text-base leading-relaxed text-ink/70", lead && "max-w-[62ch]")}>{c.body}</p>
+    {c.link && (
+      <a href={c.link.href} target="_blank" rel="noopener noreferrer" className={cn(TEXT_LINK, "justify-self-start text-sm")}>
+        {c.link.label} <ArrowRight className="h-4 w-4" />
+      </a>
+    )}
   </article>
 );
 
+// GovTech Singapore leads, full width, then the other cases.
 export const ClientCases = () => (
   <div className="grid gap-4 md:grid-cols-3">
+    <CaseCard c={GOVTECH_CASE} lead className="md:col-span-3" />
     {CLIENT_CASES.map((c) => (
       <CaseCard key={c.who} c={c} />
     ))}

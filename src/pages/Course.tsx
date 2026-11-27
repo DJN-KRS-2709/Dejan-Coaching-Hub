@@ -1,60 +1,79 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import SignupForm from "@/components/SignupForm";
+import IntroCallLink from "@/components/IntroCallLink";
 import { ClosingLine, Eyebrow, PageHero, PageShell, Section, SectionHead, StageBadge, TEXT_LINK } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
+import { COURSE_PRICE, COURSE_PRICE_LINE, COURSE_PRICE_NOTE } from "@/content/offers";
 import { COURSE_SESSIONS } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
-import IntroCallLink from "@/components/IntroCallLink";
-import { SHOW_PRICING, SHOW_WAITLIST } from "@/lib/flags";
-import { INTRO_CALL_URL } from "@/lib/links";
 
 const FACTS = [
-  ["Format", "4 live sessions of 90 minutes over 3 weeks: 6 live hours"],
-  ["Schedule", "Week 1: one session. Week 2: one session. Week 3: two sessions, the last one is demo day."],
+  ["For", "Entry level. You know some product management but are not confident with AI yet, or you want to become an AI product person."],
+  ["Format", "4 live sessions of 2 hours over 2 weeks: 8 live hours"],
+  ["Schedule", "Two sessions a week. Week 1: your idea, the spec and the build. Week 2: deploy, test and show."],
   ["When", "Daytime sessions, Berlin time. No late evenings."],
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
-  ["You need", "A laptop, a problem and about 2 hours a week for your own project. No code."],
-  ...(SHOW_PRICING ? [["Price", "€990. Founding cohort €690."]] : []),
+  ["You need", "A laptop and one real problem from your work. No coding experience."],
+  ["Price", COURSE_PRICE_LINE],
+];
+
+const PARTS = [
+  {
+    title: "AI product management basics",
+    body: "How AI works, what is worth building, and how to write the spec you build from.",
+  },
+  {
+    title: "Vibe coding to a working product",
+    body: "Build from your spec with AI, then deploy it, so you have a working product at a link you can share.",
+  },
+  {
+    title: "Light evals",
+    body: "Check your product against a simple rubric, so you know whether it does its job before you show it.",
+  },
 ];
 
 const Course = () => {
   usePageTitle(
-    "Spectator to Builder",
-    `A 3-week live cohort for up to 20 people: 4 sessions, 6 live hours. From a problem in your work to a prototype you have tested with real users.${SHOW_PRICING ? " €990, founding cohort €690." : ""}`,
+    "Prompt to Product",
+    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. $700 early bird until 14 days before the start, $795 after that.",
   );
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="The course · 3-week live cohort · 6 live hours"
-        title={
-          <>
-            Spectator
-            <br />
-            to Builder
-          </>
-        }
-        lead="For anyone who works on products or wants to: product managers, product owners, designers, analysts and people switching careers. You bring one real problem from your work. You leave with something built, tested and running."
+        eyebrow="Prompt to Product · 2-week live cohort · 8 live hours"
+        title="Ship a real AI product in 14 days"
+        lead="In 14 days from idea to your own AI product."
       >
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          {SHOW_WAITLIST ? (
-            <a href="#waitlist" className={buttonVariants({ variant: "brand", size: "lg" })}>
-              Join the waitlist
-            </a>
-          ) : (
-            <IntroCallLink size="lg" label="Ask about the course" />
-          )}
-          <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-            Is it for me? Take the self-check
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+          For people with some product management knowledge who are not confident with AI yet, and for anyone who
+          wants to become an AI product person. You bring one real problem from your work.
+        </p>
+        <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <IntroCallLink size="lg" />
+          <Link to="/self-check" className={TEXT_LINK}>
+            Is it for me? Take the self-check <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageHero>
 
       <Section>
+        <SectionHead eyebrow="What you learn" title="Three parts, one product of your own." />
+        <ol className="grid gap-4 md:grid-cols-3">
+          {PARTS.map((p, i) => (
+            <li key={p.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
+              <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
+              <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
+              <p className="text-base text-ink/70">{p.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-6 text-sm text-ink/60">Not covered: AI agents.</p>
+      </Section>
+
+      <Section>
         <div className="max-w-3xl">
-          <SectionHead eyebrow="The facts" title="Three weeks, 6 live hours, one real problem." />
+          <SectionHead eyebrow="The facts" title="Two weeks, 8 live hours, one real problem." />
           <dl className="grid gap-0">
             {FACTS.map(([k, v]) => (
               <div key={k} className="grid gap-1 border-t border-ink/10 py-3 sm:grid-cols-[8rem_1fr] sm:gap-4">
@@ -68,12 +87,12 @@ const Course = () => {
 
       <Section>
         <SectionHead
-          eyebrow="The three weeks"
+          eyebrow="The two weeks"
           title="Every session ends with something you made."
-          lead="Week 1 meets you at stage 1 and week 2 at stage 2. Week 3 takes you to stage 3: you build, judge what you built, and show it on demo day."
+          lead="Week 1: your idea, the spec and the build. Week 2: deploy, test and show. You put your product live with a real AI model, check it with evals and demo it to the group."
         />
         <ol className="border-t-2 border-ink">
-          {[1, 2, 3].map((week) => (
+          {[1, 2].map((week) => (
             <li key={week} className="grid gap-3 border-b border-ink/10 py-6 md:grid-cols-[8rem_1fr] md:gap-4">
               <span className="text-2xl font-bold leading-none">Week {week}</span>
               <ol className="grid gap-6">
@@ -84,7 +103,7 @@ const Course = () => {
                       <StageBadge>Stage {s.stage}</StageBadge>
                     </div>
                     <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-                    <p className="text-[0.95rem] text-ink/70">{s.body}</p>
+                    <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
                     <p className="mt-2 justify-self-start rounded-md bg-muted px-2.5 py-1 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10">
                       You leave with: {s.leave}
                     </p>
@@ -96,40 +115,23 @@ const Course = () => {
         </ol>
       </Section>
 
-      {/* Close: the founding cohort waitlist, or the intro call while the waitlist is held back */}
-      {!SHOW_WAITLIST && (
-        <Section id="waitlist" className="scroll-mt-4">
-          <div className="max-w-3xl">
-            <ClosingLine>Want to be in the first cohort?</ClosingLine>
-            <p className="mt-5 text-lg leading-relaxed text-ink/75">
-              Book 20 minutes. Tell me what you want to build, and I will tell you if the course fits.
+      {/* Close: one action, the free intro call */}
+      <Section id="join" className="scroll-mt-4">
+        <div className="max-w-xl">
+          <ClosingLine>Want a seat?</ClosingLine>
+          <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
+            <Eyebrow>Price</Eyebrow>
+            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 tabular-nums tracking-tight">
+              <span className="text-4xl font-extrabold">{COURSE_PRICE}</span>
+              <span className="text-base font-medium text-ink/70">{COURSE_PRICE_NOTE}</span>
             </p>
-            <div className="mt-8">
-              <IntroCallLink size="lg" variant="outline" />
-            </div>
+            <p className="mt-3 text-base leading-relaxed text-ink/70">
+              Book a free 20-minute intro call. We check the course fits your work, and I tell you the next dates.
+            </p>
+            <IntroCallLink size="lg" className="mt-5" />
           </div>
-        </Section>
-      )}
-      {SHOW_WAITLIST && (
-        <Section id="waitlist" className="scroll-mt-4">
-          <div className="max-w-xl">
-            <ClosingLine>Join the founding cohort.</ClosingLine>
-            <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
-              <Eyebrow>Founding cohort waitlist</Eyebrow>
-              <p className="mt-3 text-2xl font-extrabold tabular-nums tracking-tight">
-                €690 <span className="text-base font-medium text-ink/50 line-through">€990</span>
-              </p>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
-                The first cohort pays €690 instead of €990. The waitlist hears about dates first.
-              </p>
-              <SignupForm list="cohort-waitlist" label="Your email" button="Join the waitlist" primary className="mt-5" />
-            </div>
-            <a href={INTRO_CALL_URL} target="_blank" rel="noopener noreferrer" className={`${TEXT_LINK} mt-4`}>
-              Questions first? Book a free 20-min intro call <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </Section>
-      )}
+        </div>
+      </Section>
     </PageShell>
   );
 };

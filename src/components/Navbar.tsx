@@ -14,6 +14,22 @@ export const NAV_LINKS = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  // Phones: the booking pill stays hidden until the first section (the hero) has scrolled away.
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      const hero = document.querySelector("main section");
+      setPastHero(hero ? hero.getBoundingClientRect().bottom <= 64 : window.scrollY > 400);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -24,8 +40,8 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-ink/5 bg-canvas/90 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between gap-4 px-4 md:px-6">
-        <Link to="/" className="inline-flex min-h-[44px] items-center text-xl text-ink md:text-2xl" onClick={() => setOpen(false)}>
+      <div className="container flex h-16 items-center justify-between gap-2 px-4 md:gap-4 md:px-6">
+        <Link to="/" className="inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px]" onClick={() => setOpen(false)}>
           <Wordmark />
         </Link>
 
@@ -35,7 +51,7 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `rounded-full px-3 py-2 text-sm font-medium transition-colors ${
+                `inline-flex min-h-[44px] items-center rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
                   isActive ? "text-ink" : "text-ink/60 hover:text-ink"
                 }`
               }
@@ -45,7 +61,11 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <IntroCallLink variant="default" size="sm" className="hidden lg:inline-flex" />
+        <div className="flex min-w-0 items-center gap-1">
+          <IntroCallLink variant="navOutline" size="sm" className="hidden whitespace-nowrap lg:inline-flex" />
+          {pastHero && !open && (
+            <IntroCallLink variant="navOutline" size="sm" className="min-w-0 px-3 text-[13px] leading-tight md:h-11 lg:hidden" />
+          )}
 
         <button
           type="button"
@@ -57,6 +77,7 @@ const Navbar = () => {
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
+        </div>
       </div>
 
       {open && (
@@ -85,7 +106,7 @@ const Navbar = () => {
               </NavLink>
             ))}
           </nav>
-          <IntroCallLink variant="default" className="mt-4 w-full" onClick={() => setOpen(false)} />
+          <IntroCallLink variant="navOutline" className="mt-4 w-full" onClick={() => setOpen(false)} />
         </div>
       )}
     </header>

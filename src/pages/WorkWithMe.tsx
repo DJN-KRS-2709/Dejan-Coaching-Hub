@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClosingLine, PageHero, PageShell, Section, SectionHead } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
 import { OFFER_GROUPS, offersIn } from "@/content/offers";
 import type { OfferGroup } from "@/content/offers";
 import { PRINCIPLES } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { SHOW_PRICING } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 
 const STEPS = [
@@ -18,9 +15,7 @@ const STEPS = [
   },
   {
     title: "A one-page proposal",
-    body: SHOW_PRICING
-      ? "The outcome, the format and a fixed price. Teams pay by invoice."
-      : "The outcome, the format and what it costs. Teams pay by invoice.",
+    body: "The outcome, the format and a fixed price. Teams pay by invoice.",
   },
   {
     title: "Work on your real work",
@@ -80,14 +75,14 @@ const OfferTabs = () => {
   return (
     <div className="sticky top-[65px] z-40 border-y border-ink/10 bg-canvas/95 backdrop-blur-md">
       <div className="container px-4 py-2 md:px-6">
-        <nav aria-label="Offers" className="flex w-full gap-1 rounded-full border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
+        <nav aria-label="Offers" className="flex w-full flex-wrap gap-1 rounded-[1.5rem] border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
           {TABS.map((tab) => (
             <a
               key={tab.id}
               href={`#${tab.id}`}
               aria-current={active === tab.id ? "location" : undefined}
               className={cn(
-                "flex min-h-[44px] flex-1 items-center justify-center rounded-full px-4 text-sm font-semibold transition-colors sm:flex-none sm:px-5",
+                "flex min-h-[44px] flex-1 items-center justify-center rounded-full px-3 text-sm font-semibold transition-colors sm:flex-none sm:px-5",
                 active === tab.id ? "bg-ink text-white" : "text-ink/70 hover:text-ink",
               )}
             >
@@ -103,7 +98,7 @@ const OfferTabs = () => {
 const WorkWithMe = () => {
   usePageTitle(
     "Work with me",
-    "Packages, not hourly sessions: a free masterclass, the Spectator to Builder course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
+    "Packages, not hourly sessions: the Prompt to Product course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
   );
 
   return (
@@ -111,12 +106,10 @@ const WorkWithMe = () => {
       <PageHero
         eyebrow="Work with me"
         title="Packages, not hourly sessions."
-        lead={`Every offer is the next step from where you or your team are today.${SHOW_PRICING ? " Fixed prices." : ""} Paid work starts with a free 20-minute intro call, so we both know it fits.`}
+        lead="Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits."
       >
         <div className="mt-8">
-          <Link to="/self-check" className={buttonVariants({ variant: "brand", size: "lg" })}>
-            Find your stage
-          </Link>
+          <IntroCallLink size="lg" />
         </div>
       </PageHero>
 
@@ -138,7 +131,7 @@ const WorkWithMe = () => {
             <li key={s.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
               <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
               <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{s.body}</p>
+              <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
             </li>
           ))}
         </ol>
@@ -180,7 +173,7 @@ const WorkWithMe = () => {
               className={`grid gap-2 border-b border-ink/10 py-6 md:py-7 ${i % 2 === 0 ? "md:border-r md:pr-8" : "md:pl-8"}`}
             >
               <h3 className="text-xl font-semibold tracking-tight text-ink md:text-2xl">{p.title}</h3>
-              <p className="text-[0.95rem] text-ink/70">{p.body}</p>
+              <p className="max-w-[65ch] text-base text-ink/70">{p.body}</p>
             </div>
           ))}
         </div>

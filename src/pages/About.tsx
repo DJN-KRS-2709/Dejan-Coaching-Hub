@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
 import IntroCallLink from "@/components/IntroCallLink";
 import { CaseCard, WorkedWith } from "@/components/Proof";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
-import { buttonVariants } from "@/components/ui/button";
-import { BACKGROUND_CASES } from "@/content/proof";
+import { BACKGROUND_CASES, GOVTECH_CASE } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
-import { YEARS } from "@/lib/links";
+import { SHORT_BIO, YEARS } from "@/lib/links";
 
 const CAREER = [
-  { org: "Product School", role: "CPO, 2026 to today. Instructor and speaker before that.", now: true },
+  { org: "Dejan Krstic", role: "AI product leadership coach", now: true },
+  { org: "Product School", role: "Ex-CPO, 2026. Instructor and speaker before that." },
   { org: "Spotify", role: "Group Product Manager, Creator and Enterprise Payouts, until 2026" },
   { org: "SoundCloud", role: "Lead Product Manager, Insights and Royalties" },
   { org: "BMG", role: "Director of Business Analysis" },
@@ -24,7 +23,7 @@ const BMG = {
 const About = () => {
   usePageTitle(
     "About",
-    `Dejan Krstic: ${YEARS} years building products at Spotify, SoundCloud and BMG, CPO of Product School. AI product leadership coach.`,
+    `Dejan Krstic, AI product leadership coach. ${SHORT_BIO}`,
   );
 
   return (
@@ -35,7 +34,9 @@ const About = () => {
           <div className="grid items-start gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-x-16 lg:gap-y-6">
             <div className="animate-fade-in lg:col-start-1 lg:row-start-1">
               <Eyebrow>About</Eyebrow>
-              <h1 className="mt-4 font-display text-[clamp(2.75rem,9vw,6rem)]">Hi, I'm Dejan.</h1>
+              <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)]">Hi, I'm Dejan.</h1>
+              {/* Short bio: the same text as the share card description. */}
+              <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-ink/75">{SHORT_BIO}</p>
             </div>
             <div className="mx-auto w-full max-w-[480px] overflow-hidden rounded-3xl border border-ink/10 lg:col-start-2 lg:row-span-2 lg:row-start-1">
               <img
@@ -62,8 +63,8 @@ const About = () => {
                 it.
               </p>
               <p>
-                I've spent {YEARS} years building products in music and tech, and taught, coached and spoke on the side
-                for most of them. What I care about most is helping people and product teams get from watching to
+                I've spent {YEARS} years building products in music and tech, and for most of them I also taught,
+                coached and gave talks. Now it is my whole job: helping people and product teams get from watching to
                 building.
               </p>
               <p>I teach in German and English, and I am at home in Croatian, Serbian and Bosnian.</p>
@@ -104,16 +105,14 @@ const About = () => {
 
       <Section>
         <WorkedWith />
+        <CaseCard c={GOVTECH_CASE} lead className="mt-8" />
       </Section>
 
       <Section className="border-t-0 pt-0 md:pt-0">
         <div className="max-w-3xl">
           <ClosingLine>Start where you are.</ClosingLine>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
             <IntroCallLink size="lg" />
-            <Link to="/self-check" className={buttonVariants({ variant: "outline", size: "lg" })}>
-              Find your stage
-            </Link>
           </div>
         </div>
       </Section>

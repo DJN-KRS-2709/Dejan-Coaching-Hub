@@ -1,4 +1,5 @@
-// Email signups: newsletter, course waitlist, masterclass dates and the self-check readout.
+// Email signups: newsletter, course waitlist and the self-check readout.
+// Not used on any page right now: the site has one call to action, the free intro call.
 //
 // =====================================================================================
 // PLUG IN THE EMAIL TOOL HERE.
@@ -14,7 +15,7 @@
 // =====================================================================================
 export const SIGNUP_ENDPOINT: string = import.meta.env.VITE_SIGNUP_ENDPOINT || "/api/signup";
 
-export type SignupList = "newsletter" | "cohort-waitlist" | "masterclass" | "self-check";
+export type SignupList = "newsletter" | "cohort-waitlist" | "self-check";
 
 export interface SignupPayload {
   email: string;

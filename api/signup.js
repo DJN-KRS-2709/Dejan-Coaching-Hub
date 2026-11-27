@@ -1,6 +1,7 @@
 // PLACEHOLDER signup endpoint (Vercel serverless function at /api/signup).
 //
-// The newsletter, course waitlist, masterclass and self-check forms post here as JSON:
+// No page uses a signup form right now: the site has one call to action, the free intro call.
+// If a form comes back (newsletter, course waitlist, self-check readout), it posts here as JSON:
 //   { email, list, page, stage?, mode? }
 // It checks the request and answers { ok: true, placeholder: true }, but it STORES AND
 // SENDS NOTHING, and logs no personal data.
@@ -12,7 +13,7 @@
 // { ok: true, placeholder: false } once the contact is created.
 // =====================================================================================
 
-const LISTS = new Set(["newsletter", "cohort-waitlist", "masterclass", "self-check"]);
+const LISTS = new Set(["newsletter", "cohort-waitlist", "self-check"]);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default async function handler(req, res) {

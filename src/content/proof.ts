@@ -1,7 +1,7 @@
 // Proof: who I have worked with, what happened, and room for real testimonials.
 // Never add a quote, number or client here that cannot be shown to be true.
 
-export const WORKED_WITH = ["Diamant Software", "HTW Berlin", "Clientology Institute"];
+export const WORKED_WITH = ["GovTech Singapore", "Medallia", "IKEA", "Diamant Software", "HTW Berlin", "Clientology Institute"];
 
 export const BACKGROUND = ["Spotify", "SoundCloud"];
 
@@ -9,7 +9,22 @@ export interface Case {
   who: string;
   title: string;
   body: string;
+  // Optional text link to the source, opens in a new tab.
+  link?: { label: string; href: string };
 }
+
+// GovTech Singapore: a program Dejan led and taught (run through Product School, so it is framed
+// as his teaching, not as a client of his own practice). Source: his LinkedIn post, Nov 24 2026.
+// No metrics, names or quotes from attendees: the post has none to share.
+export const GOVTECH_CASE: Case = {
+  who: "GovTech Singapore · AI product management program",
+  title: "The most senior people in the room were the ones taking the most notes",
+  body: "Four days with GovTech Singapore's senior product leaders on an AI product management program I led and taught. They built working AI prototypes during the week. What I took away: every decision starts with the citizen, nobody waits for permission to use AI, and seniority comes without ego. I came to teach and left with a notebook full of my own learnings.",
+  link: {
+    label: "Read the post on LinkedIn",
+    href: "https://www.linkedin.com/posts/dejan-krstic-b4a7a98a_the-most-senior-people-in-the-room-were-the-share-7530901610605092864-Zq2r/",
+  },
+};
 
 export const CLIENT_CASES: Case[] = [
   {
@@ -61,7 +76,7 @@ export const TESTIMONIALS: Testimonial[] = [
     placeholder: true,
   },
   {
-    quote: "A real quote from a conference or masterclass client goes here.",
+    quote: "A real quote from a conference or workshop client goes here.",
     name: "Name",
     role: "Role, company",
     placeholder: true,
@@ -111,39 +126,39 @@ export const TALKS = [
   },
 ];
 
-// Spectator to Builder: 3 weeks, 4 live sessions of 90 minutes (6 live hours). Week 1 and 2 have one
-// session each, week 3 has two; the last one is demo day. About 2 hours a week on your own project.
+// Prompt to Product: 2 weeks, 4 live sessions of 2 hours (8 live hours), two sessions a week.
+// Entry level. Week 1: idea, spec and build. Week 2: deploy, evals and demo. Agents are not covered.
 export const COURSE_SESSIONS = [
   {
     session: 1,
     week: 1,
     stage: 1,
-    title: "From a real problem to what is worth building",
-    body: "What a model actually does and where it fails. Then the three questions every product decision answers: what problem, for whom, and how you will know. You talk to users and separate evidence from opinion.",
-    leave: "A problem from your own work, backed by evidence",
+    title: "Pick your idea and write the spec",
+    body: "Pick one idea from your work that is worth building and write a one-page spec for it. Live example: turn a vague request into a skill. Then you write your product's first AI skill and test it on a real example.",
+    leave: "A one-page spec for your AI product and its first AI skill, tested on a real example",
   },
   {
     session: 2,
-    week: 2,
+    week: 1,
     stage: 2,
-    title: "Context is the work",
-    body: "Write the brief that people and AI can both build from. This is where most AI output is won or lost.",
-    leave: "A one-page spec",
+    title: "Build it with vibe coding",
+    body: "Describe your one screen in plain words, straight from your spec, and build a working version with AI.",
+    leave: "A working version of your one screen, built from your spec in plain words",
   },
   {
     session: 3,
-    week: 3,
+    week: 2,
     stage: 3,
-    title: "Build it, then judge it",
-    body: "From spec to working prototype in one session. Then put it in front of real users and decide: kill, change or ship.",
-    leave: "A prototype a colleague can click",
+    title: "Deploy it: live, with real AI",
+    body: "Put your product live at a public link and connect it to a real AI model, so it answers for real.",
+    leave: "Your AI product live at a public link, answering with a real AI model",
   },
   {
     session: 4,
-    week: 3,
+    week: 2,
     stage: 3,
-    title: "Demo day",
-    body: "Everyone shows their own build in five minutes: the problem, the prototype, what users did with it and what you decided. You get feedback from the group and a next step for your work.",
-    leave: "A tested prototype and a 5-minute demo",
+    title: "Check it with evals, demo it, plan what's next",
+    body: "Write a simple eval rubric, score your product, make one fix and score it again. Then show it in a 2-minute demo and plan your next 30 days.",
+    leave: "A simple eval rubric with a score before and after one fix, a 2-minute demo and a 30-day plan",
   },
 ];
