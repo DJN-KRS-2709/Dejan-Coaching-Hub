@@ -8,7 +8,7 @@ import { usePageTitle } from "@/hooks/use-page-title";
 const FACTS = [
   ["For", "Entry level. You know some product management but are not confident with AI yet, or you want to become an AI product person."],
   ["Format", "4 live sessions of 2 hours over 2 weeks: 8 live hours"],
-  ["Schedule", "Two sessions a week. Week 1: how AI works, an idea worth building and the spec. Week 2: build, deploy, test and show."],
+  ["Schedule", "Two sessions a week. Week 1: your idea, the spec and the build. Week 2: deploy, test and show."],
   ["When", "Daytime sessions, Berlin time. No late evenings."],
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
@@ -88,7 +88,7 @@ const Course = () => {
         <SectionHead
           eyebrow="The two weeks"
           title="Every session ends with something you made."
-          lead="Week 1 covers how AI works, an idea worth building and the spec. Week 2 takes you to stage 3: you build and deploy your product, test it with evals and show it to the group."
+          lead="Week 1: your idea, the spec and the build. Week 2: deploy, test and show. You put your product live with a real AI model, check it with evals and demo it to the group."
         />
         <ol className="border-t-2 border-ink">
           {[1, 2].map((week) => (

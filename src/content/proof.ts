@@ -127,38 +127,38 @@ export const TALKS = [
 ];
 
 // Prompt to Product: 2 weeks, 4 live sessions of 2 hours (8 live hours), two sessions a week.
-// Entry level. Arc: idea and spec, build, deploy, evals and demo. Agents are not covered.
+// Entry level. Week 1: idea, spec and build. Week 2: deploy, evals and demo. Agents are not covered.
 export const COURSE_SESSIONS = [
   {
     session: 1,
     week: 1,
     stage: 1,
-    title: "How AI works, and your first AI skill",
-    body: "What a model actually does, where it fails, and what that changes for product work. Live example: turn a vague request into a skill. Then you build your own.",
-    leave: "Your first AI skill, saved so you can use it again",
+    title: "Pick your idea and write the spec",
+    body: "Pick one idea from your work that is worth building and write a one-page spec for it. Live example: turn a vague request into a skill. Then you write your product's first AI skill and test it on a real example.",
+    leave: "A one-page spec for your AI product and its first AI skill, tested on a real example",
   },
   {
     session: 2,
     week: 1,
     stage: 2,
-    title: "Pick a problem worth solving",
-    body: "The three questions every product decision answers: what problem, for whom, and how you will know. You pick one real problem from your work, back it with evidence, and write the spec you will build from.",
-    leave: "A problem backed by evidence, and a one-page spec",
+    title: "Build it with vibe coding",
+    body: "Describe your one screen in plain words, straight from your spec, and build a working version with AI.",
+    leave: "A working version of your one screen, built from your spec in plain words",
   },
   {
     session: 3,
     week: 2,
     stage: 3,
-    title: "Build and deploy your first AI product",
-    body: "Vibe code from your spec to a working product in one session, then deploy it so other people can use it.",
-    leave: "A working product at a link you can share",
+    title: "Deploy it: live, with real AI",
+    body: "Put your product live at a public link and connect it to a real AI model, so it answers for real.",
+    leave: "Your AI product live at a public link, answering with a real AI model",
   },
   {
     session: 4,
     week: 2,
     stage: 3,
-    title: "Test it with evals, show it, plan what's next",
-    body: "Light evals: score your product against a simple rubric to check it does its job. Show it to the group in five minutes, get feedback, and plan your next step.",
-    leave: "A tested product, a 5-minute demo and a plan for what's next",
+    title: "Check it with evals, demo it, plan what's next",
+    body: "Write a simple eval rubric, score your product, make one fix and score it again. Then show it in a 2-minute demo and plan your next 30 days.",
+    leave: "A simple eval rubric with a score before and after one fix, a 2-minute demo and a 30-day plan",
   },
 ];
