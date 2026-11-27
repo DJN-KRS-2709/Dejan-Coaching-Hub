@@ -8,7 +8,7 @@ import { LEGAL } from "@/lib/legal";
 // TODO before launch: create a free "20-min intro call" service in Setmore, hide the old paid
 // hourly services, and paste the direct link to the new service here.
 export const INTRO_CALL_URL = "https://dejankrstic.setmore.com";
-export const INTRO_CALL_LABEL = "Book a free 20-min intro call";
+export const INTRO_CALL_LABEL = "Book a free 20-min call";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/dejan-krstic-b4a7a98a/";
 export const CONTACT_EMAIL = LEGAL.email;

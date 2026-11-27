@@ -92,8 +92,10 @@ const Course = () => {
           <ClosingLine>Want a seat?</ClosingLine>
           <div className="mt-8 rounded-3xl border border-ink bg-white p-6 md:p-8">
             <Eyebrow>Price</Eyebrow>
-            <p className="mt-3 text-2xl font-extrabold tabular-nums tracking-tight">
-              $700 <span className="text-base font-medium text-ink/50">early bird, then $795</span>
+            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 tabular-nums tracking-tight">
+              <span className="text-4xl font-extrabold">$700</span>
+              <span className="text-xl font-medium text-ink/50 line-through">$795</span>
+              <span className="text-sm font-medium text-ink/60">Early bird</span>
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/70">
               Book a free 20-minute intro call. We check the course fits your work, and I tell you the next dates.

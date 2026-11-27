@@ -134,12 +134,12 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
           </div>
           <div className="grid content-start gap-2">
             <Eyebrow>How I help</Eyebrow>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-x-5">
               {view.help.map((h) => (
                 <Link
                   key={h.label}
                   to={h.to}
-                  className="inline-flex min-h-[44px] items-center rounded-full bg-muted px-4 py-1.5 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10 transition-colors hover:bg-ink hover:text-white"
+                  className="inline-flex min-h-[44px] items-center text-sm font-semibold text-ink underline underline-offset-4 hover:decoration-2"
                 >
                   {h.label}
                 </Link>

@@ -12,7 +12,12 @@ const buttonVariants = cva(
         default: "bg-ink text-white hover:bg-ink/85",
         brand: "bg-brand text-white hover:bg-brand-ink",
         light: "bg-canvas text-ink hover:bg-white",
+        // White fill: only the course band's own action on the dark band.
+        white: "bg-white text-ink font-semibold hover:bg-canvas",
         outlineLight: "border border-white/40 text-white hover:bg-white hover:text-ink",
+        // The nav booking pill: the quiet third ask. navOutlineDark is for a nav on a dark background.
+        navOutline: "border border-ink bg-transparent text-ink hover:bg-ink hover:text-white",
+        navOutlineDark: "border border-white bg-transparent text-white hover:bg-white hover:text-ink",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-ink/15 bg-white text-ink hover:bg-ink hover:text-white hover:border-ink",
         secondary: "bg-white text-ink border border-ink/15 hover:border-ink",
