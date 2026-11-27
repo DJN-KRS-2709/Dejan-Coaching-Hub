@@ -20,10 +20,10 @@ export interface Offer {
 
 // One price format for the course, everywhere on the site. No dates yet; the early bird
 // ends 14 days before each cohort starts.
-export const COURSE_PRICE = "$700";
-export const COURSE_PRICE_NOTE = "Early bird until 14 days before the start. $795 after that.";
+export const COURSE_PRICE = "€700";
+export const COURSE_PRICE_NOTE = "Early bird until 14 days before the start. €795 after that.";
 // Mid-sentence version of the same note, for the course facts list.
-export const COURSE_PRICE_LINE = `${COURSE_PRICE} early bird until 14 days before the start. $795 after that.`;
+export const COURSE_PRICE_LINE = `${COURSE_PRICE} early bird until 14 days before the start. €795 after that.`;
 
 export const OFFER_GROUPS: { id: OfferGroup; title: string; lead: string }[] = [
   {
@@ -56,8 +56,8 @@ export const OFFERS: Offer[] = [
     title: "Prompt to Product",
     body: "Ship a real AI product in 14 days. AI product management basics, vibe coding to a working, deployed product, and light evals with a simple rubric. Entry level, for people new to AI.",
     format: "2-week live cohort · 4 sessions of 2 hours, 8 live hours · max 20 people · no code needed",
-    price: "$700",
-    priceNote: "Early bird until 14 days before the start. $795 after that.",
+    price: COURSE_PRICE,
+    priceNote: COURSE_PRICE_NOTE,
     featured: true,
     action: { label: "See the two weeks", to: "/course" },
   },

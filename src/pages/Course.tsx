@@ -36,7 +36,7 @@ const PARTS = [
 const Course = () => {
   usePageTitle(
     "Prompt to Product",
-    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. $700 early bird until 14 days before the start, $795 after that.",
+    "Ship a real AI product in 14 days. A 2-week live cohort for up to 20 people: 4 sessions of 2 hours, 8 live hours. AI product management basics, vibe coding to a working, deployed product, and light evals. €700 early bird until 14 days before the start, €795 after that.",
   );
 
   return (
