@@ -4,6 +4,7 @@ import { StageChips, TEXT_LINK } from "@/components/site";
 import type { Offer } from "@/content/offers";
 import { INTRO_CALL_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
+import { useLocalize } from "@/lib/i18n";
 
 interface Props {
   offer: Offer;
@@ -15,9 +16,10 @@ interface Props {
 // Cards never carry a button. Their only action is a quiet text link to the free intro call.
 // Each card has its own label. The course card goes to /course, the others to the free intro call.
 const OfferCard = ({ offer, compact = false, className }: Props) => {
+  const lp = useLocalize();
   const linkClass = cn(TEXT_LINK, "justify-self-start text-base");
   const action = offer.action.to ? (
-    <Link to={offer.action.to} className={linkClass}>
+    <Link to={lp(offer.action.to)} className={linkClass}>
       {offer.action.label} <ArrowRight className="h-4 w-4" />
     </Link>
   ) : (

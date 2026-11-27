@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import type { Mode } from "@/content/stages";
 import { FOCUS_RING } from "@/lib/focus";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/lib/i18n";
 
 export { FOCUS_RING };
 
@@ -93,7 +94,13 @@ export const ClosingLine = ({ children }: { children: ReactNode }) => (
 
 // Stage chips: small warm gray numbered squares, e.g. 1 2 3 for "stages 1 to 3".
 export const StageChips = ({ from, to }: { from: number; to: number }) => {
-  const label = from === 1 && to === 5 ? "Any stage" : from === to ? `Stage ${from}` : `Stages ${from} to ${to}`;
+  const de = useLang() === "de";
+  const label =
+    from === 1 && to === 5
+      ? de ? "Jede Stufe" : "Any stage"
+      : from === to
+        ? `${de ? "Stufe" : "Stage"} ${from}`
+        : de ? `Stufen ${from} bis ${to}` : `Stages ${from} to ${to}`;
   const nums = Array.from({ length: to - from + 1 }, (_, i) => from + i);
   return (
     <p className="flex flex-wrap items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.06em] text-ink/70">
@@ -122,17 +129,23 @@ export const StageBadge = ({ children }: { children: ReactNode }) => (
 export const ModeSwitch = ({
   mode,
   onChange,
-  label = "Show the path for",
+  label,
 }: {
   mode: Mode;
   onChange: (mode: Mode) => void;
   label?: string;
-}) => (
-  <div role="group" aria-label={label} className="inline-flex gap-1 rounded-full border border-ink/10 bg-muted p-1">
+}) => {
+  const de = useLang() === "de";
+  return (
+  <div
+    role="group"
+    aria-label={label ?? (de ? "Den Weg zeigen für" : "Show the path for")}
+    className="inline-flex gap-1 rounded-full border border-ink/10 bg-muted p-1"
+  >
     {(
       [
-        ["person", "For me"],
-        ["team", "For my team"],
+        ["person", de ? "Für mich" : "For me"],
+        ["team", de ? "Für mein Team" : "For my team"],
       ] as const
     ).map(([value, text]) => (
       <button
@@ -150,4 +163,5 @@ export const ModeSwitch = ({
       </button>
     ))}
   </div>
-);
+  );
+};

@@ -1,11 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.dejan-krstic.com/</loc></url>
-  <url><loc>https://www.dejan-krstic.com/self-check</loc></url>
-  <url><loc>https://www.dejan-krstic.com/course</loc></url>
-  <url><loc>https://www.dejan-krstic.com/work-with-me</loc></url>
-  <url><loc>https://www.dejan-krstic.com/speaking</loc></url>
-  <url><loc>https://www.dejan-krstic.com/about</loc></url>
-  <url><loc>https://www.dejan-krstic.com/impressum</loc></url>
-  <url><loc>https://www.dejan-krstic.com/datenschutz</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.dejan-krstic.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/self-check</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/self-check" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/self-check" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/self-check" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/course</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/course" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/course" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/course" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/work-with-me</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/work-with-me" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/work-with-me" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/work-with-me" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/speaking</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/speaking" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/speaking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/speaking" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/about" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/gulf</loc>
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/privacy" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/impressum" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/impressum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/impressum" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/self-check</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/self-check" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/self-check" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/self-check" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/course</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/course" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/course" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/course" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/work-with-me</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/work-with-me" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/work-with-me" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/work-with-me" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/speaking</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/speaking" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/speaking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/speaking" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/about" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/privacy" />
+  </url>
+  <url>
+    <loc>https://www.dejan-krstic.com/de/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dejan-krstic.com/impressum" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.dejan-krstic.com/de/impressum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dejan-krstic.com/impressum" />
+  </url>
 </urlset>

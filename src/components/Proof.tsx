@@ -1,13 +1,17 @@
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, TEXT_LINK } from "@/components/site";
-import { BACKGROUND, CLIENT_CASES, GOVTECH_CASE, TESTIMONIALS, WORKED_WITH } from "@/content/proof";
+import { BACKGROUND, TESTIMONIALS, WORKED_WITH } from "@/content/proof";
+import { useContent } from "@/content/useContent";
+import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { Case } from "@/content/proof";
 
-export const WorkedWith = () => (
+export const WorkedWith = () => {
+  const de = useLang() === "de";
+  return (
   <div className="grid gap-6 border-y border-ink/10 py-8 md:grid-cols-2 md:gap-10">
     <div>
-      <Eyebrow className="mb-3">Worked with</Eyebrow>
+      <Eyebrow className="mb-3">{de ? "Zusammengearbeitet mit" : "Worked with"}</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {WORKED_WITH.map((name) => (
           <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">
@@ -17,7 +21,7 @@ export const WorkedWith = () => (
       </ul>
     </div>
     <div>
-      <Eyebrow className="mb-3">Built product at</Eyebrow>
+      <Eyebrow className="mb-3">{de ? "Produkte gebaut bei" : "Built product at"}</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {BACKGROUND.map((name) => (
           <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">
@@ -27,7 +31,8 @@ export const WorkedWith = () => (
       </ul>
     </div>
   </div>
-);
+  );
+};
 
 // Case cards carry no call to action. A source link, when there is one, is a quiet text link.
 export const CaseCard = ({ c, lead = false, className }: { c: Case; lead?: boolean; className?: string }) => (
@@ -50,14 +55,17 @@ export const CaseCard = ({ c, lead = false, className }: { c: Case; lead?: boole
 );
 
 // GovTech Singapore leads, full width, then the other cases.
-export const ClientCases = () => (
-  <div className="grid gap-4 md:grid-cols-3">
-    <CaseCard c={GOVTECH_CASE} lead className="md:col-span-3" />
-    {CLIENT_CASES.map((c) => (
-      <CaseCard key={c.who} c={c} />
-    ))}
-  </div>
-);
+export const ClientCases = () => {
+  const { govtech, clientCases } = useContent();
+  return (
+    <div className="grid gap-4 md:grid-cols-3">
+      <CaseCard c={govtech} lead className="md:col-span-3" />
+      {clientCases.map((c) => (
+        <CaseCard key={c.who} c={c} />
+      ))}
+    </div>
+  );
+};
 
 // Testimonials: only real quotes are shown. The placeholders in src/content/proof.ts stay
 // hidden until they are replaced with real quotes (name, title and written OK).

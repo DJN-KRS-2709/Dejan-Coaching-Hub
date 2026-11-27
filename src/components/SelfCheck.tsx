@@ -4,7 +4,9 @@ import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import { Staircase } from "@/components/StagePath";
 import { Eyebrow, ModeSwitch, TEXT_LINK } from "@/components/site";
-import { QUESTIONS, STAGES, scoreStage } from "@/content/stages";
+import { scoreStage } from "@/content/stages";
+import { useContent } from "@/content/useContent";
+import { useLang, useLocalize } from "@/lib/i18n";
 import type { Mode } from "@/content/stages";
 import { cn } from "@/lib/utils";
 
@@ -13,9 +15,11 @@ interface Props {
   onModeChange: (mode: Mode) => void;
 }
 
-// The AI-readiness self-check: four questions, scored in the browser. Nothing is stored
-// unless the visitor asks for the readout by email.
+// The AI-readiness self-check: four questions, scored in the browser. Nothing is sent or stored.
 const SelfCheck = ({ mode, onModeChange }: Props) => {
+  const { questions: QUESTIONS, stages: STAGES } = useContent();
+  const de = useLang() === "de";
+  const lp = useLocalize();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const resultRef = useRef<HTMLDivElement>(null);
   useEffect(() => setAnswers({}), [mode]);
@@ -40,19 +44,19 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
   return (
     <div>
       <div className="mb-6">
-        <ModeSwitch mode={mode} onChange={onModeChange} label="Take the check for" />
+        <ModeSwitch mode={mode} onChange={onModeChange} label={de ? "Den Check machen für" : "Take the check for"} />
       </div>
       <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
-        <form className="grid min-w-0 gap-4" aria-label="Self-check questions" onSubmit={(e) => e.preventDefault()}>
+        <form className="grid min-w-0 gap-4" aria-label={de ? "Fragen des Selbstchecks" : "Self-check questions"} onSubmit={(e) => e.preventDefault()}>
           {/* Slim progress bar, pinned under the header on phones. */}
           <div className="sticky top-[65px] z-30 bg-canvas/95 py-3 backdrop-blur lg:static lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <div className="mb-1.5 flex justify-between text-xs font-semibold text-ink/60">
-              <span>{answered === 0 ? "Four questions" : "Your progress"}</span>
+              <span>{answered === 0 ? (de ? "Vier Fragen" : "Four questions") : de ? "Ihr Fortschritt" : "Your progress"}</span>
               <span aria-live="polite">{answered > 0 && `${answered}/${questions.length}`}</span>
             </div>
             <div
               role="progressbar"
-              aria-label="Questions answered"
+              aria-label={de ? "Beantwortete Fragen" : "Questions answered"}
               aria-valuemin={0}
               aria-valuemax={questions.length}
               aria-valuenow={answered}
@@ -68,9 +72,9 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
           {questions.map((q, qi) => (
             // The card is a plain div around a borderless fieldset, so the question (the legend)
             // sits inside the card instead of being drawn on the card's border.
-            <div key={`${mode}-${qi}`} className="rounded-3xl border border-ink/10 bg-white px-4 pb-4 pt-5 md:px-5">
+            <div key={`${mode}-${qi}`} className="min-w-0 rounded-3xl border border-ink/10 bg-white px-4 pb-4 pt-5 md:px-5">
               <fieldset className="m-0 min-w-0 border-0 p-0">
-              <legend className="px-2 text-base font-bold leading-snug text-ink">
+              <legend className="max-w-full px-2 text-base [overflow-wrap:anywhere] [hyphens:auto] font-bold leading-snug text-ink">
                 {qi + 1}. {q.q}
               </legend>
               <div className="mt-2 grid gap-0.5">
@@ -91,7 +95,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
                         onChange={() => answer(qi, ai + 1)}
                         className="mt-1 h-4 w-4 shrink-0 accent-[#0a0a0a]"
                       />
-                      <span>{a}</span>
+                      <span className="min-w-0 [overflow-wrap:anywhere] [hyphens:auto]">{a}</span>
                     </label>
                   );
                 })}
@@ -108,28 +112,33 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
         >
           {!stage || !next ? (
             <>
-              <Eyebrow>Your stage</Eyebrow>
-              <p className="text-2xl font-bold tracking-tight text-ink">Your stage appears here</p>
+              <Eyebrow>{de ? "Ihre Stufe" : "Your stage"}</Eyebrow>
+              <p className="text-2xl font-bold tracking-tight text-ink">
+                {de ? "Hier erscheint Ihre Stufe" : "Your stage appears here"}
+              </p>
               <Staircase variant="empty" />
               <p className="text-sm text-ink/60">
-                Answer all four questions to see where {mode === "team" ? "your team is" : "you are"} and what the next
-                step looks like.
+                {de
+                  ? `Beantworten Sie alle vier Fragen, um zu sehen, wo ${mode === "team" ? "Ihr Team steht" : "Sie stehen"} und wie der nächste Schritt aussieht.`
+                  : `Answer all four questions to see where ${mode === "team" ? "your team is" : "you are"} and what the next step looks like.`}
               </p>
             </>
           ) : (
             <>
-              <Eyebrow>{mode === "team" ? "Your team is at" : "You are at"}</Eyebrow>
+              <Eyebrow>
+                {mode === "team" ? (de ? "Ihr Team ist auf" : "Your team is at") : de ? "Sie sind auf" : "You are at"}
+              </Eyebrow>
               <p className="text-3xl font-extrabold leading-tight tracking-tight text-ink md:text-4xl">
-                Stage {stage.n}: {stage.name}
+                {de ? "Stufe" : "Stage"} {stage.n}: {stage.name}
               </p>
               <Staircase variant="mini" active={stage.n - 1} />
               <p className="text-ink/80">
-                <strong className="text-ink">Next step:</strong> {stage[mode].next}
+                <strong className="text-ink">{de ? "Nächster Schritt:" : "Next step:"}</strong> {stage[mode].next}
               </p>
               <div className="grid justify-items-start gap-1">
                 <IntroCallLink />
-                <Link to={next.to} className={cn(TEXT_LINK, "text-sm")}>
-                  See {next.label} <ArrowRight className="h-4 w-4" />
+                <Link to={lp(next.to)} className={cn(TEXT_LINK, "text-sm")}>
+                  {de ? `Mehr erfahren: ${next.label}` : `See ${next.label}`} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </>

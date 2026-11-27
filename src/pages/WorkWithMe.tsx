@@ -1,53 +1,71 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
-import { ClosingLine, PageHero, PageShell, Section, SectionHead } from "@/components/site";
-import { OFFER_GROUPS, offersIn } from "@/content/offers";
+import { ClosingLine, PageHero, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
+import { useContent } from "@/content/useContent";
+import { useT } from "@/lib/i18n";
+import type { T } from "@/lib/i18n";
 import type { OfferGroup } from "@/content/offers";
-import { PRINCIPLES } from "@/content/proof";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { cn } from "@/lib/utils";
 
-const STEPS = [
+const steps = (t: T) => [
   {
-    title: "Free 20-min intro call",
-    body: "Tell me where you or your team are. I will tell you the next step, even if it is not with me.",
+    title: t("Free 20-min intro call", "Kostenloses 20-Min.-Kennenlerngespräch"),
+    body: t(
+      "Tell me where you or your team are. I will tell you the next step, even if it is not with me.",
+      "Erzählen Sie mir, wo Sie oder Ihr Team stehen. Ich sage Ihnen den nächsten Schritt, auch wenn er nicht mit mir ist.",
+    ),
   },
   {
-    title: "A one-page proposal",
-    body: "The outcome, the format and a fixed price. Teams pay by invoice.",
+    title: t("A one-page proposal", "Ein einseitiges Angebot"),
+    body: t(
+      "The outcome, the format and a fixed price. Teams pay by invoice.",
+      "Das Ergebnis, das Format und ein Festpreis. Teams zahlen per Rechnung.",
+    ),
   },
   {
-    title: "Work on your real work",
-    body: "Every session runs on your problems, your backlog and your product.",
+    title: t("Work on your real work", "Arbeit an Ihrer echten Arbeit"),
+    body: t(
+      "Every session runs on your problems, your backlog and your product.",
+      "Jede Session läuft auf Ihren Problemen, Ihrem Backlog und Ihrem Produkt.",
+    ),
   },
   {
-    title: "Your next stage",
-    body: "We finish with what changed, and what the next step is.",
+    title: t("Your next stage", "Ihre nächste Stufe"),
+    body: t(
+      "We finish with what changed, and what the next step is.",
+      "Wir schließen damit ab, was sich verändert hat und was der nächste Schritt ist.",
+    ),
   },
 ];
 
-const TABS: { id: OfferGroup; label: string }[] = [
-  { id: "you", label: "You" },
-  { id: "team", label: "Team" },
-  { id: "leaders", label: "Leaders" },
-  { id: "speaking", label: "Talks" },
+const tabs = (t: T): { id: OfferGroup; label: string }[] => [
+  { id: "you", label: t("You", "Sie") },
+  { id: "team", label: t("Team", "Team") },
+  { id: "leaders", label: t("Leaders", "Führung") },
+  { id: "speaking", label: t("Talks", "Vorträge") },
 ];
 
 // Sections sit below the fixed header and the sticky tabs, so they need extra room on top.
 const UNDER_TABS = "scroll-mt-16";
 
-const group = (id: OfferGroup) => OFFER_GROUPS.find((g) => g.id === id)!;
-
-const GroupHead = ({ id }: { id: OfferGroup }) => (
-  <div className="mb-6 grid max-w-2xl gap-2">
-    <h2 className="text-3xl font-bold tracking-tight text-ink md:text-[2.25rem]">{group(id).title}</h2>
-    <p className="text-base text-ink/70">{group(id).lead}</p>
-  </div>
-);
+const GroupHead = ({ id }: { id: OfferGroup }) => {
+  const { group } = useContent();
+  return (
+    <div className="mb-6 grid max-w-2xl gap-2">
+      <h2 className="text-3xl font-bold tracking-tight text-ink md:text-[2.25rem]">{group(id).title}</h2>
+      <p className="text-base text-ink/70">{group(id).lead}</p>
+    </div>
+  );
+};
 
 // Segmented tabs that stay under the header and jump to each group of offers.
 const OfferTabs = () => {
+  const t = useT();
+  const TABS = tabs(t);
   const [active, setActive] = useState<OfferGroup>("you");
 
   useEffect(() => {
@@ -55,7 +73,7 @@ const OfferTabs = () => {
     const update = () => {
       frame = 0;
       let current: OfferGroup = "you";
-      for (const tab of TABS) {
+      for (const tab of tabs(t)) {
         const el = document.getElementById(tab.id);
         if (el && el.getBoundingClientRect().top <= 170) current = tab.id;
       }
@@ -75,7 +93,7 @@ const OfferTabs = () => {
   return (
     <div className="sticky top-[65px] z-40 border-y border-ink/10 bg-canvas/95 backdrop-blur-md">
       <div className="container px-4 py-2 md:px-6">
-        <nav aria-label="Offers" className="flex w-full flex-wrap gap-1 rounded-[1.5rem] border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
+        <nav aria-label={t("Offers", "Angebote")} className="flex w-full flex-wrap gap-1 rounded-[1.5rem] border border-ink/10 bg-muted p-1 sm:inline-flex sm:w-auto">
           {TABS.map((tab) => (
             <a
               key={tab.id}
@@ -96,17 +114,26 @@ const OfferTabs = () => {
 };
 
 const WorkWithMe = () => {
+  const t = useT();
+  const { offersIn, principles: PRINCIPLES } = useContent();
+  const STEPS = steps(t);
   usePageTitle(
-    "Work with me",
-    "Packages, not hourly sessions: the Prompt to Product course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
+    t("Work with me", "Zusammenarbeit"),
+    t(
+      "Packages, not hourly sessions: the Prompt to Product course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
+      "Pakete statt Stundensätze: der Kurs Prompt to Product, 1:1-Coaching, Team-Diagnosen, Workshops, das Builder-Programm, Beratung und Keynotes.",
+    ),
   );
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="Work with me"
-        title="Packages, not hourly sessions."
-        lead="Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits."
+        eyebrow={t("Work with me", "Zusammenarbeit")}
+        title={t("Packages, not hourly sessions.", "Pakete statt Stundensätze.")}
+        lead={t(
+          "Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits.",
+          "Jedes Angebot ist der nächste Schritt von dort, wo Sie oder Ihr Team heute stehen. Festpreise. Bezahlte Arbeit beginnt mit einem kostenlosen 20-minütigen Kennenlerngespräch, damit wir beide wissen, dass es passt.",
+        )}
       >
         <div className="mt-8">
           <IntroCallLink size="lg" />
@@ -125,7 +152,7 @@ const WorkWithMe = () => {
       </Section>
 
       <Section id="how-it-works" className={UNDER_TABS}>
-        <SectionHead eyebrow="How it works" title="Four steps, no surprises." />
+        <SectionHead eyebrow={t("How it works", "So funktioniert es")} title={t("Four steps, no surprises.", "Vier Schritte, keine Überraschungen.")} />
         <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
             <li key={s.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
@@ -144,6 +171,13 @@ const WorkWithMe = () => {
             <OfferCard key={o.id} offer={o} />
           ))}
         </div>
+        <Link to="/gulf" hrefLang="en" className={cn(TEXT_LINK, "mt-6")}>
+          {t(
+            "Leading a team in the Gulf? Remote coaching and team training in English",
+            "Ihr Team sitzt in der Golfregion? Remote-Coaching und Team-Trainings auf Englisch (Seite auf Englisch)",
+          )}{" "}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </Section>
 
       <Section id="leaders" className={UNDER_TABS}>
@@ -165,7 +199,10 @@ const WorkWithMe = () => {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="How I teach" title="Four rules that run through everything." />
+        <SectionHead
+          eyebrow={t("How I teach", "Wie ich unterrichte")}
+          title={t("Four rules that run through everything.", "Vier Regeln, die sich durch alles ziehen.")}
+        />
         <div className="grid border-t-2 border-ink md:grid-cols-2">
           {PRINCIPLES.map((p, i) => (
             <div
@@ -181,9 +218,12 @@ const WorkWithMe = () => {
 
       <Section>
         <div className="max-w-3xl">
-          <ClosingLine>Not sure which fits?</ClosingLine>
+          <ClosingLine>{t("Not sure which fits?", "Unsicher, was passt?")}</ClosingLine>
           <p className="mt-5 text-lg leading-relaxed text-ink/75">
-            Book 20 minutes. Tell me where you are, and I will tell you the next step.
+            {t(
+              "Book 20 minutes. Tell me where you are, and I will tell you the next step.",
+              "Buchen Sie 20 Minuten. Erzählen Sie mir, wo Sie stehen, und ich sage Ihnen den nächsten Schritt.",
+            )}
           </p>
           <div className="mt-8">
             <IntroCallLink size="lg" />

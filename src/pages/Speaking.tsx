@@ -1,14 +1,19 @@
 import IntroCallLink from "@/components/IntroCallLink";
 import OfferCard from "@/components/OfferCard";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
-import { offer } from "@/content/offers";
-import { TALKS } from "@/content/proof";
+import { useContent } from "@/content/useContent";
+import { useT } from "@/lib/i18n";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const Speaking = () => {
+  const t = useT();
+  const { offer, talks: TALKS } = useContent();
   usePageTitle(
-    "Speaking",
-    "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
+    t("Speaking", "Vorträge"),
+    t(
+      "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
+      "Keynotes über das Bauen mit KI für Konferenzen, Führungsklausuren und Kickoffs, gefolgt von einer Live-Demo. Auf Englisch oder Deutsch. Ab €2,500.",
+    ),
   );
   const keynote = offer("keynotes");
 
@@ -19,13 +24,15 @@ const Speaking = () => {
         <div className="container px-4 md:px-6">
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="animate-fade-in">
-              <Eyebrow>Speaking</Eyebrow>
+              <Eyebrow>{t("Speaking", "Vorträge")}</Eyebrow>
               <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)] text-ink">
-                Talks that end with something built on stage.
+                {t("Talks that end with something built on stage.", "Vorträge, die mit etwas enden, das auf der Bühne gebaut wurde.")}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
-                Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build,
-                followed by a live demo. In English or German.
+                {t(
+                  "Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build, followed by a live demo. In English or German.",
+                  "Keynotes für Konferenzen, Führungsklausuren und Kickoffs. Ein Vortrag, nach dem ein Raum selbst bauen will, gefolgt von einer Live-Demo. Auf Englisch oder Deutsch.",
+                )}
               </p>
             </div>
             <figure className="grid gap-2">
@@ -46,13 +53,18 @@ const Speaking = () => {
                   sizes="100vw"
                   width={900}
                   height={1125}
-                  alt="Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work"
+                  alt={t(
+                    "Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work",
+                    "Dejan Krstic auf der Bühne beim Experience Summit in Prag mit seinem Vortrag Context is the work",
+                  )}
                   className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-center lg:aspect-[16/10]"
                 />
               </picture>
               <figcaption className="text-sm text-ink/60">
-                "Context is the work", Experience Summit, Prague, 2026. Photo: Experience Summit by Clientology
-                Institute.
+                {t(
+                  '"Context is the work", Experience Summit, Prague, 2026. Photo: Experience Summit by Clientology Institute.',
+                  "„Context is the work“, Experience Summit, Prag, 2026. Foto: Experience Summit by Clientology Institute.",
+                )}
               </figcaption>
             </figure>
           </div>
@@ -60,7 +72,10 @@ const Speaking = () => {
       </section>
 
       <Section>
-        <SectionHead eyebrow="Talks" title="Three talks, each one adapted to your room." />
+        <SectionHead
+          eyebrow={t("Talks", "Vorträge")}
+          title={t("Three talks, each one adapted to your room.", "Drei Vorträge, jeder an Ihr Publikum angepasst.")}
+        />
         <div className="grid gap-6 md:grid-cols-3">
           {TALKS.map((t) => (
             <article key={t.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
@@ -81,9 +96,12 @@ const Speaking = () => {
 
       <Section id="book">
         <div className="max-w-3xl">
-          <ClosingLine>Planning an event?</ClosingLine>
+          <ClosingLine>{t("Planning an event?", "Sie planen eine Veranstaltung?")}</ClosingLine>
           <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/75">
-            Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.
+            {t(
+              "Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.",
+              "Buchen Sie 20 Minuten. Erzählen Sie mir von Ihrem Publikum und Ihrem Termin, und ich schlage den passenden Vortrag vor.",
+            )}
           </p>
           <div className="mt-8">
             <IntroCallLink size="lg" />

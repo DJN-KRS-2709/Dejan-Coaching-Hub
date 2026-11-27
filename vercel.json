@@ -4,5 +4,22 @@
   "buildCommand": "vite build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/" }]
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/datenschutz",
+      "destination": "/de/datenschutz",
+      "permanent": true
+    },
+    {
+      "source": "/de/gulf",
+      "destination": "/gulf",
+      "permanent": true
+    }
+  ]
 }

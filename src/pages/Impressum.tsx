@@ -1,8 +1,17 @@
 import LegalLayout, { LegalAddress } from "@/components/LegalLayout";
-import { LEGAL } from "@/lib/legal";
+import { CONTACT_EMAIL, LEGAL } from "@/lib/legal";
+import { useLang } from "@/lib/i18n";
 
-const Impressum = () => (
-  <LegalLayout title="Impressum">
+// The Impressum is German on both language versions (/impressum and /de/impressum).
+const Impressum = () => {
+  const en = useLang() === "en";
+  return (
+  <LegalLayout title="Impressum" lang="de">
+    {en && (
+      <p lang="en" className="text-ink/80">
+        Legal notice under German law. The details below are in German.
+      </p>
+    )}
     <section>
       <h2>Angaben gemäß § 5 DDG</h2>
       <LegalAddress />
@@ -11,7 +20,7 @@ const Impressum = () => (
     <section>
       <h2>Kontakt</h2>
       <p>
-        E-Mail: <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
+        E-Mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
       </p>
     </section>
 
@@ -39,6 +48,7 @@ const Impressum = () => (
       </p>
     </section>
   </LegalLayout>
-);
+  );
+};
 
 export default Impressum;
