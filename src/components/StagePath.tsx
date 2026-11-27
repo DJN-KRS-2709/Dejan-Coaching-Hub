@@ -75,12 +75,12 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <ModeSwitch mode={mode} onChange={onModeChange} />
         <p className="text-sm text-ink/60">
-          {de ? "Nicht sicher, wo Sie stehen?" : "Not sure where you are?"}{" "}
+          {de ? "Sie wissen nicht genau, wo Sie stehen?" : "Not sure where you are?"}{" "}
           <Link
             to={lp(`/self-check?for=${mode}`)}
             className={cn("inline-flex min-h-[44px] items-center font-semibold text-ink underline underline-offset-4", FOCUS_RING)}
           >
-            {de ? "Machen Sie den Selbstcheck in zwei Minuten." : "Take the two-minute self-check."}
+            {de ? "Machen Sie den Selbstcheck, er dauert zwei Minuten." : "Take the two-minute self-check."}
           </Link>
         </p>
       </div>
@@ -130,7 +130,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="grid content-start gap-2">
-            <Eyebrow>{de ? "Sie sind hier, wenn" : "You are here if"}</Eyebrow>
+            <Eyebrow>{de ? "Hier stehen Sie, wenn" : "You are here if"}</Eyebrow>
             <ul className="grid list-disc gap-1.5 pl-5 text-base text-ink/75">
               {view.here.map((h) => (
                 <li key={h}>{h}</li>
@@ -142,7 +142,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
             <p className="text-base text-ink/75">{view.next}</p>
           </div>
           <div className="grid content-start gap-2">
-            <Eyebrow>{de ? "Wie ich helfe" : "How I help"}</Eyebrow>
+            <Eyebrow>{de ? "So unterstütze ich Sie" : "How I help"}</Eyebrow>
             <div className="flex flex-wrap gap-x-5">
               {view.help.map((h) => (
                 <Link

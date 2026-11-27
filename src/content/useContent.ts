@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { COURSE_PRICE_LINE, COURSE_PRICE_NOTE, OFFER_GROUPS, OFFERS } from "@/content/offers";
+import { COURSE_PRICE, COURSE_PRICE_LINE, COURSE_PRICE_NOTE, OFFER_GROUPS, OFFERS } from "@/content/offers";
 import type { Offer, OfferGroup } from "@/content/offers";
 import { BACKGROUND_CASES, CLIENT_CASES, COURSE_SESSIONS, GOVTECH_CASE, PRINCIPLES, TALKS } from "@/content/proof";
 import { QUESTIONS, STAGES } from "@/content/stages";
@@ -22,6 +22,7 @@ export function contentFor(lang: Lang) {
       principles: PRINCIPLES,
       talks: TALKS,
       sessions: COURSE_SESSIONS,
+      coursePrice: COURSE_PRICE,
       priceNote: COURSE_PRICE_NOTE,
       priceLine: COURSE_PRICE_LINE,
     };
@@ -50,6 +51,7 @@ export function contentFor(lang: Lang) {
     principles: DE.PRINCIPLES_DE,
     talks: DE.TALKS_DE,
     sessions: COURSE_SESSIONS.map((s, i) => ({ ...s, ...DE.COURSE_SESSIONS_DE[i] })),
+    coursePrice: DE.COURSE_PRICE_DE,
     priceNote: DE.COURSE_PRICE_NOTE_DE,
     priceLine: DE.COURSE_PRICE_LINE_DE,
   };

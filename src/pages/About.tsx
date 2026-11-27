@@ -23,7 +23,7 @@ const career = (t: T) => [
     org: "Universal Music",
     role: t(
       "Built the infrastructure and products that ship audio to streaming services.",
-      "Baute die Infrastruktur und die Produkte, die Audio an Streamingdienste ausliefern.",
+      "Hat die Infrastruktur und die Produkte aufgebaut, über die Musik an Streamingdienste ausgeliefert wird.",
     ),
   },
 ];
@@ -33,7 +33,7 @@ const bmg = (t: T) => ({
   title: t("Royalty systems", "Royalty-Systeme"),
   body: t(
     "Led the teams behind royalty systems and technical services, connecting technology, rights and finance in one of the most complex value chains in music.",
-    "Leitete die Teams für Royalty-Systeme und technische Services und verband Technologie, Rechte und Finanzen in einer der komplexesten Wertschöpfungsketten der Musik.",
+    "Leitete die Teams für Royalty-Systeme und technische Services, an der Schnittstelle von Technologie, Rechten und Finanzen, in einer der komplexesten Wertschöpfungsketten der Musikbranche.",
   ),
 });
 
@@ -65,36 +65,36 @@ const About = () => {
                 sizes="(min-width: 480px) 480px, 100vw"
                 width={960}
                 height={1200}
-                alt={t("Portrait of Dejan Krstic, smiling, in a black t-shirt", "Porträt von Dejan Krstic, lächelnd, im schwarzen T-Shirt")}
+                alt={t("Portrait of Dejan Krstic, smiling, in a black t-shirt", "Porträt von Dejan Krstic, lächelnd, in schwarzem T-Shirt")}
                 className="aspect-[4/5] h-auto w-full object-cover"
               />
             </div>
             <div className="grid max-w-xl gap-5 text-base leading-relaxed text-ink/75 md:text-lg lg:col-start-1 lg:row-start-2">
               <p className="text-xl font-semibold leading-snug text-ink md:text-2xl">
-                {t("I call myself a product management dinosaur.", "Ich nenne mich einen Dinosaurier des Produktmanagements.")}
+                {t("I call myself a product management dinosaur.", "Ich bezeichne mich gern als Dinosaurier des Produktmanagements.")}
               </p>
               <p>
                 {t(
                   "When I started, I wrote thirty-page specs and then waited six months to find out whether anyone had built what I meant. They never had.",
-                  "Als ich anfing, schrieb ich dreißigseitige Specs und wartete dann sechs Monate, um herauszufinden, ob jemand gebaut hatte, was ich meinte. Das war nie der Fall.",
+                  "Als ich anfing, schrieb ich dreißigseitige Spezifikationen und wartete dann sechs Monate, um zu sehen, ob jemand gebaut hatte, was ich meinte. Hatte nie jemand.",
                 )}
               </p>
               <p>
                 {t(
                   "Today you can test an idea in an afternoon, and anyone in the room can do it. That is the most exciting thing that has happened to product work in my career, and most people are watching it instead of doing it.",
-                  "Heute können Sie eine Idee an einem Nachmittag testen, und jede Person im Raum kann das. Das ist das Aufregendste, was der Produktarbeit in meiner Karriere passiert ist, und die meisten schauen zu, statt es selbst zu tun.",
+                  "Heute testen Sie eine Idee an einem Nachmittag, und jede und jeder im Raum kann das. Für mich ist das das Spannendste, was der Produktarbeit in meiner Laufbahn passiert ist. Und die meisten schauen dabei zu, statt mitzumachen.",
                 )}
               </p>
               <p>
                 {t(
                   `I've spent ${YEARS} years building products in music and tech, and for most of them I also taught, coached and gave talks. Now it is my whole job: helping people and product teams get from watching to building.`,
-                  `Ich habe ${YEARS} Jahre lang Produkte in Musik und Tech gebaut und in den meisten davon auch unterrichtet, gecoacht und Vorträge gehalten. Jetzt ist es meine ganze Arbeit: Menschen und Produktteams vom Zuschauen zum Bauen zu bringen.`,
+                  `Ich habe ${YEARS} Jahre lang Produkte in der Musik- und Tech-Branche entwickelt und die meiste Zeit nebenher unterrichtet, gecoacht und Vorträge gehalten. Heute ist genau das mein Beruf: Menschen und Produktteams vom Zuschauen ins Bauen zu bringen.`,
                 )}
               </p>
               <p>
                 {t(
                   "I teach in German and English, and I am at home in Croatian, Serbian and Bosnian.",
-                  "Ich unterrichte auf Deutsch und Englisch und bin im Kroatischen, Serbischen und Bosnischen zu Hause.",
+                  "Ich unterrichte auf Deutsch und Englisch, und im Kroatischen, Serbischen und Bosnischen bin ich zu Hause.",
                 )}
               </p>
             </div>
@@ -126,8 +126,8 @@ const About = () => {
           </div>
           <div>
             <SectionHead
-              eyebrow={t("What I built", "Was ich gebaut habe")}
-              title={t("The work behind the advice.", "Die Arbeit hinter den Ratschlägen.")}
+              eyebrow={t("What I built", "Was ich aufgebaut habe")}
+              title={t("The work behind the advice.", "Die Praxis hinter meiner Beratung.")}
             />
             <div className="grid gap-4">
               {[...BACKGROUND_CASES, BMG].map((c) => (
@@ -145,7 +145,7 @@ const About = () => {
 
       <Section className="border-t-0 pt-0 md:pt-0">
         <div className="max-w-3xl">
-          <ClosingLine>{t("Start where you are.", "Fangen Sie an, wo Sie stehen.")}</ClosingLine>
+          <ClosingLine>{t("Start where you are.", "Fangen Sie dort an, wo Sie stehen.")}</ClosingLine>
           <div className="mt-8">
             <IntroCallLink size="lg" />
           </div>

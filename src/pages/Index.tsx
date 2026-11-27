@@ -6,7 +6,6 @@ import OfferCard from "@/components/OfferCard";
 import { ClientCases, REAL_TESTIMONIALS, Testimonials, WorkedWith } from "@/components/Proof";
 import StagePath from "@/components/StagePath";
 import { Eyebrow, FOCUS_RING, PageShell, Section, SectionHead, TEXT_LINK } from "@/components/site";
-import { COURSE_PRICE } from "@/content/offers";
 import { useContent } from "@/content/useContent";
 import { useLocalize, useT } from "@/lib/i18n";
 import type { Mode } from "@/content/stages";
@@ -22,12 +21,12 @@ const HOME_PACKAGES = ["coaching", "diagnostic", "workshops", "builder-program"]
 const Index = () => {
   const t = useT();
   const lp = useLocalize();
-  const { offer, priceNote: COURSE_PRICE_NOTE } = useContent();
+  const { offer, coursePrice: COURSE_PRICE, priceNote: COURSE_PRICE_NOTE } = useContent();
   usePageTitle(
     "AI builders, not AI spectators",
     t(
       "Dejan Krstic, AI product leadership coach. I help product people and teams go from trying AI to building with it. One stage at a time, on your real work.",
-      "Dejan Krstic, AI product leadership coach. Ich helfe Produktleuten und Teams, vom Ausprobieren von KI zum Bauen mit KI zu kommen. Stufe für Stufe, an Ihrer echten Arbeit.",
+      "Dejan Krstic, AI product leadership coach. Ich helfe Produktverantwortlichen und ihren Teams, KI nicht nur auszuprobieren, sondern damit zu bauen. Stufe für Stufe, an Ihren eigenen Projekten.",
     ),
   );
   // Links like /?for=team&stage=3#path open the path at that stage.
@@ -59,7 +58,7 @@ const Index = () => {
                   className="h-12 w-12 shrink-0 rounded-full border border-ink/10 object-cover lg:hidden"
                 />
                 <p className="text-sm font-semibold text-ink">
-                  {t("Ex-CPO at Product School", "Ex-CPO bei Product School")}{"\u00a0·"}{" "}
+                  {t("Ex-CPO at Product School", "Ex-CPO at Product School")}{"\u00a0·"}{" "}
                   <span className="inline-block">Spotify · SoundCloud</span>
                 </p>
               </div>
@@ -71,13 +70,13 @@ const Index = () => {
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
                 {t(
                   "I help product people and teams go from trying AI to building with it. One stage at a time, on your real work.",
-                  "Ich helfe Produktleuten und Teams, vom Ausprobieren von KI zum Bauen mit KI zu kommen. Stufe für Stufe, an Ihrer echten Arbeit.",
+                  "Ich helfe Produktverantwortlichen und ihren Teams, KI nicht nur auszuprobieren, sondern damit zu bauen. Stufe für Stufe, an Ihren eigenen Projekten.",
                 )}
               </p>
               <div className="mt-8 grid justify-items-start">
                 <IntroCallLink size="lg" />
                 <Link to={lp("/self-check")} className={cn(TEXT_LINK, "mt-3 text-sm text-ink/80")}>
-                  {t("Not sure where you are? Take the self-check", "Nicht sicher, wo Sie stehen? Machen Sie den Selbstcheck")}
+                  {t("Not sure where you are? Take the self-check", "Sie wissen nicht genau, wo Sie stehen? Zum Selbstcheck")}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -91,7 +90,7 @@ const Index = () => {
                 decoding="async"
                 width={960}
                 height={1200}
-                alt={t("Portrait of Dejan Krstic, smiling, in a black t-shirt", "Porträt von Dejan Krstic, lächelnd, im schwarzen T-Shirt")}
+                alt={t("Portrait of Dejan Krstic, smiling, in a black t-shirt", "Porträt von Dejan Krstic, lächelnd, in schwarzem T-Shirt")}
                 className="aspect-[4/5] h-auto w-full object-cover"
               />
             </div>
@@ -112,7 +111,7 @@ const Index = () => {
           }
           lead={t(
             "Most AI training assumes you already know product or code. I start where you are and teach the next step. Pick a stage to see it.",
-            "Die meisten KI-Trainings setzen voraus, dass Sie Produkt oder Code schon kennen. Ich fange dort an, wo Sie stehen, und vermittle den nächsten Schritt. Wählen Sie eine Stufe, um sie zu sehen.",
+            "Die meisten KI-Trainings setzen Produkt- oder Programmierwissen voraus. Ich hole Sie dort ab, wo Sie stehen, und zeige Ihnen den nächsten Schritt. Wählen Sie eine Stufe aus.",
           )}
         />
         <StagePath mode={mode} onModeChange={setMode} active={active} onActiveChange={setActive} />
@@ -131,7 +130,7 @@ const Index = () => {
             <p className="max-w-[46ch] text-lg leading-relaxed text-white/80">
               {t(
                 "Bring one real problem from your work. Leave with your own AI product, live and checked with evals. 4 live sessions, 8 hours, up to 20 people. No coding experience needed.",
-                "Bringen Sie ein echtes Problem aus Ihrer Arbeit mit. Sie gehen mit Ihrem eigenen KI-Produkt, live und mit Evals geprüft. 4 Live-Sessions, 8 Stunden, bis zu 20 Personen. Keine Programmiererfahrung nötig.",
+                "Bringen Sie ein konkretes Problem aus Ihrem Arbeitsalltag mit. Sie gehen mit Ihrem eigenen KI-Produkt nach Hause, live und mit Evals geprüft. 4 Live-Sessions, 8 Stunden, bis zu 20 Personen. Keine Programmierkenntnisse nötig.",
               )}
             </p>
             <p className="flex flex-wrap items-baseline gap-x-3 tabular-nums">
@@ -141,7 +140,7 @@ const Index = () => {
             <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
               {/* White fill is reserved for the course band's own action. */}
               <Link to={lp("/course")} className={buttonVariants({ variant: "white" })}>
-                {t("See the two weeks", "Die zwei Wochen ansehen")}
+                {t("See the two weeks", "Die zwei Wochen im Detail")}
               </Link>
               <a
                 href={INTRO_CALL_URL}
@@ -149,7 +148,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className={cn("inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline", FOCUS_RING)}
               >
-                {t("Not sure it fits? Book a free 20-min call", "Unsicher, ob es passt? Kostenloses 20-Min.-Gespräch buchen")} <ArrowRight className="h-4 w-4" />
+                {t("Not sure it fits? Book a free 20-min call", "Unsicher, ob es passt? Kostenloses Erstgespräch buchen")} <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -160,10 +159,10 @@ const Index = () => {
       <Section id="offers" className="border-t-0">
         <SectionHead
           eyebrow={t("Ways to work together", "Formen der Zusammenarbeit")}
-          title={t("Fixed packages, each with a clear outcome.", "Feste Pakete, jedes mit einem klaren Ergebnis.")}
+          title={t("Fixed packages, each with a clear outcome.", "Feste Pakete mit klarem Ergebnis.")}
           lead={t(
             "1:1 coaching for you, fixed-price packages for your team. Paid work starts with a free 20-minute intro call.",
-            "1:1-Coaching für Sie, Pakete zum Festpreis für Ihr Team. Bezahlte Arbeit beginnt mit einem kostenlosen 20-minütigen Kennenlerngespräch.",
+            "1:1-Coaching für Sie, Pakete zum Festpreis für Ihr Team. Jede bezahlte Zusammenarbeit beginnt mit einem kostenlosen Erstgespräch von 20 Minuten.",
           )}
         />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -175,7 +174,7 @@ const Index = () => {
         <Link to={lp("/work-with-me")} className={cn(TEXT_LINK, "mt-6")}>
           {t(
             "See every offer and price, including advisory and keynotes",
-            "Alle Angebote und Preise ansehen, inklusive Beratung und Keynotes",
+            "Alle Angebote und Preise, auch Beratung und Keynotes",
           )} <ArrowRight className="h-4 w-4" />
         </Link>
       </Section>
@@ -186,7 +185,7 @@ const Index = () => {
           eyebrow={t("Proof", "Referenzen")}
           title={t(
             "From students who had never written a spec to teams shipping AI.",
-            "Von Studierenden, die noch nie eine Spec geschrieben hatten, bis zu Teams, die KI ausliefern.",
+            "Von Studierenden, die noch nie eine Spec geschrieben hatten, bis zu Teams, die KI-Produkte live bringen.",
           )}
         />
         <WorkedWith />
@@ -195,7 +194,7 @@ const Index = () => {
         </div>
         {REAL_TESTIMONIALS.length > 0 && (
           <>
-            <h3 className="mb-4 mt-12 text-xl font-semibold tracking-tight">{t("What clients say", "Was Kunden sagen")}</h3>
+            <h3 className="mb-4 mt-12 text-xl font-semibold tracking-tight">{t("What clients say", "Stimmen von Kunden")}</h3>
             <Testimonials />
           </>
         )}
@@ -204,11 +203,11 @@ const Index = () => {
       {/* 6. Close */}
       <Section id="contact" className="py-24 md:py-40">
         <div className="max-w-3xl">
-          <h2 className="text-balance font-display text-[clamp(min(3rem,12.3vw),9vw,6.5rem)] text-ink">{t("Start where you are.", "Fangen Sie an, wo Sie stehen.")}</h2>
+          <h2 className="text-balance font-display text-[clamp(min(3rem,12.3vw),9vw,6.5rem)] text-ink">{t("Start where you are.", "Fangen Sie dort an, wo Sie stehen.")}</h2>
           <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink/75">
             {t(
               "Tell me where you or your team are today, and I will tell you the next step, even if it is not with me.",
-              "Erzählen Sie mir, wo Sie oder Ihr Team heute stehen, und ich sage Ihnen den nächsten Schritt, auch wenn er nicht mit mir ist.",
+              "Sagen Sie mir, wo Sie oder Ihr Team heute stehen, und ich sage Ihnen, was der nächste Schritt ist. Auch wenn er nicht mit mir ist.",
             )}
           </p>
           <div className="mt-10">

@@ -16,7 +16,7 @@ const NotFound = () => {
         title={t("Page not found.", "Seite nicht gefunden.")}
         lead={t(
           "This page does not exist or has moved. Start from the home page, or book a free 20-minute intro call.",
-          "Diese Seite gibt es nicht oder sie ist umgezogen. Starten Sie auf der Startseite oder buchen Sie ein kostenloses 20-minütiges Kennenlerngespräch.",
+          "Diese Seite gibt es nicht oder sie wurde verschoben. Starten Sie auf der Startseite oder buchen Sie ein kostenloses Erstgespräch von 20 Minuten.",
         )}
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

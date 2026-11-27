@@ -11,7 +11,7 @@ import type { Lang } from "@/lib/i18n";
 const NAV = [
   { to: "/self-check", label: "Self-check", de: "Selbstcheck" },
   { to: "/course", label: "Course", de: "Kurs" },
-  { to: "/work-with-me", label: "Work with me", de: "Zusammenarbeit" },
+  { to: "/work-with-me", label: "Work with me", de: "Angebote" },
   { to: "/speaking", label: "Speaking", de: "Vorträge" },
   { to: "/about", label: "About", de: "Über mich" },
 ];
@@ -53,7 +53,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-ink/5 bg-canvas/90 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between gap-2 px-4 md:gap-4 md:px-6">
-        <Link to={home} aria-label={de ? "Dejan Krstic, Startseite" : "Dejan Krstic, home"} className={`inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px] ${FOCUS_RING}`} onClick={() => setOpen(false)}>
+        <Link to={home} aria-label={de ? "Dejan Krstic, zur Startseite" : "Dejan Krstic, home"} className={`inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px] ${FOCUS_RING}`} onClick={() => setOpen(false)}>
           <Wordmark />
         </Link>
 

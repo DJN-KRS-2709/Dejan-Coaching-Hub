@@ -43,7 +43,7 @@ const Impressum = () => {
     <section>
       <h2>Verbraucherstreitbeilegung</h2>
       <p>
-        Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+        Ich bin weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer
         Verbraucherschlichtungsstelle teilzunehmen.
       </p>
     </section>

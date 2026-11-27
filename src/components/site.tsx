@@ -139,7 +139,7 @@ export const ModeSwitch = ({
   return (
   <div
     role="group"
-    aria-label={label ?? (de ? "Den Weg zeigen für" : "Show the path for")}
+    aria-label={label ?? (de ? "Weg anzeigen für" : "Show the path for")}
     className="inline-flex gap-1 rounded-full border border-ink/10 bg-muted p-1"
   >
     {(

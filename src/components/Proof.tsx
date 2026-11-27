@@ -11,7 +11,7 @@ export const WorkedWith = () => {
   return (
   <div className="grid gap-6 border-y border-ink/10 py-8 md:grid-cols-2 md:gap-10">
     <div>
-      <Eyebrow className="mb-3">{de ? "Zusammengearbeitet mit" : "Worked with"}</Eyebrow>
+      <Eyebrow className="mb-3">{de ? "Zusammenarbeit mit" : "Worked with"}</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {WORKED_WITH.map((name) => (
           <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">
@@ -21,7 +21,7 @@ export const WorkedWith = () => {
       </ul>
     </div>
     <div>
-      <Eyebrow className="mb-3">{de ? "Produkte gebaut bei" : "Built product at"}</Eyebrow>
+      <Eyebrow className="mb-3">{de ? "Produkte entwickelt bei" : "Built product at"}</Eyebrow>
       <ul className="flex flex-wrap gap-x-6 gap-y-2">
         {BACKGROUND.map((name) => (
           <li key={name} className="text-xl font-semibold tracking-tight text-ink/80 md:text-2xl">

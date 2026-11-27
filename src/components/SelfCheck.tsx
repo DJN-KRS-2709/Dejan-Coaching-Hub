@@ -44,10 +44,10 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
   return (
     <div>
       <div className="mb-6">
-        <ModeSwitch mode={mode} onChange={onModeChange} label={de ? "Den Check machen für" : "Take the check for"} />
+        <ModeSwitch mode={mode} onChange={onModeChange} label={de ? "Selbstcheck für" : "Take the check for"} />
       </div>
       <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
-        <form className="grid min-w-0 gap-4" aria-label={de ? "Fragen des Selbstchecks" : "Self-check questions"} onSubmit={(e) => e.preventDefault()}>
+        <form className="grid min-w-0 gap-4" aria-label={de ? "Fragen zum Selbstcheck" : "Self-check questions"} onSubmit={(e) => e.preventDefault()}>
           {/* Slim progress bar, pinned under the header on phones. */}
           <div className="sticky top-[65px] z-30 bg-canvas/95 py-3 backdrop-blur lg:static lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <div className="mb-1.5 flex justify-between text-xs font-semibold text-ink/60">
@@ -119,14 +119,14 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
               <Staircase variant="empty" />
               <p className="text-sm text-ink/60">
                 {de
-                  ? `Beantworten Sie alle vier Fragen, um zu sehen, wo ${mode === "team" ? "Ihr Team steht" : "Sie stehen"} und wie der nächste Schritt aussieht.`
+                  ? `Beantworten Sie alle vier Fragen, dann sehen Sie, wo ${mode === "team" ? "Ihr Team steht" : "Sie stehen"} und wie der nächste Schritt aussieht.`
                   : `Answer all four questions to see where ${mode === "team" ? "your team is" : "you are"} and what the next step looks like.`}
               </p>
             </>
           ) : (
             <>
               <Eyebrow>
-                {mode === "team" ? (de ? "Ihr Team ist auf" : "Your team is at") : de ? "Sie sind auf" : "You are at"}
+                {mode === "team" ? (de ? "Ihr Team steht auf" : "Your team is at") : de ? "Sie stehen auf" : "You are at"}
               </Eyebrow>
               <p className="text-3xl font-extrabold leading-tight tracking-tight text-ink md:text-4xl">
                 {de ? "Stufe" : "Stage"} {stage.n}: {stage.name}
@@ -138,7 +138,7 @@ const SelfCheck = ({ mode, onModeChange }: Props) => {
               <div className="grid justify-items-start gap-1">
                 <IntroCallLink />
                 <Link to={lp(next.to)} className={cn(TEXT_LINK, "text-sm")}>
-                  {de ? `Mehr erfahren: ${next.label}` : `See ${next.label}`} <ArrowRight className="h-4 w-4" />
+                  {de ? `Mehr zu ${next.label}` : `See ${next.label}`} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </>

@@ -13,31 +13,31 @@ import { cn } from "@/lib/utils";
 
 const steps = (t: T) => [
   {
-    title: t("Free 20-min intro call", "Kostenloses 20-Min.-Kennenlerngespräch"),
+    title: t("Free 20-min intro call", "Kostenloses Erstgespräch, 20 Minuten"),
     body: t(
       "Tell me where you or your team are. I will tell you the next step, even if it is not with me.",
-      "Erzählen Sie mir, wo Sie oder Ihr Team stehen. Ich sage Ihnen den nächsten Schritt, auch wenn er nicht mit mir ist.",
+      "Sagen Sie mir, wo Sie oder Ihr Team stehen. Ich sage Ihnen, was der nächste Schritt ist, auch wenn er nicht mit mir ist.",
     ),
   },
   {
-    title: t("A one-page proposal", "Ein einseitiges Angebot"),
+    title: t("A one-page proposal", "Ein Angebot auf einer Seite"),
     body: t(
       "The outcome, the format and a fixed price. Teams pay by invoice.",
-      "Das Ergebnis, das Format und ein Festpreis. Teams zahlen per Rechnung.",
+      "Ergebnis, Format und Festpreis. Teams zahlen auf Rechnung.",
     ),
   },
   {
-    title: t("Work on your real work", "Arbeit an Ihrer echten Arbeit"),
+    title: t("Work on your real work", "An Ihren eigenen Themen arbeiten"),
     body: t(
       "Every session runs on your problems, your backlog and your product.",
-      "Jede Session läuft auf Ihren Problemen, Ihrem Backlog und Ihrem Produkt.",
+      "Jede Session dreht sich um Ihre Probleme, Ihr Backlog und Ihr Produkt.",
     ),
   },
   {
     title: t("Your next stage", "Ihre nächste Stufe"),
     body: t(
       "We finish with what changed, and what the next step is.",
-      "Wir schließen damit ab, was sich verändert hat und was der nächste Schritt ist.",
+      "Zum Abschluss halten wir fest, was sich verändert hat und was als Nächstes kommt.",
     ),
   },
 ];
@@ -118,7 +118,7 @@ const WorkWithMe = () => {
   const { offersIn, principles: PRINCIPLES } = useContent();
   const STEPS = steps(t);
   usePageTitle(
-    t("Work with me", "Zusammenarbeit"),
+    t("Work with me", "Angebote"),
     t(
       "Packages, not hourly sessions: the Prompt to Product course, 1:1 coaching, team diagnostics, workshops, the Builder program, advisory and keynotes.",
       "Pakete statt Stundensätze: der Kurs Prompt to Product, 1:1-Coaching, Team-Diagnosen, Workshops, das Builder-Programm, Beratung und Keynotes.",
@@ -128,11 +128,11 @@ const WorkWithMe = () => {
   return (
     <PageShell>
       <PageHero
-        eyebrow={t("Work with me", "Zusammenarbeit")}
+        eyebrow={t("Work with me", "Angebote")}
         title={t("Packages, not hourly sessions.", "Pakete statt Stundensätze.")}
         lead={t(
           "Every offer is the next step from where you or your team are today. Fixed prices. Paid work starts with a free 20-minute intro call, so we both know it fits.",
-          "Jedes Angebot ist der nächste Schritt von dort, wo Sie oder Ihr Team heute stehen. Festpreise. Bezahlte Arbeit beginnt mit einem kostenlosen 20-minütigen Kennenlerngespräch, damit wir beide wissen, dass es passt.",
+          "Jedes Angebot ist der nächste Schritt von dort aus, wo Sie oder Ihr Team heute stehen. Festpreise. Jede bezahlte Zusammenarbeit beginnt mit einem kostenlosen Erstgespräch von 20 Minuten, damit wir beide wissen, dass es passt.",
         )}
       >
         <div className="mt-8">
@@ -152,7 +152,7 @@ const WorkWithMe = () => {
       </Section>
 
       <Section id="how-it-works" className={UNDER_TABS}>
-        <SectionHead eyebrow={t("How it works", "So funktioniert es")} title={t("Four steps, no surprises.", "Vier Schritte, keine Überraschungen.")} />
+        <SectionHead eyebrow={t("How it works", "So läuft es ab")} title={t("Four steps, no surprises.", "Vier Schritte, keine Überraschungen.")} />
         <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
             <li key={s.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
@@ -174,7 +174,7 @@ const WorkWithMe = () => {
         <Link to="/gulf" hrefLang="en" className={cn(TEXT_LINK, "mt-6")}>
           {t(
             "Leading a team in the Gulf? Remote coaching and team training in English",
-            "Ihr Team sitzt in der Golfregion? Remote-Coaching und Team-Trainings auf Englisch (Seite auf Englisch)",
+            "Sie führen ein Team in der Golfregion? Remote-Coaching und Teamtrainings auf Englisch",
           )}{" "}
           <ArrowRight className="h-4 w-4" />
         </Link>
@@ -201,7 +201,7 @@ const WorkWithMe = () => {
       <Section>
         <SectionHead
           eyebrow={t("How I teach", "Wie ich unterrichte")}
-          title={t("Four rules that run through everything.", "Vier Regeln, die sich durch alles ziehen.")}
+          title={t("Four rules that run through everything.", "Vier Grundsätze, die sich durch alles ziehen.")}
         />
         <div className="grid border-t-2 border-ink md:grid-cols-2">
           {PRINCIPLES.map((p, i) => (
@@ -222,7 +222,7 @@ const WorkWithMe = () => {
           <p className="mt-5 text-lg leading-relaxed text-ink/75">
             {t(
               "Book 20 minutes. Tell me where you are, and I will tell you the next step.",
-              "Buchen Sie 20 Minuten. Erzählen Sie mir, wo Sie stehen, und ich sage Ihnen den nächsten Schritt.",
+              "Buchen Sie 20 Minuten. Sagen Sie mir, wo Sie stehen, und ich sage Ihnen den nächsten Schritt.",
             )}
           </p>
           <div className="mt-8">

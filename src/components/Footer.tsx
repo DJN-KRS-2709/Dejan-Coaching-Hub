@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
-import { useEffect, useState } from "react";
 import { Wordmark } from "@/components/Brand";
 import { FOCUS_RING } from "@/lib/focus";
 import { navLinks } from "@/components/Navbar";
 import { localize, useLang } from "@/lib/i18n";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/links";
-import { analyticsConfigured, writeConsent } from "@/lib/analytics";
 
 // Every footer link is at least 44px tall, so it is easy to tap on a phone.
 const FOOTER_LINK = `inline-flex min-h-[44px] min-w-0 items-center text-sm [overflow-wrap:anywhere] text-white/60 transition-colors hover:text-white ${FOCUS_RING}`;
@@ -17,8 +15,6 @@ const Footer = () => {
   const de = lang === "de";
   const NAV_LINKS = navLinks(lang);
   const currentYear = new Date().getFullYear();
-  const [hasAnalytics, setHasAnalytics] = useState(false);
-  useEffect(() => setHasAnalytics(analyticsConfigured()), []);
 
   return (
     <footer className="w-full bg-ink text-white">
@@ -28,7 +24,7 @@ const Footer = () => {
             <p className="mb-6 font-display text-5xl leading-[0.9] md:text-6xl">
               {de ? (
                 <>
-                  Bauen wir,<br />was kommt.
+                  Lassen Sie uns<br />das Nächste bauen.
                 </>
               ) : (
                 <>
@@ -62,11 +58,6 @@ const Footer = () => {
             <div className="flex flex-wrap items-center gap-x-6">
               <Link to={localize("/impressum", lang)} className={LEGAL_LINK}>Impressum</Link>
               <Link to={localize("/privacy", lang)} className={LEGAL_LINK}>{de ? "Datenschutz" : "Privacy"}</Link>
-              {hasAnalytics && (
-                <button type="button" onClick={() => writeConsent(null)} className={LEGAL_LINK}>
-                  {de ? "Cookie-Einstellungen" : "Cookie settings"}
-                </button>
-              )}
             </div>
           </div>
           <a

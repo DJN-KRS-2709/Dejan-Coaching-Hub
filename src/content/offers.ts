@@ -1,3 +1,4 @@
+import { PRICE, formatPrice } from "@/lib/price";
 // Every offer on the site, with its price. Packages, not hourly sessions.
 // Every offer has the same one call to action: the free 20-minute intro call (see src/lib/links.ts).
 
@@ -20,10 +21,10 @@ export interface Offer {
 
 // One price format for the course, everywhere on the site. No dates yet; the early bird
 // ends 14 days before each cohort starts.
-export const COURSE_PRICE = "€700";
-export const COURSE_PRICE_NOTE = "Early bird until 14 days before the start. €795 after that.";
+export const COURSE_PRICE = formatPrice(PRICE.courseEarly, "en");
+export const COURSE_PRICE_NOTE = `Early bird until 14 days before the start. ${formatPrice(PRICE.courseRegular, "en")} after that.`;
 // Mid-sentence version of the same note, for the course facts list.
-export const COURSE_PRICE_LINE = `${COURSE_PRICE} early bird until 14 days before the start. €795 after that.`;
+export const COURSE_PRICE_LINE = `${COURSE_PRICE} early bird until 14 days before the start. ${formatPrice(PRICE.courseRegular, "en")} after that.`;
 
 export const OFFER_GROUPS: { id: OfferGroup; title: string; lead: string }[] = [
   {
@@ -68,7 +69,7 @@ export const OFFERS: Offer[] = [
     title: "1:1 coaching",
     body: "For product people who already build and want to lead others through the shift. Your work, your career, your team.",
     format: "3 months · 6 sessions",
-    price: "€1,490",
+    price: formatPrice(PRICE.coaching, "en"),
     tag: "Few spots",
 
     action: { label: "Ask about 1:1 coaching" },
@@ -80,7 +81,7 @@ export const OFFERS: Offer[] = [
     title: "Team diagnostic",
     body: "Where your teams really are, team by team. Interviews, the self-check and a look at how work actually flows. You get a readout for leadership and a 90-day plan.",
     format: "Fixed price · any stage",
-    price: "€1,900",
+    price: formatPrice(PRICE.diagnostic, "en"),
     priceNote: "Credited toward a program",
 
     action: { label: "Ask about a team diagnostic" },
@@ -92,8 +93,8 @@ export const OFFERS: Offer[] = [
     title: "Workshops",
     body: "A shared language for product and AI, or a first hands-on build on your own backlog. In German or English, on site in DACH or remote.",
     format: "Up to 20 people",
-    price: "€1,900 half day",
-    priceNote: "€3,500 full day",
+    price: `${formatPrice(PRICE.workshopHalfDay, "en")} half day`,
+    priceNote: `${formatPrice(PRICE.workshopFullDay, "en")} full day`,
 
     action: { label: "Ask about workshops" },
   },
@@ -104,7 +105,7 @@ export const OFFERS: Offer[] = [
     title: "Builder program",
     body: "Six weeks that move a team one full stage. Every lab runs on your own work. I study your business before the first session, so nothing feels generic.",
     format: "6 weeks · labs on your own work",
-    price: "from €9,900",
+    price: `from ${formatPrice(PRICE.builderProgram, "en")}`,
     priceNote: "For up to 20 people",
     featured: true,
 
@@ -117,7 +118,7 @@ export const OFFERS: Offer[] = [
     title: "Advisory for product leaders",
     body: "For CPOs and heads of product leading the change. A sparring partner on bets, org design and what to stop doing.",
     format: "Monthly",
-    price: "from €4,000",
+    price: `from ${formatPrice(PRICE.advisory, "en")}`,
     priceNote: "per month",
 
     action: { label: "Ask about advisory" },
@@ -129,7 +130,7 @@ export const OFFERS: Offer[] = [
     title: "Keynotes",
     body: "A talk that makes a room want to build, followed by a live demo.",
     format: "20 to 45 minutes · English or German",
-    price: "from €2,500",
+    price: `from ${formatPrice(PRICE.keynote, "en")}`,
     priceNote: "plus travel",
 
     action: { label: "Ask about a keynote" },

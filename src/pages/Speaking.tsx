@@ -3,6 +3,7 @@ import OfferCard from "@/components/OfferCard";
 import { ClosingLine, Eyebrow, PageShell, Section, SectionHead } from "@/components/site";
 import { useContent } from "@/content/useContent";
 import { useT } from "@/lib/i18n";
+import { PRICE, formatPrice } from "@/lib/price";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const Speaking = () => {
@@ -11,8 +12,8 @@ const Speaking = () => {
   usePageTitle(
     t("Speaking", "Vorträge"),
     t(
-      "Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From €2,500.",
-      "Keynotes über das Bauen mit KI für Konferenzen, Führungsklausuren und Kickoffs, gefolgt von einer Live-Demo. Auf Englisch oder Deutsch. Ab €2,500.",
+      `Keynotes on building with AI for conferences, leadership offsites and kickoffs, followed by a live demo. In English or German. From ${formatPrice(PRICE.keynote, "en")}.`,
+      `Keynotes zum Bauen mit KI für Konferenzen, Führungsklausuren und Kick-offs, mit anschließender Live-Demo. Auf Deutsch oder Englisch. Ab ${formatPrice(PRICE.keynote, "de")}.`,
     ),
   );
   const keynote = offer("keynotes");
@@ -26,12 +27,12 @@ const Speaking = () => {
             <div className="animate-fade-in">
               <Eyebrow>{t("Speaking", "Vorträge")}</Eyebrow>
               <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)] text-ink">
-                {t("Talks that end with something built on stage.", "Vorträge, die mit etwas enden, das auf der Bühne gebaut wurde.")}
+                {t("Talks that end with something built on stage.", "Vorträge, an deren Ende auf der Bühne etwas gebaut ist.")}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
                 {t(
                   "Keynotes for conferences, leadership offsites and kickoffs. A talk that makes a room want to build, followed by a live demo. In English or German.",
-                  "Keynotes für Konferenzen, Führungsklausuren und Kickoffs. Ein Vortrag, nach dem ein Raum selbst bauen will, gefolgt von einer Live-Demo. Auf Englisch oder Deutsch.",
+                  "Keynotes für Konferenzen, Führungsklausuren und Kick-offs. Ein Vortrag, nach dem Ihr Publikum selbst loslegen will, mit anschließender Live-Demo. Auf Deutsch oder Englisch.",
                 )}
               </p>
             </div>
@@ -55,7 +56,7 @@ const Speaking = () => {
                   height={1125}
                   alt={t(
                     "Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work",
-                    "Dejan Krstic auf der Bühne beim Experience Summit in Prag mit seinem Vortrag Context is the work",
+                    "Dejan Krstic auf der Bühne beim Experience Summit in Prag mit seinem Vortrag „Context is the work“",
                   )}
                   className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-center lg:aspect-[16/10]"
                 />
@@ -74,7 +75,7 @@ const Speaking = () => {
       <Section>
         <SectionHead
           eyebrow={t("Talks", "Vorträge")}
-          title={t("Three talks, each one adapted to your room.", "Drei Vorträge, jeder an Ihr Publikum angepasst.")}
+          title={t("Three talks, each one adapted to your room.", "Drei Vorträge, jeweils auf Ihr Publikum zugeschnitten.")}
         />
         <div className="grid gap-6 md:grid-cols-3">
           {TALKS.map((t) => (
@@ -100,7 +101,7 @@ const Speaking = () => {
           <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/75">
             {t(
               "Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.",
-              "Buchen Sie 20 Minuten. Erzählen Sie mir von Ihrem Publikum und Ihrem Termin, und ich schlage den passenden Vortrag vor.",
+              "Buchen Sie 20 Minuten. Erzählen Sie mir von Ihrem Publikum und Ihrem Termin, und ich schlage Ihnen den passenden Vortrag vor.",
             )}
           </p>
           <div className="mt-8">
