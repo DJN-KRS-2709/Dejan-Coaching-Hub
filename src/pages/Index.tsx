@@ -44,13 +44,16 @@ const Index = () => {
               {/* Proof line directly under the title. Phone: a small portrait next to it. */}
               <div className="mt-3 flex items-center gap-3">
                 <img
-                  src="/images/dejan-portrait-480.jpg"
-                  width={480}
-                  height={600}
+                  src="/images/dejan-avatar-160.jpg"
+                  width={160}
+                  height={160}
                   alt="Dejan Krstic"
-                  className="h-12 w-12 shrink-0 rounded-full border border-ink/10 object-cover object-top lg:hidden"
+                  className="h-12 w-12 shrink-0 rounded-full border border-ink/10 object-cover lg:hidden"
                 />
-                <p className="text-sm font-semibold text-ink">Ex-CPO at Product School · Spotify · SoundCloud</p>
+                <p className="text-sm font-semibold text-ink">
+                  Ex-CPO at Product School{" "}
+                  <span className="inline-block">· Spotify · SoundCloud</span>
+                </p>
               </div>
               <h1 className="mt-5 font-display text-[clamp(min(3.1rem,12.7vw),11vw,8.4rem)] text-ink lg:text-[clamp(4rem,6.8vw,7rem)]">
                 AI builders,
@@ -69,11 +72,13 @@ const Index = () => {
                 </Link>
               </div>
             </div>
-            <div className="mx-auto hidden w-full max-w-[440px] overflow-hidden rounded-3xl border border-ink/10 lg:block">
+            <div className="ml-auto hidden w-full max-w-[440px] overflow-hidden rounded-3xl border border-ink/10 lg:block">
               <img
                 src="/images/dejan-portrait-960.jpg"
                 srcSet="/images/dejan-portrait-480.jpg 480w, /images/dejan-portrait-960.jpg 960w"
                 sizes="440px"
+                loading="lazy"
+                decoding="async"
                 width={960}
                 height={1200}
                 alt="Portrait of Dejan Krstic, smiling, in a black t-shirt"
@@ -109,8 +114,8 @@ const Index = () => {
             </h2>
           </div>
           <div className="grid gap-5">
-            <p className="max-w-[62ch] text-lg leading-relaxed text-white/80">
-              Ship a real AI product in 14 days. Bring one real problem from your work. Leave with your own AI
+            <p className="max-w-[46ch] text-lg leading-relaxed text-white/80">
+              Bring one real problem from your work. Leave with your own AI
               product, live and checked with evals. 4 live sessions, 8 hours, up to 20 people. No coding experience
               needed.
             </p>
@@ -173,7 +178,7 @@ const Index = () => {
       <Section id="contact" className="py-24 md:py-40">
         <div className="max-w-3xl">
           <h2 className="text-balance font-display text-[clamp(min(3rem,12.3vw),9vw,6.5rem)] text-ink">Start where you are.</h2>
-          <p className="mt-6 text-lg leading-relaxed text-ink/75">
+          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink/75">
             Tell me where you or your team are today, and I will tell you the next step, even if it is not with me.
           </p>
           <div className="mt-10">

@@ -131,7 +131,7 @@ const WorkWithMe = () => {
             <li key={s.title} className="grid content-start gap-2 border-t-2 border-ink pt-4">
               <span className="text-2xl font-bold leading-none text-ink">{i + 1}</span>
               <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-              <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
+              <p className="max-w-[48ch] text-base text-ink/70">{s.body}</p>
             </li>
           ))}
         </ol>
@@ -173,7 +173,7 @@ const WorkWithMe = () => {
               className={`grid gap-2 border-b border-ink/10 py-6 md:py-7 ${i % 2 === 0 ? "md:border-r md:pr-8" : "md:pl-8"}`}
             >
               <h3 className="text-xl font-semibold tracking-tight text-ink md:text-2xl">{p.title}</h3>
-              <p className="max-w-[65ch] text-base text-ink/70">{p.body}</p>
+              <p className="max-w-[48ch] text-base text-ink/70">{p.body}</p>
             </div>
           ))}
         </div>

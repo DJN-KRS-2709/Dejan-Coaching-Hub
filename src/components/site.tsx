@@ -58,7 +58,7 @@ export const SectionHead = ({
   <div className="mb-8 grid max-w-3xl gap-4 md:mb-12">
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
     <h2 className="text-balance text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-[2.5rem]">{title}</h2>
-    {lead && <p className="max-w-[62ch] text-base leading-relaxed text-ink/70 md:text-lg">{lead}</p>}
+    {lead && <p className="max-w-[46ch] text-base leading-relaxed text-ink/70 md:text-lg">{lead}</p>}
     {children}
   </div>
 );
@@ -141,6 +141,7 @@ export const ModeSwitch = ({
         aria-pressed={mode === value}
         onClick={() => onChange(value)}
         className={cn(
+          FOCUS_RING,
           "min-h-[44px] rounded-full px-4 py-2.5 text-sm font-semibold leading-none transition-colors",
           mode === value ? "bg-ink text-white" : "text-ink/70 hover:text-ink",
         )}

@@ -14,6 +14,7 @@ const FACTS = [
   ["Group", "Max 20 people, so everyone gets feedback on their build"],
   ["Language", "English first, a German cohort to follow"],
   ["You need", "A laptop and one real problem from your work. No coding experience."],
+  ["Not covered", "AI agents."],
   ["Price", COURSE_PRICE_LINE],
 ];
 
@@ -43,7 +44,7 @@ const Course = () => {
       <PageHero
         eyebrow="Prompt to Product · 2-week live cohort · 8 live hours"
         title="Ship a real AI product in 14 days"
-        lead="In 14 days from idea to your own AI product."
+        lead="Bring one idea from your work. Leave with it live at a public link, checked with evals."
       >
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
           For people with some product management knowledge who are not confident with AI yet, and for anyone who
@@ -68,7 +69,6 @@ const Course = () => {
             </li>
           ))}
         </ol>
-        <p className="mt-6 text-sm text-ink/60">Not covered: AI agents.</p>
       </Section>
 
       <Section>
@@ -78,7 +78,7 @@ const Course = () => {
             {FACTS.map(([k, v]) => (
               <div key={k} className="grid gap-1 border-t border-ink/10 py-3 sm:grid-cols-[8rem_1fr] sm:gap-4">
                 <dt className="font-semibold text-ink">{k}</dt>
-                <dd className="text-ink/75">{v}</dd>
+                <dd className="max-w-[48ch] text-ink/75">{v}</dd>
               </div>
             ))}
           </dl>
@@ -103,7 +103,7 @@ const Course = () => {
                       <StageBadge>Stage {s.stage}</StageBadge>
                     </div>
                     <h3 className="text-lg font-semibold tracking-tight">{s.title}</h3>
-                    <p className="max-w-[65ch] text-base text-ink/70">{s.body}</p>
+                    <p className="max-w-[48ch] text-base text-ink/70">{s.body}</p>
                     <p className="mt-2 justify-self-start rounded-md bg-muted px-2.5 py-1 text-sm font-semibold text-ink ring-1 ring-inset ring-ink/10">
                       You leave with: {s.leave}
                     </p>

@@ -47,7 +47,7 @@ const Speaking = () => {
                   width={900}
                   height={1125}
                   alt="Dejan Krstic on stage at Experience Summit in Prague, presenting his talk Context is the work"
-                  className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-[50%_40%] lg:aspect-[16/10]"
+                  className="aspect-[4/5] h-auto w-full rounded-3xl border border-ink/10 object-cover object-center lg:aspect-[16/10]"
                 />
               </picture>
               <figcaption className="text-sm text-ink/60">
@@ -82,7 +82,7 @@ const Speaking = () => {
       <Section id="book">
         <div className="max-w-3xl">
           <ClosingLine>Planning an event?</ClosingLine>
-          <p className="mt-5 text-lg leading-relaxed text-ink/75">
+          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/75">
             Book 20 minutes. Tell me about your room and your date, and I will suggest the talk that fits.
           </p>
           <div className="mt-8">

@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Wordmark } from "@/components/Brand";
+import { FOCUS_RING } from "@/lib/focus";
 import IntroCallLink from "@/components/IntroCallLink";
 
 export const NAV_LINKS = [
@@ -41,7 +42,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-ink/5 bg-canvas/90 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between gap-2 px-4 md:gap-4 md:px-6">
-        <Link to="/" className="inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px]" onClick={() => setOpen(false)}>
+        <Link to="/" className={`inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap text-[18px] text-ink sm:text-[20px] md:text-[24px] ${FOCUS_RING}`} onClick={() => setOpen(false)}>
           <Wordmark />
         </Link>
 

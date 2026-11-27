@@ -36,7 +36,7 @@ const About = () => {
               <Eyebrow>About</Eyebrow>
               <h1 className="mt-4 font-display text-[clamp(min(2.75rem,11.3vw),9vw,6rem)]">Hi, I'm Dejan.</h1>
               {/* Short bio: the same text as the share card description. */}
-              <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-ink/75">{SHORT_BIO}</p>
+              <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink/75">{SHORT_BIO}</p>
             </div>
             <div className="mx-auto w-full max-w-[480px] overflow-hidden rounded-3xl border border-ink/10 lg:col-start-2 lg:row-span-2 lg:row-start-1">
               <img

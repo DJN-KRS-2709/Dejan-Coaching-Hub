@@ -73,7 +73,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
           Not sure where you are?{" "}
           <Link
             to={`/self-check?for=${mode}`}
-            className="inline-flex min-h-[44px] items-center font-semibold text-ink underline underline-offset-4"
+            className={cn("inline-flex min-h-[44px] items-center font-semibold text-ink underline underline-offset-4", FOCUS_RING)}
           >
             Take the two-minute self-check.
           </Link>
@@ -89,6 +89,7 @@ const StagePath = ({ mode, onModeChange, active, onActiveChange }: Props) => {
             onClick={() => onActiveChange(i)}
             style={{ "--w": `${46 + i * 13.5}%`, "--h": `${112 + i * 42}px` } as CSSProperties}
             className={cn(
+              FOCUS_RING,
               "flex w-[var(--w)] min-w-0 items-baseline gap-3 rounded-l-[4px] rounded-r-xl px-4 py-3 text-left transition-transform duration-150 hover:translate-x-0.5",
               "md:h-[var(--h)] md:w-auto md:flex-1 md:flex-col md:items-start md:gap-1 md:rounded-b-[4px] md:rounded-t-xl md:p-4 md:hover:-translate-y-0.5 md:hover:translate-x-0",
               "motion-reduce:transition-none motion-reduce:hover:transform-none",
